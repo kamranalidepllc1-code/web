@@ -1,0 +1,320 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #CE307D #0a0a0a;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+html::-webkit-scrollbar {
+  width: 4px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #CE307D;
+}
+
+body {
+  background: #0a0a0a;
+  color: #f0ede8;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+::selection {
+  background: rgba(206, 48, 125, 0.35);
+  color: #fff;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollUp {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+.underline-field {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f0ede8;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  padding: 0.85rem 0;
+  outline: none;
+  transition: border-color 0.25s ease;
+}
+
+.underline-field:focus {
+  border-bottom-color: #CE307D;
+}
+
+.underline-field::placeholder {
+  color: rgba(240, 237, 232, 0.35);
+}
+
+select.underline-field {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+select.underline-field option {
+  background: #111111;
+  color: #f0ede8;
+}
+
+@media (max-width: 1024px) {
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .show-mobile {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .show-mobile {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+
+  html,
+  body {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-hero {
+    min-height: 0 !important;
+  }
+
+  .contact-hero-image {
+    object-position: 20% center !important;
+  }
+
+  .special-offer-hero-image {
+    object-position: 62% 40% !important;
+  }
+
+  .special-offer-highlight {
+    padding-left: 0.9rem !important;
+    padding-right: 0.9rem !important;
+  }
+
+  .special-offer-ticket {
+    padding: 1.25rem 1rem !important;
+    border-radius: 16px !important;
+  }
+
+  .special-offer-row {
+    grid-template-columns: 1fr !important;
+    gap: 0.6rem !important;
+    padding: 1.1rem 0 !important;
+  }
+
+  .special-offer-row-label {
+    padding-top: 0 !important;
+    opacity: 0.8;
+  }
+
+  .special-offer-row-content {
+    width: 100%;
+  }
+
+  .special-offer-pills {
+    gap: 0.45rem !important;
+  }
+
+  .special-offer-pill {
+    flex: 1 1 calc(50% - 0.35rem) !important;
+    text-align: center;
+    padding: 0.55rem 0.5rem !important;
+    font-size: 0.72rem !important;
+  }
+
+  .special-offer-action {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .special-offer-action a {
+    width: 100% !important;
+  }
+}
+/* Services mega menu */
+.mega-item {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  padding: 1rem 0.15rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  color: #f0ede8;
+  text-decoration: none;
+  min-width: 0;
+  outline: none;
+}
+
+.mega-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, #CE307D, #ff6eb4);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mega-item-num {
+  font-family: 'Fraunces', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: rgba(240, 237, 232, 0.3);
+  transition: color 0.3s ease;
+  flex-shrink: 0;
+  width: 1.4rem;
+}
+
+.mega-item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.mega-item-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: clamp(1rem, 0.4rem + 0.8vw, 1.12rem);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  transition: color 0.3s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mega-item-tagline {
+  font-size: 0.74rem;
+  color: rgba(240, 237, 232, 0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mega-item-arrow {
+  color: #CE307D;
+  opacity: 0;
+  transform: translate(-6px, 4px);
+  transition: opacity 0.3s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.mega-item:hover::after,
+.mega-item:focus-visible::after,
+.mega-item[aria-current='page']::after {
+  transform: scaleX(1);
+}
+
+.mega-item:hover .mega-item-title,
+.mega-item:focus-visible .mega-item-title {
+  color: #CE307D;
+  transform: translateX(4px);
+}
+
+.mega-item[aria-current='page'] .mega-item-title,
+.mega-item:hover .mega-item-num,
+.mega-item:focus-visible .mega-item-num {
+  color: #CE307D;
+}
+
+.mega-item:hover .mega-item-arrow,
+.mega-item:focus-visible .mega-item-arrow {
+  opacity: 1;
+  transform: none;
+}
+
+.mega-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f0ede8;
+  text-decoration: none;
+  transition: color 0.25s ease, gap 0.3s ease;
+}
+
+.mega-link:hover,
+.mega-link:focus-visible {
+  color: #CE307D;
+  gap: 0.8rem;
+}
+
+/* Mobile expandable services list */
+.mobile-service-link {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  color: rgba(240, 237, 232, 0.85);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.25s ease, padding-left 0.3s ease;
+  min-width: 0;
+}
+
+.mobile-service-link:hover,
+.mobile-service-link:focus-visible,
+.mobile-service-link[aria-current='page'] {
+  color: #CE307D;
+  padding-left: 0.35rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mega-item::after,
+  .mega-item-title,
+  .mega-item-arrow,
+  .mega-link,
+  .mobile-service-link {
+    transition: none;
+  }
+}
