@@ -4,6 +4,7 @@ import "./globals.css";
 import { Preloader } from "@/components/layout/Preloader";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://digierapro.com"),
   title: "Digi Era Pro",
   description:
     "Showcase your company's projects, services, and achievements in a professional portfolio to attract clients and build brand credibility.",

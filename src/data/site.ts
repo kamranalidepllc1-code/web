@@ -14,6 +14,7 @@ export const NAV_LINKS = [
   { label: 'Services', href: '/#services', megaMenu: true },
   { label: 'About Us', href: '/about' },
   { label: 'Special Offer', href: '/special-offer' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -22,7 +23,7 @@ export const MARQUEE_WORDS = ['Digital Marketing', 'Social Media', 'Branding', '
 export const FOOTER_EXPLORE = [
   { label: 'Home', href: '#' },
   { label: 'About Us', href: '#' },
-  { label: 'Blog', href: '#' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Contact Us', href: '/contact' },
   { label: 'Privacy Policy', href: '#' },
 ]

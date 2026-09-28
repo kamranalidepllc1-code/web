@@ -13,8 +13,31 @@ import { WhyChooseUs } from '@/components/sections/WhyChooseUs'
 import { Studio } from '@/components/sections/Studio'
 import { Journal } from '@/components/sections/Journal'
 import { Contact } from '@/components/sections/Contact'
+import { getPosts } from '@/lib/wordpress/api'
+import { formatDate } from '@/lib/blog/utils'
+import type { JournalPost } from '@/components/ui/JournalCard'
 
-export default function Home() {
+async function latestJournalPosts(): Promise<JournalPost[]> {
+  try {
+    const { posts } = await getPosts({ perPage: 3 })
+    return posts.map(p => ({
+      date: formatDate(p.date, 'short'),
+      category: p.categories[0]?.name ?? 'Blog',
+      title: p.title,
+      excerpt: p.excerpt,
+      img: p.image?.url ?? null,
+      imgRatio: p.image?.width && p.image?.height ? p.image.width / p.image.height : undefined,
+      readTime: 'Read article →',
+      href: `/blog/${p.slug}`,
+    }))
+  } catch (error) {
+    console.error('Could not load latest blogs for the home page:', error)
+    return []
+  }
+}
+
+export default async function Home() {
+  const journalPosts = await latestJournalPosts()
   return (
     <div style={{ background: '#0a0a0a', color: '#f0ede8', fontFamily: "'Outfit', sans-serif", overflowX: 'hidden' }}>
       <Navbar />
@@ -30,7 +53,7 @@ export default function Home() {
       <ClientLogos />
       <WhyChooseUs />
       <Studio />
-      <Journal />
+      <Journal posts={journalPosts} />
       <Contact />
     </div>
   )
