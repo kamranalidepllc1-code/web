@@ -13,8 +13,8 @@ function PlanCard({ plan }: { plan: (typeof GBP_PLANS)[number] }) {
     <motion.div
       variants={fadeUp}
       onHoverStart={() => setHovered(true)} onHoverEnd={() => setHovered(plan.featured)}
-      whileHover={{ background: '#111' }}
-      style={{ background: '#0a0a0a', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column', padding: 'clamp(1.75rem, 4vw, 2.75rem) clamp(1.25rem, 3vw, 2.25rem)' }}
+      whileHover={{ background: '#2a2d33' }}
+      style={{ background: '#222429', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column', padding: 'clamp(1.75rem, 4vw, 2.75rem) clamp(1.25rem, 3vw, 2.25rem)' }}
     >
       <motion.div animate={{ opacity: hovered ? 1 : 0 }} style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 50% 15%, rgba(206,48,125,0.14) 0%, transparent 65%)', pointerEvents: 'none' }} />
       <motion.div animate={{ scaleX: hovered ? 1 : 0 }} initial={{ scaleX: plan.featured ? 1 : 0 }} transition={{ duration: 0.4 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, #CE307D, #ff6eb4)', transformOrigin: 'left' }} />
@@ -70,7 +70,7 @@ function PlanCard({ plan }: { plan: (typeof GBP_PLANS)[number] }) {
 
 export function OfferPricing() {
   return (
-    <section id="pricing" style={{ padding: 'clamp(3.5rem, 9vw, 7rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0f0f0f', scrollMarginTop: '60px' }}>
+    <section id="pricing" style={{ padding: 'clamp(3.5rem, 9vw, 7rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#272a30', scrollMarginTop: '60px' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <RevealOnScroll style={{ marginBottom: 'clamp(2.5rem, 6vw, 4rem)' }}>
           <EyebrowLabel>GBP Pricing Packages</EyebrowLabel>

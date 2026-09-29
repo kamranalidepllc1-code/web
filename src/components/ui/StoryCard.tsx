@@ -20,7 +20,7 @@ export function StoryCard({
     <motion.div
       variants={fadeUp}
       whileHover={{ y: -4 }} transition={{ duration: 0.25 }}
-      style={{ position: 'relative', aspectRatio: '9 / 16', overflow: 'hidden', background: '#111', cursor: playing ? 'default' : 'pointer' }}
+      style={{ position: 'relative', aspectRatio: '9 / 16', overflow: 'hidden', background: '#2a2d33', cursor: playing ? 'default' : 'pointer' }}
       onClick={() => { if (!playing) onPlay() }}
     >
       {playing ? (

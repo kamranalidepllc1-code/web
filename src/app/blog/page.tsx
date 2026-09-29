@@ -70,7 +70,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<'/blog'>
   })
 
   return (
-    <div style={{ background: '#0a0a0a', color: '#f0ede8', fontFamily: "'Outfit', sans-serif", overflowX: 'hidden' }}>
+    <div style={{ background: '#222429', color: '#f0ede8', fontFamily: "'Outfit', sans-serif", overflowX: 'hidden' }}>
       <Navbar />
 
       <section style={{ padding: 'clamp(8rem, 16vw, 11rem) clamp(1.25rem, 6vw, 2.5rem) clamp(2.5rem, 6vw, 4rem)', background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(206,48,125,0.14), transparent 70%)' }}>

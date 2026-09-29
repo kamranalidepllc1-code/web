@@ -4,7 +4,7 @@ import { TEAM } from '@/data/site'
 
 export function Team() {
   return (
-    <section id="team" style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0f0f0f' }}>
+    <section id="team" style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#272a30' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <RevealOnScroll style={{ marginBottom: '4rem' }}>
           <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D' }}>The people</span>

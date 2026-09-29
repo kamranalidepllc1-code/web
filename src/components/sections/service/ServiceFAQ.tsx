@@ -11,7 +11,7 @@ export function ServiceFAQ({ faq }: { faq: NonNullable<ServicePageContent['faq']
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0f0f0f' }}>
+    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#272a30' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'grid', gap: 'clamp(2.5rem, 6vw, 5rem)', alignItems: 'start' }} className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
         <RevealOnScroll>
           <EyebrowLabel>FAQ</EyebrowLabel>

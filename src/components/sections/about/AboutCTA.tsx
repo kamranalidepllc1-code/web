@@ -5,7 +5,7 @@ import { RevealOnScroll } from '@/lib/animations'
 
 export function AboutCTA() {
   return (
-    <section style={{ padding: 'clamp(4rem, 10vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0a0a0a', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+    <section style={{ padding: 'clamp(4rem, 10vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '700px', height: '700px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(206,48,125,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
       <div style={{ maxWidth: '700px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <RevealOnScroll>

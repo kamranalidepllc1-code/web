@@ -89,7 +89,7 @@ export default async function BlogPostPage({ params }: PageProps<'/blog/[slug]'>
   }
 
   return (
-    <div style={{ background: '#0a0a0a', color: '#f0ede8', fontFamily: "'Outfit', sans-serif", overflowX: 'clip' }}>
+    <div style={{ background: '#222429', color: '#f0ede8', fontFamily: "'Outfit', sans-serif", overflowX: 'clip' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
       <Navbar />
 

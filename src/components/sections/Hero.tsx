@@ -20,14 +20,14 @@ export function Hero() {
   }, [])
 
   return (
-    <section ref={heroRef} style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', position: 'relative', overflow: 'hidden', background: '#0a0a0a' }}>
+    <section ref={heroRef} style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', position: 'relative', overflow: 'hidden', background: '#222429' }}>
       {/* Gradient orbs */}
       <div style={{ position: 'absolute', top: '10%', right: '5%', width: '600px', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(206,48,125,0.18) 0%, transparent 70%)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: '20%', left: '-5%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(206,48,125,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
       <video ref={videoRef} autoPlay muted loop playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.45, pointerEvents: 'none' }}>
         <source src="/Assets/coverr-sitting-down-in-the-office-72-1080p.mp4" type="video/mp4" />
       </video>
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #0a0a0a 0%, transparent 60%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #222429 0%, transparent 60%)', pointerEvents: 'none' }} />
 
       <motion.div style={{ position: 'relative', zIndex: 1, padding: '0 clamp(1.25rem, 6vw, 2.5rem) clamp(3rem, 10vw, 6rem)', maxWidth: '1400px', margin: '0 auto', width: '100%', paddingTop: 'clamp(100px, 22vw, 140px)', opacity: heroOpacity }}>
 
@@ -70,7 +70,7 @@ export function Hero() {
           style={{ display: 'grid', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '2.5rem', gap: '1px', background: 'rgba(255,255,255,0.06)' }}
           className="grid grid-cols-2 sm:grid-cols-4">
           {STATS.map(s => (
-            <div key={s.label} style={{ padding: '1.5rem clamp(1rem, 4vw, 2rem)', background: '#0a0a0a' }}>
+            <div key={s.label} style={{ padding: '1.5rem clamp(1rem, 4vw, 2rem)', background: '#222429' }}>
               <div style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 300, color: '#CE307D', letterSpacing: '-0.03em', lineHeight: 1 }}>{s.value}</div>
               <div style={{ fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#ffffff', marginTop: '0.5rem' }}>{s.label}</div>
             </div>

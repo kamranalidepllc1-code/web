@@ -17,7 +17,7 @@ export function PartnerCard({ partner, index }: { partner: (typeof PARTNERS)[0];
       viewport={{ once: true }}
       transition={{ delay: index * 0.08, duration: 0.6, ease: easeOut }}
       style={{
-        background: '#0a0a0a',
+        background: '#222429',
         padding: 'clamp(1.75rem, 5vw, 3rem) clamp(1.25rem, 4vw, 2.5rem)',
         display: 'flex',
         flexDirection: 'column',
@@ -29,7 +29,7 @@ export function PartnerCard({ partner, index }: { partner: (typeof PARTNERS)[0];
         overflow: 'hidden',
         cursor: 'default',
       }}
-      whileHover={{ background: '#111' }}
+      whileHover={{ background: '#2a2d33' }}
     >
       {/* Hover glow */}
       <motion.div

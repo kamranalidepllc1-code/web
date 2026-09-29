@@ -7,7 +7,7 @@ import type { ServicePageContent } from '@/types/site'
 
 export function ServiceProcess({ process }: { process: ServicePageContent['process'] }) {
   return (
-    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0f0f0f' }}>
+    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#272a30' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <RevealOnScroll style={{ marginBottom: 'clamp(3rem, 7vw, 5rem)' }}>
           <EyebrowLabel>Our approach</EyebrowLabel>
@@ -28,7 +28,7 @@ export function ServiceProcess({ process }: { process: ServicePageContent['proce
               <motion.div key={step.title} variants={fadeUp} whileHover="hover" style={{ position: 'relative' }}>
                 <motion.span
                   variants={{ hover: { scale: 1.3, background: '#CE307D' } }}
-                  style={{ display: 'block', width: '15px', height: '15px', borderRadius: '50%', border: '1px solid #CE307D', background: '#0f0f0f', marginBottom: '2rem', position: 'relative' }}
+                  style={{ display: 'block', width: '15px', height: '15px', borderRadius: '50%', border: '1px solid #CE307D', background: '#272a30', marginBottom: '2rem', position: 'relative' }}
                 />
                 <span style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(2.75rem, 5vw, 3.75rem)', fontWeight: 300, letterSpacing: '-0.04em', lineHeight: 1, color: 'rgba(240,237,232,0.14)', display: 'block', marginBottom: '1rem' }}>
                   {String(i + 1).padStart(2, '0')}

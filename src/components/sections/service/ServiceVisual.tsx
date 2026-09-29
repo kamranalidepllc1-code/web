@@ -66,7 +66,7 @@ export function ServiceVisual({ variant }: { variant: ServicePageContent['visual
 
 function Frame({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
   return (
-    <div style={{ position: 'relative', background: '#111', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 40px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(206,48,125,0.06)', ...style }}>
+    <div style={{ position: 'relative', background: '#2a2d33', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 40px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(206,48,125,0.06)', ...style }}>
       {children}
     </div>
   )
@@ -112,7 +112,7 @@ function WebVisual() {
           </div>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.15fr', minHeight: 'clamp(240px, 38vw, 340px)' }}>
-          <div style={{ padding: '1.25rem 1rem', borderRight: '1px solid rgba(255,255,255,0.07)', display: 'flex', flexDirection: 'column', gap: '0.8rem', background: '#0d0d0d' }}>
+          <div style={{ padding: '1.25rem 1rem', borderRight: '1px solid rgba(255,255,255,0.07)', display: 'flex', flexDirection: 'column', gap: '0.8rem', background: '#272a30' }}>
             {code.map(([indent, w, c], i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                 <span style={{ fontSize: '0.55rem', color: 'rgba(240,237,232,0.2)', width: '0.9rem', textAlign: 'right', fontFamily: 'monospace' }}>{i + 1}</span>
@@ -130,7 +130,7 @@ function WebVisual() {
               style={{ flex: 1, minHeight: 90, borderRadius: 10, background: 'linear-gradient(135deg, rgba(206,48,125,0.55), rgba(255,110,180,0.15) 60%, rgba(255,255,255,0.02))', padding: '0.9rem', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: 6 }}>
               <Bar w="70%" h={7} color="rgba(255,255,255,0.8)" delay={0.5} />
               <Bar w="45%" h={7} color="rgba(255,255,255,0.8)" delay={0.6} />
-              <Bar w="30%" h={12} color="#0a0a0a" delay={0.7} style={{ marginTop: 6, borderRadius: 4 }} />
+              <Bar w="30%" h={12} color="#222429" delay={0.7} style={{ marginTop: 6, borderRadius: 4 }} />
             </motion.div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
               {[0, 1, 2].map(i => (
@@ -188,7 +188,7 @@ function LandingVisual() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10 }}>
           {[0, 1, 2].map(i => (
             <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9 + i * 0.12 }}
-              style={{ borderRadius: 10, border: '1px solid rgba(255,255,255,0.07)', background: '#0d0d0d', padding: '0.8rem 0.7rem', display: 'flex', flexDirection: 'column', gap: 7 }}>
+              style={{ borderRadius: 10, border: '1px solid rgba(255,255,255,0.07)', background: '#272a30', padding: '0.8rem 0.7rem', display: 'flex', flexDirection: 'column', gap: 7 }}>
               <span style={{ width: 18, height: 18, borderRadius: '50%', border: '1px solid rgba(206,48,125,0.6)' }} />
               <Bar w="75%" h={5} color="rgba(240,237,232,0.35)" delay={0.9 + i * 0.1} />
               <Bar w="90%" h={4} delay={1 + i * 0.1} />
@@ -212,7 +212,7 @@ function GbpVisual() {
   ]
   return (
     <>
-      <Frame style={{ minHeight: 'clamp(320px, 46vw, 420px)', background: '#0d0d0d' }}>
+      <Frame style={{ minHeight: 'clamp(320px, 46vw, 420px)', background: '#272a30' }}>
         {/* Stylized map */}
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         {roads.map((r, i) => <span key={i} style={{ position: 'absolute', background: 'rgba(255,255,255,0.06)', borderRadius: 4, ...r }} />)}
@@ -220,7 +220,7 @@ function GbpVisual() {
           <motion.span animate={{ scale: [0.6, 2.2], opacity: [0.6, 0] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeOut' }}
             style={{ position: 'absolute', left: '50%', bottom: -6, width: 26, height: 10, marginLeft: -13, borderRadius: '50%', background: 'rgba(206,48,125,0.5)' }} />
           <motion.span initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.5, type: 'spring', stiffness: 260, damping: 14 }} style={{ display: 'block', color: '#CE307D' }}>
-            <MapPin size={40} fill="#CE307D" color="#0a0a0a" strokeWidth={1.25} />
+            <MapPin size={40} fill="#CE307D" color="#222429" strokeWidth={1.25} />
           </motion.span>
         </div>
 
@@ -324,7 +324,7 @@ function SoftwareVisual() {
     <>
       <Frame>
         <div style={{ display: 'grid', gridTemplateColumns: '56px 1fr', minHeight: 'clamp(280px, 40vw, 360px)' }}>
-          <div style={{ borderRight: '1px solid rgba(255,255,255,0.07)', background: '#0d0d0d', padding: '1rem 0.6rem', display: 'flex', flexDirection: 'column', gap: 14, alignItems: 'center' }}>
+          <div style={{ borderRight: '1px solid rgba(255,255,255,0.07)', background: '#272a30', padding: '1rem 0.6rem', display: 'flex', flexDirection: 'column', gap: 14, alignItems: 'center' }}>
             <span style={{ width: 22, height: 22, borderRadius: 7, background: 'linear-gradient(135deg, #CE307D, #ff6eb4)' }} />
             {[0, 1, 2, 3, 4].map(i => <span key={i} style={{ width: 22, height: 6, borderRadius: 6, background: i === 1 ? 'rgba(206,48,125,0.7)' : 'rgba(240,237,232,0.12)' }} />)}
           </div>
@@ -348,7 +348,7 @@ function SoftwareVisual() {
                   style={{ flex: 1, borderRadius: '4px 4px 0 0', background: i === 5 ? 'linear-gradient(180deg, #ff6eb4, #CE307D)' : 'rgba(240,237,232,0.14)' }} />
               ))}
             </div>
-            <div style={{ borderRadius: 8, background: '#0a0a0a', border: '1px solid rgba(255,255,255,0.06)', padding: '0.55rem 0.7rem', display: 'flex', alignItems: 'center', gap: 8, fontFamily: 'monospace', fontSize: '0.62rem', color: 'rgba(240,237,232,0.6)', overflow: 'hidden', whiteSpace: 'nowrap' }}>
+            <div style={{ borderRadius: 8, background: '#222429', border: '1px solid rgba(255,255,255,0.06)', padding: '0.55rem 0.7rem', display: 'flex', alignItems: 'center', gap: 8, fontFamily: 'monospace', fontSize: '0.62rem', color: 'rgba(240,237,232,0.6)', overflow: 'hidden', whiteSpace: 'nowrap' }}>
               <Terminal size={11} color="#CE307D" />
               <span>sync complete</span>
               <motion.span animate={{ opacity: [1, 0, 1] }} transition={{ duration: 1, repeat: Infinity }} style={{ width: 6, height: 11, background: '#CE307D' }} />
@@ -371,7 +371,7 @@ function GameVisual() {
   const gems = [['55%', '42%'], ['81%', '60%'], ['30%', '34%']]
   return (
     <>
-      <Frame style={{ aspectRatio: '16 / 11', background: 'linear-gradient(180deg, #1a0d14 0%, #0d0d0d 70%)' }}>
+      <Frame style={{ aspectRatio: '16 / 11', background: 'linear-gradient(180deg, #1a0d14 0%, #272a30 70%)' }}>
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
         <span style={{ position: 'absolute', right: '12%', top: '16%', width: 54, height: 54, borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,110,180,0.55), rgba(206,48,125,0.1) 70%)' }} />
 
@@ -420,7 +420,7 @@ function SeoVisual() {
   return (
     <>
       <Frame style={{ padding: 'clamp(1rem, 3vw, 1.5rem)' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '999px', padding: '0.6rem 1rem', marginBottom: '1.25rem', background: '#0d0d0d' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '999px', padding: '0.6rem 1rem', marginBottom: '1.25rem', background: '#272a30' }}>
           <Search size={14} color="#CE307D" />
           <motion.span initial={{ width: 0 }} animate={{ width: 'auto' }} transition={{ delay: 0.5, duration: 1.2, ease: 'linear' }}
             style={{ overflow: 'hidden', whiteSpace: 'nowrap', fontSize: '0.72rem', color: 'rgba(240,237,232,0.75)', letterSpacing: '0.02em' }}>
@@ -459,7 +459,7 @@ function AdsVisual() {
     <>
       <Frame style={{ padding: 'clamp(1rem, 3vw, 1.5rem)' }}>
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
-          style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.08)', background: '#0d0d0d', padding: '0.9rem', display: 'flex', flexDirection: 'column', gap: 7, marginBottom: '1rem' }}>
+          style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.08)', background: '#272a30', padding: '0.9rem', display: 'flex', flexDirection: 'column', gap: 7, marginBottom: '1rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
             <span style={{ fontSize: '0.58rem', fontWeight: 600, letterSpacing: '0.06em', color: '#f0ede8', border: '1px solid rgba(240,237,232,0.35)', borderRadius: 4, padding: '1px 5px' }}>Sponsored</span>
             <span style={{ fontSize: '0.62rem', color: 'rgba(240,237,232,0.6)' }}>yourbusiness.com</span>
@@ -502,7 +502,7 @@ function DesignVisual() {
     <>
       <Frame>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 64px', minHeight: 'clamp(300px, 42vw, 380px)' }}>
-          <div style={{ position: 'relative', background: '#0d0d0d', backgroundImage: 'radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)', backgroundSize: '16px 16px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.25rem' }}>
+          <div style={{ position: 'relative', background: '#272a30', backgroundImage: 'radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)', backgroundSize: '16px 16px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.25rem' }}>
             {/* Artboard */}
             <motion.div initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5, duration: 0.8, ease }}
               style={{ position: 'relative', width: '78%', maxWidth: 260, aspectRatio: '4 / 5', borderRadius: 8, background: 'linear-gradient(160deg, #1f0f18 0%, #121212 70%)', border: '1px solid rgba(206,48,125,0.55)' }}>
@@ -561,7 +561,7 @@ function SocialVisual() {
             </div>
           </div>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 0.8 }}
-            style={{ aspectRatio: '1', borderRadius: 10, background: 'radial-gradient(circle at 70% 30%, rgba(255,110,180,0.55), transparent 55%), linear-gradient(160deg, rgba(206,48,125,0.45), #141414 75%)', marginBottom: '0.7rem', display: 'flex', alignItems: 'flex-end', padding: '0.7rem' }}>
+            style={{ aspectRatio: '1', borderRadius: 10, background: 'radial-gradient(circle at 70% 30%, rgba(255,110,180,0.55), transparent 55%), linear-gradient(160deg, rgba(206,48,125,0.45), #2c2f35 75%)', marginBottom: '0.7rem', display: 'flex', alignItems: 'flex-end', padding: '0.7rem' }}>
             <Bar w="60%" h={8} color="rgba(255,255,255,0.85)" delay={0.9} />
           </motion.div>
           <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: '0.55rem' }}>
@@ -601,7 +601,7 @@ function LinksVisual() {
   ]
   return (
     <>
-      <Frame style={{ aspectRatio: '1 / 0.9', background: '#0d0d0d' }}>
+      <Frame style={{ aspectRatio: '1 / 0.9', background: '#272a30' }}>
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         <svg viewBox="0 0 100 100" preserveAspectRatio="none" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
           {nodes.map((n, i) => (
@@ -611,7 +611,7 @@ function LinksVisual() {
         </svg>
         {nodes.map((n, i) => (
           <motion.span key={i} initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.8 + i * 0.12, type: 'spring', stiffness: 260, damping: 16 }}
-            style={{ position: 'absolute', left: `${n.x}%`, top: `${n.y}%`, width: 30, height: 30, marginLeft: -15, marginTop: -15, borderRadius: 9, background: '#141414', border: '1px solid rgba(255,255,255,0.12)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+            style={{ position: 'absolute', left: `${n.x}%`, top: `${n.y}%`, width: 30, height: 30, marginLeft: -15, marginTop: -15, borderRadius: 9, background: '#2c2f35', border: '1px solid rgba(255,255,255,0.12)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
             {i % 2 === 0 ? <MapPin size={13} color="rgba(240,237,232,0.7)" /> : <Link2 size={13} color="rgba(240,237,232,0.7)" />}
           </motion.span>
         ))}
@@ -643,7 +643,7 @@ function ContentVisual() {
           </span>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '0.8fr 2fr', minHeight: 'clamp(260px, 38vw, 330px)' }}>
-          <div style={{ borderRight: '1px solid rgba(255,255,255,0.07)', background: '#0d0d0d', padding: '1rem 0.8rem', display: 'flex', flexDirection: 'column', gap: 9 }}>
+          <div style={{ borderRight: '1px solid rgba(255,255,255,0.07)', background: '#272a30', padding: '1rem 0.8rem', display: 'flex', flexDirection: 'column', gap: 9 }}>
             <span style={{ fontSize: '0.55rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(240,237,232,0.4)', marginBottom: 2 }}>Outline</span>
             {['80%', '65%', '90%', '55%', '70%'].map((w, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
@@ -692,13 +692,13 @@ function BrandVisual() {
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
-            style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.07)', background: '#0d0d0d', padding: '0.9rem', display: 'flex', flexDirection: 'column', gap: 6 }}>
+            style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.07)', background: '#272a30', padding: '0.9rem', display: 'flex', flexDirection: 'column', gap: 6 }}>
             <span style={{ fontSize: '0.55rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(240,237,232,0.45)' }}>Typeface</span>
             <span style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(1.9rem, 5vw, 2.6rem)', lineHeight: 1, color: '#f0ede8' }}>Aa</span>
             <Bar w="80%" h={4} delay={0.9} />
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9 }}
-            style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.07)', background: '#0d0d0d', padding: '0.9rem', display: 'flex', flexDirection: 'column', gap: 8 }}>
+            style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.07)', background: '#272a30', padding: '0.9rem', display: 'flex', flexDirection: 'column', gap: 8 }}>
             <span style={{ fontSize: '0.55rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(240,237,232,0.45)' }}>Palette</span>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 5 }}>
               {palette.map((c, i) => (

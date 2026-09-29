@@ -25,12 +25,11 @@ export function JournalCard({ post, featured }: { post: JournalPost; featured?: 
     <Wrapper
       href={post.href ?? ''}
       variants={fadeUp}
-      className={featured ? 'md:col-span-2' : undefined}
-      style={{ background: '#0a0a0a', overflow: 'hidden', cursor: 'pointer', display: 'flex', flexDirection: 'column', position: 'relative', textDecoration: 'none', color: 'inherit' }}
-      whileHover={{ background: '#0f0f0f' }}
+      style={{ background: '#222429', overflow: 'hidden', cursor: 'pointer', display: 'flex', flexDirection: 'column', position: 'relative', textDecoration: 'none', color: 'inherit', height: '100%' }}
+      whileHover={{ background: '#272a30' }}
     >
       <motion.div
-        style={{ ...(post.imgRatio ? { aspectRatio: String(post.imgRatio) } : { height: featured ? '340px' : '220px' }), overflow: 'hidden', background: '#1a1a1a', flexShrink: 0, position: 'relative' }}
+        style={{ ...(post.imgRatio ? { aspectRatio: String(post.imgRatio) } : { height: featured ? '340px' : '220px' }), overflow: 'hidden', background: '#30333a', flexShrink: 0, position: 'relative' }}
         whileHover={{ filter: 'brightness(0.85)' }}
         transition={{ duration: 0.6 }}
       >
@@ -43,7 +42,7 @@ export function JournalCard({ post, featured }: { post: JournalPost; featured?: 
             style={{ objectFit: 'cover', filter: post.imgRatio ? undefined : 'brightness(0.7)' }}
           />
         )}
-        {!post.imgRatio && <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 50%)', pointerEvents: 'none' }} />}
+        {!post.imgRatio && <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(34,36,41,0.7) 0%, transparent 50%)', pointerEvents: 'none' }} />}
       </motion.div>
       <div style={{ padding: '1.75rem', flex: 1, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>

@@ -41,8 +41,8 @@ export function ContactVisual() {
       >
         <source src="/Assets/contact-us/Contact us.mp4" type="video/mp4" />
       </video>
-      <div style={{ position: 'absolute', inset: 0, background: 'rgba(10,10,10,0.68)', pointerEvents: 'none' }} />
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 55%, #0a0a0a 100%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'rgba(34,36,41,0.68)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 55%, #222429 100%)', pointerEvents: 'none' }} />
       <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '820px', margin: '0 auto', padding: 'clamp(3rem, 8vw, 4.5rem) clamp(1.25rem, 6vw, 2.5rem)' }}>
         <motion.span initial={{ opacity: 0, y: 10 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
           style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D', display: 'block', marginBottom: '1.5rem' }}>

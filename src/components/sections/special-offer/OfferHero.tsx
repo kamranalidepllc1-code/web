@@ -14,7 +14,7 @@ export function OfferHero() {
   const imgY = useTransform(scrollYProgress, [0, 1], ['0%', '12%'])
 
   return (
-    <section ref={ref} style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', position: 'relative', overflow: 'hidden', background: '#0a0a0a' }}>
+    <section ref={ref} style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', position: 'relative', overflow: 'hidden', background: '#222429' }}>
       <motion.div
         initial={{ scale: 1.12 }} animate={{ scale: 1 }} transition={{ duration: 2.2, ease }}
         style={{ position: 'absolute', inset: '-6% 0 0 0', y: imgY }}
@@ -29,8 +29,8 @@ export function OfferHero() {
           style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
         />
       </motion.div>
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.96) 0%, rgba(10,10,10,0.6) 45%, rgba(10,10,10,0.25) 100%)', pointerEvents: 'none' }} />
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(10,10,10,0.75) 0%, transparent 65%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(34,36,41,0.96) 0%, rgba(34,36,41,0.6) 45%, rgba(34,36,41,0.25) 100%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(34,36,41,0.75) 0%, transparent 65%)', pointerEvents: 'none' }} />
 
       <div style={{ position: 'relative', zIndex: 1, padding: '0 clamp(1.25rem, 6vw, 2.5rem) clamp(3rem, 8vw, 5rem)', maxWidth: '1400px', margin: '0 auto', width: '100%', paddingTop: 'clamp(110px, 22vw, 150px)' }}>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}

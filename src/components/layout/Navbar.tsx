@@ -63,7 +63,7 @@ export function Navbar() {
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         padding: 'clamp(0.75rem, 2.5vw, 1.1rem) clamp(1rem, 5vw, 2.5rem)',
-        background: solid ? 'rgba(10,10,10,0.97)' : 'transparent',
+        background: solid ? 'rgba(34,36,41,0.97)' : 'transparent',
         backdropFilter: solid ? 'blur(20px)' : 'none',
         borderBottom: solid ? '1px solid rgba(255,255,255,0.07)' : 'none',
         transition: 'background 0.35s ease, backdrop-filter 0.35s ease, border-color 0.35s ease',
@@ -100,7 +100,7 @@ export function Navbar() {
                   <motion.div id="services-mega-menu" key="mega"
                     initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.3, ease }}
-                    style={{ position: 'absolute', top: '100%', left: 0, right: 0, background: '#0a0a0a', borderTop: '1px solid rgba(255,255,255,0.07)', borderBottom: '1px solid rgba(255,255,255,0.07)', boxShadow: '0 30px 60px rgba(0,0,0,0.45)', maxHeight: 'calc(100vh - 5.5rem)', overflowY: 'auto' }}
+                    style={{ position: 'absolute', top: '100%', left: 0, right: 0, background: '#222429', borderTop: '1px solid rgba(255,255,255,0.07)', borderBottom: '1px solid rgba(255,255,255,0.07)', boxShadow: '0 30px 60px rgba(0,0,0,0.45)', maxHeight: 'calc(100vh - 5.5rem)', overflowY: 'auto' }}
                   >
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, #CE307D, #ff6eb4, #CE307D)' }} />
                     <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(1.75rem, 3vw, 2.5rem) clamp(1rem, 5vw, 2.5rem) 2rem' }}>
@@ -173,7 +173,7 @@ export function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            style={{ position: 'fixed', inset: 0, zIndex: 99, background: '#0a0a0a', display: 'flex', flexDirection: 'column', overflowY: 'auto', overflowX: 'hidden', overscrollBehavior: 'contain' }}>
+            style={{ position: 'fixed', inset: 0, zIndex: 99, background: '#222429', display: 'flex', flexDirection: 'column', overflowY: 'auto', overflowX: 'hidden', overscrollBehavior: 'contain' }}>
             <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, #CE307D, #ff6eb4, #CE307D)' }} />
             {/* margin: auto centers the links when they fit and lets the overlay scroll when the services list is open */}
             <div style={{ margin: 'auto 0', width: '100%', padding: '6.5rem clamp(1.25rem, 6vw, 2.5rem) 3rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem' }}>

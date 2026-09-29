@@ -10,9 +10,9 @@ export function ValueCard({ value, index }: { value: (typeof VALUES)[0]; index: 
   return (
     <motion.div
       variants={fadeUp}
-      style={{ background: '#0a0a0a', padding: 'clamp(1.75rem, 5vw, 3rem) clamp(1.25rem, 4vw, 2.5rem)', display: 'flex', flexDirection: 'column', gap: '1.5rem', cursor: 'default', position: 'relative', minHeight: '300px', overflow: 'hidden' }}
+      style={{ background: '#222429', padding: 'clamp(1.75rem, 5vw, 3rem) clamp(1.25rem, 4vw, 2.5rem)', display: 'flex', flexDirection: 'column', gap: '1.5rem', cursor: 'default', position: 'relative', minHeight: '300px', overflow: 'hidden' }}
       onHoverStart={() => setHovered(true)} onHoverEnd={() => setHovered(index === 0)}
-      whileHover={{ background: '#111' }}
+      whileHover={{ background: '#2a2d33' }}
     >
       <motion.div animate={{ opacity: hovered ? 1 : 0 }} style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 50% 80%, rgba(206,48,125,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
       <motion.div animate={{ scaleX: hovered ? 1 : 0 }} initial={{ scaleX: index === 0 ? 1 : 0 }} transition={{ duration: 0.4 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, #CE307D, #ff6eb4)', transformOrigin: 'left' }} />

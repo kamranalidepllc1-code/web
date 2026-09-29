@@ -19,7 +19,7 @@ import type { JournalPost } from '@/components/ui/JournalCard'
 
 async function latestJournalPosts(): Promise<JournalPost[]> {
   try {
-    const { posts } = await getPosts({ perPage: 3 })
+    const { posts } = await getPosts({ perPage: 5 }) // 1 featured + 4 in the side list
     return posts.map(p => ({
       date: formatDate(p.date, 'short'),
       category: p.categories[0]?.name ?? 'Blog',
@@ -39,7 +39,7 @@ async function latestJournalPosts(): Promise<JournalPost[]> {
 export default async function Home() {
   const journalPosts = await latestJournalPosts()
   return (
-    <div style={{ background: '#0a0a0a', color: '#f0ede8', fontFamily: "'Outfit', sans-serif", overflowX: 'hidden' }}>
+    <div style={{ background: '#222429', color: '#f0ede8', fontFamily: "'Outfit', sans-serif", overflowX: 'hidden' }}>
       <Navbar />
       <Hero />
       <VideoStories />

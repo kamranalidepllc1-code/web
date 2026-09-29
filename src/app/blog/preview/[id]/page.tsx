@@ -25,7 +25,7 @@ export default async function BlogPreviewPage({ params }: PageProps<'/blog/previ
   if (!post) notFound()
 
   return (
-    <div style={{ background: '#0a0a0a', color: '#f0ede8', fontFamily: "'Outfit', sans-serif", overflowX: 'clip' }}>
+    <div style={{ background: '#222429', color: '#f0ede8', fontFamily: "'Outfit', sans-serif", overflowX: 'clip' }}>
       <Navbar />
       <main style={{ padding: 'clamp(7.5rem, 15vw, 10rem) clamp(1.25rem, 6vw, 2.5rem) clamp(4rem, 9vw, 6rem)', background: 'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(206,48,125,0.12), transparent 70%)' }}>
         <BlogArticle post={post} />

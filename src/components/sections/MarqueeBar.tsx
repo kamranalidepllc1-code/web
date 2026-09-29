@@ -34,7 +34,7 @@ export function MarqueeBar() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       style={{
-        overflow: 'hidden', background: '#0a0a0a',
+        overflow: 'hidden', background: '#222429',
         borderTop: '1px solid rgba(255,255,255,0.08)', borderBottom: '1px solid rgba(255,255,255,0.08)',
         WebkitMaskImage: 'linear-gradient(to right, transparent, black 6%, black 94%, transparent)',
         maskImage: 'linear-gradient(to right, transparent, black 6%, black 94%, transparent)',

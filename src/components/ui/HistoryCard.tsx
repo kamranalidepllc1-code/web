@@ -10,9 +10,9 @@ export function HistoryCard({ item, index }: { item: (typeof HISTORY)[0]; index:
   return (
     <motion.div
       variants={fadeUp}
-      style={{ background: '#0f0f0f', padding: 'clamp(1.75rem, 6vw, 3.5rem)', display: 'flex', flexDirection: 'column', gap: '1.5rem', cursor: 'default', position: 'relative', overflow: 'hidden', minHeight: '260px' }}
+      style={{ background: '#272a30', padding: 'clamp(1.75rem, 6vw, 3.5rem)', display: 'flex', flexDirection: 'column', gap: '1.5rem', cursor: 'default', position: 'relative', overflow: 'hidden', minHeight: '260px' }}
       onHoverStart={() => setHovered(true)} onHoverEnd={() => setHovered(index === 0 ? true : false)}
-      whileHover={{ background: '#141414' }}
+      whileHover={{ background: '#2c2f35' }}
     >
       <motion.div animate={{ opacity: hovered ? 1 : 0 }} style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 80% 20%, rgba(206,48,125,0.1) 0%, transparent 60%)', pointerEvents: 'none' }} />
       <motion.div animate={{ scaleX: hovered ? 1 : 0 }} initial={{ scaleX: index === 0 ? 1 : 0 }} transition={{ duration: 0.4 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, #CE307D, transparent)', transformOrigin: 'left' }} />

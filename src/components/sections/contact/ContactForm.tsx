@@ -121,7 +121,7 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contact-form" style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0a0a0a', position: 'relative' }}>
+    <section id="contact-form" style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429', position: 'relative' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ display: 'grid', gap: 'clamp(2.5rem, 6vw, 5rem)', alignItems: 'center' }} className="grid grid-cols-1 lg:grid-cols-2">
 
@@ -147,7 +147,7 @@ export function ContactForm() {
           <RevealOnScroll delay={0.12} className="lg:border-l lg:border-white/10 lg:pl-14">
             {status === 'success' ? (
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                style={{ background: '#111111', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: 'clamp(2.5rem, 5vw, 3.5rem)', boxShadow: '0 30px 80px rgba(0,0,0,0.5)', textAlign: 'center' }}>
+                style={{ background: '#2a2d33', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: 'clamp(2.5rem, 5vw, 3.5rem)', boxShadow: '0 30px 80px rgba(0,0,0,0.5)', textAlign: 'center' }}>
                 <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D' }}>Message sent</span>
                 <h3 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(1.6rem, 3vw, 2.25rem)', letterSpacing: '-0.03em', margin: '1rem 0 1.25rem', color: '#f0ede8' }}>
                   Thanks — we got it.
@@ -166,7 +166,7 @@ export function ContactForm() {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} noValidate
-                style={{ display: 'grid', gap: '1.35rem', background: '#111111', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: 'clamp(2rem, 5vw, 3rem)', boxShadow: '0 30px 80px rgba(0,0,0,0.5)' }}>
+                style={{ display: 'grid', gap: '1.35rem', background: '#2a2d33', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: 'clamp(2rem, 5vw, 3rem)', boxShadow: '0 30px 80px rgba(0,0,0,0.5)' }}>
 
                 <Field id="name" label="Your full name *" error={errors.name}>
                   <input

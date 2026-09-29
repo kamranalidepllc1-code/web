@@ -7,7 +7,7 @@ import type { ServicePageContent } from '@/types/site'
 
 export function ServiceFeatures({ features }: { features: ServicePageContent['features'] }) {
   return (
-    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0a0a0a', position: 'relative', overflow: 'hidden' }}>
+    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429', position: 'relative', overflow: 'hidden' }}>
       <div aria-hidden="true" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '800px', height: '800px', maxWidth: '100vw', borderRadius: '50%', background: 'radial-gradient(circle, rgba(206,48,125,0.05) 0%, transparent 70%)', pointerEvents: 'none' }} />
       <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <RevealOnScroll style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1.5rem', marginBottom: 'clamp(2.5rem, 6vw, 4.5rem)' }}>

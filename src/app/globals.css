@@ -9,7 +9,7 @@
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: #CE307D #0a0a0a;
+  scrollbar-color: #CE307D #222429;
   overflow-x: clip;
   width: 100%;
 }
@@ -19,7 +19,7 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #222429;
 }
 
 html::-webkit-scrollbar-thumb {
@@ -27,7 +27,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 body {
-  background: #0a0a0a;
+  background: #222429;
   color: #f0ede8;
   font-family: 'Outfit', sans-serif;
   font-weight: 300;
@@ -89,7 +89,7 @@ select.underline-field {
 }
 
 select.underline-field option {
-  background: #111111;
+  background: #2a2d33;
   color: #f0ede8;
 }
 
@@ -354,7 +354,7 @@ select.underline-field option {
   background: rgba(255, 255, 255, 0.07); padding: 0.15em 0.4em; border-radius: 4px;
 }
 .blog-content pre {
-  background: #111; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 1.1em 1.3em; overflow-x: auto;
+  background: #2a2d33; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 1.1em 1.3em; overflow-x: auto;
   font-size: 0.9rem; line-height: 1.6;
 }
 .blog-content pre code { background: none; padding: 0; font-size: inherit; }
@@ -367,7 +367,7 @@ select.underline-field option {
 
 /* ── Blog cards ── */
 .blog-card { transition: background 0.3s ease; }
-.blog-card:hover { background: #0f0f0f !important; }
+.blog-card:hover { background: #272a30 !important; }
 .blog-card .blog-card-title { transition: color 0.3s ease; }
 .blog-card:hover .blog-card-title { color: #CE307D !important; }
 .blog-card img { transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
@@ -406,7 +406,7 @@ select.underline-field option {
 .blog-content > h2:first-child, .blog-content > p:first-child { margin-top: 0; }
 .blog-content a strong, .blog-content a b { color: inherit; }
 
-.blog-side-card { background: #111; border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 14px; padding: 1.25rem 1.35rem; }
+.blog-side-card { background: #2a2d33; border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 14px; padding: 1.25rem 1.35rem; }
 .blog-side-label { font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(240, 237, 232, 0.5); margin-bottom: 0.9rem; }
 .blog-toc ol { list-style: none; counter-reset: toc; display: flex; flex-direction: column; gap: 0.1rem; }
 .blog-toc li { counter-increment: toc; }

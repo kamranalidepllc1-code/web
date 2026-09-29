@@ -8,11 +8,11 @@ export function BlogCard({ post, featured }: { post: PostSummary; featured?: boo
   const category = post.categories[0]
   return (
     <Link href={`/blog/${post.slug}`} className={`blog-card${featured ? ' md:col-span-2' : ''}`}
-      style={{ background: '#0a0a0a', overflow: 'hidden', display: 'flex', flexDirection: 'column', textDecoration: 'none', color: 'inherit' }}>
+      style={{ background: '#222429', overflow: 'hidden', display: 'flex', flexDirection: 'column', textDecoration: 'none', color: 'inherit' }}>
       {/* WordPress banners carry their headline in the artwork, so keep their real proportions (no cropping). */}
       <div className="blog-card-media" style={{
         aspectRatio: post.image?.width && post.image?.height ? `${post.image.width} / ${post.image.height}` : '16 / 9',
-        overflow: 'hidden', background: '#141414', flexShrink: 0, position: 'relative', borderBottom: '1px solid rgba(255,255,255,0.06)',
+        overflow: 'hidden', background: '#2c2f35', flexShrink: 0, position: 'relative', borderBottom: '1px solid rgba(255,255,255,0.06)',
       }}>
         {post.image && (
           <Image src={post.image.url} alt={post.image.alt || post.title} fill

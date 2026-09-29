@@ -7,7 +7,7 @@ import type { ServicePageContent } from '@/types/site'
 
 export function ServiceIntro({ intro }: { intro: ServicePageContent['intro'] }) {
   return (
-    <section id="overview" style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0f0f0f', scrollMarginTop: '4rem' }}>
+    <section id="overview" style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#272a30', scrollMarginTop: '4rem' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'grid', gap: 'clamp(2.5rem, 6vw, 5rem)' }} className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
         <RevealOnScroll>
           <EyebrowLabel>Overview</EyebrowLabel>

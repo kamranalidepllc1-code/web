@@ -23,7 +23,7 @@ export function serviceMetadata(content: ServicePageContent): Metadata {
 // Shared layout for every /services/<slug> page. Each page supplies its own content.
 export function ServicePage({ content }: { content: ServicePageContent }) {
   return (
-    <div style={{ background: '#0a0a0a', color: '#f0ede8', fontFamily: "'Outfit', sans-serif", overflowX: 'hidden' }}>
+    <div style={{ background: '#222429', color: '#f0ede8', fontFamily: "'Outfit', sans-serif", overflowX: 'hidden' }}>
       <Navbar />
       <ServiceHero content={content} />
       <ServiceIntro intro={content.intro} />

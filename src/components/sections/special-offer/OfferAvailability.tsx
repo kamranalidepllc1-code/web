@@ -8,7 +8,7 @@ export function OfferAvailability() {
   const notes = [SPECIAL_OFFER.validUntil, SPECIAL_OFFER.availability].filter((n): n is string => Boolean(n))
 
   return (
-    <section style={{ background: '#0a0a0a', overflow: 'hidden' }}>
+    <section style={{ background: '#222429', overflow: 'hidden' }}>
       <div style={{ padding: 'clamp(4rem, 10vw, 9rem) clamp(1.25rem, 6vw, 2.5rem)', textAlign: 'center', position: 'relative' }}>
         <div style={{ position: 'absolute', left: '50%', top: '50%', width: '700px', height: '700px', transform: 'translate(-50%, -50%)', borderRadius: '50%', background: 'radial-gradient(circle, rgba(206,48,125,0.12) 0%, transparent 65%)', pointerEvents: 'none' }} />
         <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative' }}>

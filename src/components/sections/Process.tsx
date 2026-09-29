@@ -9,7 +9,7 @@ export function Process() {
   const [openProcess, setOpenProcess] = useState<number>(0)
 
   return (
-    <section id="process" style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0f0f0f' }}>
+    <section id="process" style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#272a30' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <RevealOnScroll style={{ marginBottom: '4rem' }}>
           <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D' }}>How we work</span>

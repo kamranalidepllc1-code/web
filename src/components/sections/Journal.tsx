@@ -5,14 +5,13 @@ import { RevealOnScroll, StaggerOnScroll } from '@/lib/animations'
 import { JournalCard, type JournalPost } from '@/components/ui/JournalCard'
 import { JOURNAL } from '@/data/site'
 
-// The first card spans two columns, so N posts need N + 1 columns.
-const GRID_COLS: Record<number, string> = { 1: 'md:grid-cols-2', 2: 'md:grid-cols-3', 3: 'md:grid-cols-4' }
-
 /** Shows the latest published blogs; falls back to the static journal until any are published. */
 export function Journal({ posts }: { posts?: JournalPost[] }) {
   const items: JournalPost[] = posts?.length ? posts : JOURNAL
+  const [featured, ...rest] = items
+  const side = rest.slice(0, 4)
   return (
-    <section id="journal" style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0a0a0a' }}>
+    <section id="journal" style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <RevealOnScroll style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '4rem', flexWrap: 'wrap', gap: '1rem' }}>
           <div>
@@ -22,10 +21,17 @@ export function Journal({ posts }: { posts?: JournalPost[] }) {
           <motion.a href="/blog" style={{ fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#ffffff', textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '0.25rem' }}
             whileHover={{ color: '#CE307D', borderColor: '#CE307D' }}>All articles →</motion.a>
         </RevealOnScroll>
-        <StaggerOnScroll style={{ display: 'grid', gap: '1px', background: 'rgba(255,255,255,0.06)' }} className={`grid grid-cols-1 ${GRID_COLS[Math.min(items.length, 3)]}`}>
-          {items.map((post, i) => (
-            <JournalCard key={post.title} post={post} featured={i === 0} />
-          ))}
+        {/* Featured post on the left, the next four in a 2×2 grid on the right. */}
+        <StaggerOnScroll
+          style={{ display: 'grid', gap: '1px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.06)' }}
+          className={`grid grid-cols-1 ${side.length ? 'lg:grid-cols-2' : ''}`}
+        >
+          {featured && <JournalCard post={featured} featured />}
+          {side.length > 0 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: '1px', background: 'rgba(255,255,255,0.06)' }}>
+              {side.map(post => <JournalCard key={post.title} post={post} />)}
+            </div>
+          )}
         </StaggerOnScroll>
       </div>
     </section>

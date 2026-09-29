@@ -17,7 +17,7 @@ const email = FOOTER_CONTACT.find(c => c.href.startsWith('mailto:'))!
 
 export function ContactOffices() {
   return (
-    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0a0a0a' }}>
+    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <RevealOnScroll style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D' }}>Where to find us</span>
@@ -48,11 +48,11 @@ export function ContactOffices() {
                   <Image src={office.img} alt={`${office.city}, ${office.country} office`} fill sizes="(max-width: 1024px) 100vw, 33vw" style={{ objectFit: 'cover', objectPosition: 'top' }} />
                 </motion.div>
 
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 0%, transparent 35%, rgba(10,10,10,0.55) 65%, rgba(10,10,10,0.98) 100%)' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 0%, transparent 35%, rgba(34,36,41,0.55) 65%, rgba(34,36,41,0.98) 100%)' }} />
 
                 <motion.div
                   variants={{ hover: { opacity: 1 } }} initial={{ opacity: 0 }}
-                  style={{ position: 'absolute', top: '1.25rem', right: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(10,10,10,0.6)', borderRadius: '999px', padding: '0.4rem 0.85rem' }}
+                  style={{ position: 'absolute', top: '1.25rem', right: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(34,36,41,0.6)', borderRadius: '999px', padding: '0.4rem 0.85rem' }}
                 >
                   <MapPin size={13} color="#fff" />
                   <span style={{ color: '#fff', fontSize: '0.68rem', letterSpacing: '0.06em', textTransform: 'uppercase' }}>View on map</span>

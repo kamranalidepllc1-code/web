@@ -14,7 +14,7 @@ export function ServiceHero({ content }: { content: ServicePageContent }) {
   const { hero } = content
 
   return (
-    <section style={{ position: 'relative', overflow: 'hidden', background: '#0a0a0a', padding: 'clamp(120px, 18vw, 170px) clamp(1.25rem, 6vw, 2.5rem) clamp(3.5rem, 8vw, 6rem)' }}>
+    <section style={{ position: 'relative', overflow: 'hidden', background: '#222429', padding: 'clamp(120px, 18vw, 170px) clamp(1.25rem, 6vw, 2.5rem) clamp(3.5rem, 8vw, 6rem)' }}>
       {/* Faint grid + glow */}
       <div aria-hidden="true" style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)', backgroundSize: '72px 72px', maskImage: 'radial-gradient(ellipse at 70% 40%, #000 0%, transparent 70%)', WebkitMaskImage: 'radial-gradient(ellipse at 70% 40%, #000 0%, transparent 70%)', pointerEvents: 'none' }} />
       <div aria-hidden="true" style={{ position: 'absolute', top: '10%', right: '-10%', width: '720px', height: '720px', maxWidth: '100vw', borderRadius: '50%', background: 'radial-gradient(circle, rgba(206,48,125,0.14) 0%, transparent 65%)', pointerEvents: 'none' }} />

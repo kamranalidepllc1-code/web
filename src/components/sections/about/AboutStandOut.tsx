@@ -10,7 +10,7 @@ export function AboutStandOut() {
         backgroundPosition: 'center', backgroundSize: 'cover', backgroundAttachment: 'fixed',
       }}
     >
-      <div style={{ position: 'absolute', inset: 0, background: 'rgba(10,10,10,0.62)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'rgba(34,36,41,0.62)', pointerEvents: 'none' }} />
       <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '820px', margin: '0 auto', padding: 'clamp(3rem, 8vw, 4.5rem) clamp(1.25rem, 6vw, 2.5rem)' }}>
         <RevealOnScroll>
           <span style={{ fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#ffffff', display: 'block', marginBottom: '1rem' }}>

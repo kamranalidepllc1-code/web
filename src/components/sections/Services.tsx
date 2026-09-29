@@ -6,7 +6,7 @@ import { SERVICES } from '@/data/services'
 
 export function Services() {
   return (
-    <section id="services" style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0a0a0a', position: 'relative', overflow: 'hidden' }}>
+    <section id="services" style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '800px', height: '800px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(206,48,125,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
       <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <RevealOnScroll style={{ marginBottom: '5rem' }}>
@@ -15,7 +15,7 @@ export function Services() {
             Craft at every <em style={{ fontStyle: 'italic', color: '#CE307D' }}>level.</em>
           </h2>
         </RevealOnScroll>
-        <StaggerOnScroll style={{ display: 'grid', gap: '0', background: '#0a0a0a', overflow: 'hidden' }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerOnScroll style={{ display: 'grid', gap: '0', background: '#222429', overflow: 'hidden' }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((s, i) => (
             <ServiceCard key={s.num} service={s} index={i} />
           ))}

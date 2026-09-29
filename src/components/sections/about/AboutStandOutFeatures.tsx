@@ -32,7 +32,7 @@ export function AboutStandOutFeatures() {
   const [hoveredFeature, setHoveredFeature] = useState<string | null>(null)
 
   return (
-    <section style={{ padding: 'clamp(3rem, 7vw, 5rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0a0a0a' }}>
+    <section style={{ padding: 'clamp(3rem, 7vw, 5rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <StaggerOnScroll style={{ display: 'grid', gap: '1.5rem' }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {FEATURES.map((f) => (
@@ -48,7 +48,7 @@ export function AboutStandOutFeatures() {
               }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
               style={{
-                background: hoveredFeature === f.title ? 'rgba(206,48,125,0.06)' : '#111111',
+                background: hoveredFeature === f.title ? 'rgba(206,48,125,0.06)' : '#2a2d33',
                 border: '1px solid rgba(255,255,255,0.08)',
                 borderRadius: '16px',
                 padding: 'clamp(2rem, 4vw, 2.5rem) clamp(1.5rem, 3vw, 1.75rem)',

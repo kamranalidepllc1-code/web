@@ -11,9 +11,9 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
   const card = (
     <motion.div
       variants={fadeUp}
-      style={{ background: '#0a0a0a', padding: 'clamp(1.75rem, 5vw, 3rem) clamp(1.25rem, 4vw, 2.5rem)', display: 'flex', flexDirection: 'column', gap: '2rem', cursor: 'pointer', position: 'relative', minHeight: '340px', overflow: 'hidden' }}
+      style={{ background: '#222429', padding: 'clamp(1.75rem, 5vw, 3rem) clamp(1.25rem, 4vw, 2.5rem)', display: 'flex', flexDirection: 'column', gap: '2rem', cursor: 'pointer', position: 'relative', minHeight: '340px', overflow: 'hidden' }}
       onHoverStart={() => setHovered(true)} onHoverEnd={() => setHovered(index === 0)}
-      whileHover={{ background: '#111' }}
+      whileHover={{ background: '#2a2d33' }}
       whileTap={{ scale: 0.99 }}
     >
       {/* Glow on hover */}

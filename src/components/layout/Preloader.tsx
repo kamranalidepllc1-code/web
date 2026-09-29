@@ -122,7 +122,7 @@ export function Preloader() {
               <motion.div
                 animate={{ x: leaving && !reduceMotion ? off : '0%' }}
                 transition={{ duration: CURTAIN_DURATION, ease: wipeEase }}
-                style={{ ...box, background: '#0a0a0a', willChange: 'transform' }}
+                style={{ ...box, background: '#222429', willChange: 'transform' }}
               />
             </div>
           )

@@ -16,10 +16,10 @@ function FeatureCard({ feature, index }: { feature: (typeof OFFER_FEATURES)[numb
     <motion.div
       variants={fadeUp}
       onHoverStart={() => setHovered(true)} onHoverEnd={() => setHovered(false)}
-      whileHover={{ background: featured ? '#d23a86' : '#111' }}
+      whileHover={{ background: featured ? '#d23a86' : '#2a2d33' }}
       className={SPANS[index]}
       style={{
-        background: featured ? '#CE307D' : '#0a0a0a',
+        background: featured ? '#CE307D' : '#222429',
         position: 'relative', overflow: 'hidden',
         padding: 'clamp(1.75rem, 3.5vw, 2.5rem) clamp(1.5rem, 3vw, 2.25rem)',
         display: 'flex', flexDirection: 'column', justifyContent: featured ? 'center' : 'flex-start',
@@ -55,7 +55,7 @@ function FeatureCard({ feature, index }: { feature: (typeof OFFER_FEATURES)[numb
 
 export function OfferIncluded() {
   return (
-    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0f0f0f' }}>
+    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#272a30' }}>
       <StaggerOnScroll
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6"
         style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gap: '1px', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.07)', overflow: 'hidden' }}

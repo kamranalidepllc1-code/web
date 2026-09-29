@@ -10,7 +10,7 @@ export function WhyChooseUs() {
   const [activeWhyUs, setActiveWhyUs] = useState(0)
 
   return (
-    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0f0f0f', position: 'relative', overflow: 'hidden' }}>
+    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#272a30', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', top: '10%', right: '-8%', width: '550px', height: '550px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(206,48,125,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
       <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <div style={{ display: 'grid', gap: '6rem', alignItems: 'start' }} className="grid grid-cols-1 lg:grid-cols-2">
@@ -41,14 +41,14 @@ export function WhyChooseUs() {
           </RevealOnScroll>
           <RevealOnScroll delay={0.15}>
             <div style={{ position: 'relative', marginBottom: '3rem' }}>
-              <div style={{ position: 'relative', width: '100%', height: '260px', borderRadius: '16px', overflow: 'hidden' }}>
+              <div style={{ position: 'relative', width: '100%', aspectRatio: '800 / 560', borderRadius: '16px', overflow: 'hidden' }}>
                 <Image src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=560&fit=crop&auto=format" alt="Our team"
                   fill sizes="(max-width: 1024px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
               </div>
-              <div style={{ position: 'absolute', inset: 0, borderRadius: '16px', background: 'linear-gradient(180deg, transparent 50%, rgba(10,10,10,0.85) 100%)' }} />
+              <div style={{ position: 'absolute', inset: 0, borderRadius: '16px', background: 'linear-gradient(180deg, transparent 50%, rgba(34,36,41,0.85) 100%)' }} />
               <div style={{
                 position: 'absolute', left: '1.5rem', bottom: '-1.5rem', display: 'flex', alignItems: 'center', gap: '1rem',
-                background: '#0f0f0f', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '14px', padding: '1rem 1.5rem',
+                background: '#272a30', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '14px', padding: '1rem 1.5rem',
                 boxShadow: '0 12px 30px rgba(0,0,0,0.4)',
               }}>
                 <span style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: '2rem', color: '#CE307D', letterSpacing: '-0.03em', lineHeight: 1 }}>15+</span>

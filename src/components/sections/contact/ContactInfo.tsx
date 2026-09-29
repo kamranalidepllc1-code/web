@@ -6,7 +6,7 @@ import { FOOTER_CONTACT, SOCIAL_LINKS } from '@/data/site'
 
 export function ContactInfo() {
   return (
-    <section style={{ padding: 'clamp(3rem, 7vw, 5rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0a0a0a' }}>
+    <section style={{ padding: 'clamp(3rem, 7vw, 5rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 'clamp(2.5rem, 6vw, 4rem)' }}>
         <div style={{ display: 'grid', gap: '2.5rem' }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           <RevealOnScroll>

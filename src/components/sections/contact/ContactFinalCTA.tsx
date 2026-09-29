@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export function ContactFinalCTA() {
   return (
-    <section style={{ padding: 'clamp(4rem, 10vw, 9rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0a0a0a', textAlign: 'center' }}>
+    <section style={{ padding: 'clamp(4rem, 10vw, 9rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429', textAlign: 'center' }}>
       <div style={{ maxWidth: '900px', margin: '0 auto' }}>
         <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}

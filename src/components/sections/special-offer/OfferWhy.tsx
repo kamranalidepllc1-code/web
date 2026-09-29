@@ -7,7 +7,7 @@ import { OFFER_WHY } from '@/data/specialOffer'
 
 export function OfferWhy() {
   return (
-    <section style={{ padding: 'clamp(4rem, 10vw, 9rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0a0a0a' }}>
+    <section style={{ padding: 'clamp(4rem, 10vw, 9rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <RevealOnScroll style={{ maxWidth: '1000px', marginBottom: 'clamp(3rem, 7vw, 5.5rem)' }}>
           <EyebrowLabel>Why this offer</EyebrowLabel>

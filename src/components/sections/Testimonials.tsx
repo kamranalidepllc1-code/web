@@ -29,7 +29,7 @@ export function Testimonials() {
   const active = clientVoices[activeTestimonial % clientVoices.length]
 
   return (
-    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0a0a0a', position: 'relative', overflow: 'hidden' }}>
+    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', top: '30%', left: '-10%', width: '600px', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(206,48,125,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
       <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <RevealOnScroll>
@@ -79,7 +79,7 @@ export function Testimonials() {
                 <motion.div key={i}
                   data-testimonial
                   onClick={() => { setActiveTestimonial(i % clientVoices.length); setTestimonialPaused(true) }}
-                  style={{ padding: '1.25rem 2rem', cursor: 'pointer', borderLeft: '2px solid transparent', background: '#0a0a0a', flexShrink: 0 }}
+                  style={{ padding: '1.25rem 2rem', cursor: 'pointer', borderLeft: '2px solid transparent', background: '#222429', flexShrink: 0 }}
                   whileHover={{ background: 'rgba(206,48,125,0.05)', borderLeftColor: '#CE307D' }}
                   transition={{ duration: 0.2 }}>
                   <p style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: '0.95rem', margin: '0 0 0.3rem', color: '#ffffff', whiteSpace: 'nowrap' }}>{t.author}</p>

@@ -9,9 +9,9 @@ import type { TEAM } from '@/data/site'
 export function TeamCard({ person }: { person: (typeof TEAM)[0] }) {
   const [hovered, setHovered] = useState(false)
   return (
-    <motion.div variants={fadeUp} style={{ background: '#0f0f0f', overflow: 'hidden', position: 'relative' }}
+    <motion.div variants={fadeUp} style={{ background: '#272a30', overflow: 'hidden', position: 'relative' }}
       onHoverStart={() => setHovered(true)} onHoverEnd={() => setHovered(false)}>
-      <div style={{ height: '380px', overflow: 'hidden', background: '#1a1a1a', position: 'relative' }}>
+      <div style={{ height: '380px', overflow: 'hidden', background: '#30333a', position: 'relative' }}>
         <motion.div
           animate={{ scale: hovered ? 1.07 : 1 }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           style={{ position: 'absolute', inset: 0 }}

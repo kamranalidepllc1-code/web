@@ -4,7 +4,7 @@ const TICKER = ['Special offer', 'Limited time', SPECIAL_OFFER.title]
 
 export function OfferMarquee() {
   return (
-    <div style={{ background: '#0a0a0a', borderTop: '1px solid rgba(255,255,255,0.07)', borderBottom: '1px solid rgba(255,255,255,0.07)', padding: '1.25rem 0', overflow: 'hidden' }} aria-hidden="true">
+    <div style={{ background: '#222429', borderTop: '1px solid rgba(255,255,255,0.07)', borderBottom: '1px solid rgba(255,255,255,0.07)', padding: '1.25rem 0', overflow: 'hidden' }} aria-hidden="true">
       <div style={{ display: 'flex', width: 'max-content', animation: 'marquee 38s linear infinite' }}>
         {[0, 1].map(dup => (
           <div key={dup} style={{ display: 'flex' }}>

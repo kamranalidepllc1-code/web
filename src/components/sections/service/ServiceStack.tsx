@@ -7,7 +7,7 @@ import type { ServicePageContent } from '@/types/site'
 
 export function ServiceStack({ stack }: { stack: NonNullable<ServicePageContent['stack']> }) {
   return (
-    <section style={{ padding: 'clamp(3.5rem, 8vw, 6rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0a0a0a', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+    <section style={{ padding: 'clamp(3.5rem, 8vw, 6rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'grid', gap: 'clamp(2rem, 5vw, 4rem)', alignItems: 'center' }} className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
         <RevealOnScroll>
           <EyebrowLabel>Technologies</EyebrowLabel>

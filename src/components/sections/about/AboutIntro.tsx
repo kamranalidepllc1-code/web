@@ -18,7 +18,7 @@ export function AboutIntro() {
   const [videoOpen, setVideoOpen] = useState(false)
 
   return (
-    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0a0a0a' }}>
+    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ display: 'grid', gap: 'clamp(2.5rem, 6vw, 4rem)' }} className="grid grid-cols-1 lg:grid-cols-2">
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1.5rem, 4vw, 2.5rem)' }}>
@@ -48,7 +48,7 @@ export function AboutIntro() {
                   <div key={img.src} style={{ position: 'relative', width: '100%', aspectRatio: '4 / 3', borderRadius: '12px', overflow: 'hidden' }}>
                     <Image src={img.src} alt={img.alt} fill sizes="(max-width: 1024px) 50vw, 25vw" style={{ objectFit: 'cover' }} />
                     <span style={{
-                      position: 'absolute', top: '0.6rem', left: '0.6rem', background: 'rgba(10,10,10,0.75)', color: '#f0ede8',
+                      position: 'absolute', top: '0.6rem', left: '0.6rem', background: 'rgba(34,36,41,0.75)', color: '#f0ede8',
                       fontSize: '0.62rem', letterSpacing: '0.04em', padding: '0.3rem 0.7rem', borderRadius: '999px',
                     }}>{img.tag}</span>
                   </div>
@@ -66,7 +66,7 @@ export function AboutIntro() {
                   {AVATAR_TEAM.map((person, i) => (
                     <div key={person.name} style={{
                       position: 'relative', width: '42px', height: '42px', borderRadius: '50%', overflow: 'hidden',
-                      border: '2px solid #0a0a0a', marginLeft: i === 0 ? 0 : '-12px', flexShrink: 0,
+                      border: '2px solid #222429', marginLeft: i === 0 ? 0 : '-12px', flexShrink: 0,
                     }}>
                       <Image src={person.img} alt={person.name} fill sizes="42px" style={{ objectFit: 'cover' }} />
                     </div>

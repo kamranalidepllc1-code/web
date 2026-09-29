@@ -42,7 +42,7 @@ export function OfferHighlight() {
   const { originalPrice, offerPrice, validUntil } = SPECIAL_OFFER
 
   return (
-    <section className="special-offer-highlight" id="offer" style={{ padding: 'clamp(4rem, 10vw, 9rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0a0a0a', position: 'relative', overflow: 'hidden', scrollMarginTop: '60px' }}>
+    <section className="special-offer-highlight" id="offer" style={{ padding: 'clamp(4rem, 10vw, 9rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429', position: 'relative', overflow: 'hidden', scrollMarginTop: '60px' }}>
       <div style={{ position: 'absolute', top: '10%', right: '-12%', width: '620px', height: '620px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(206,48,125,0.14) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
       <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', display: 'grid', gap: 'clamp(3rem, 7vw, 6rem)', alignItems: 'center' }} className="grid grid-cols-1 lg:grid-cols-[5fr_6fr]">
@@ -62,11 +62,11 @@ export function OfferHighlight() {
           <motion.div
             className="special-offer-ticket"
             whileHover={{ borderColor: 'rgba(206,48,125,0.55)' }}
-            style={{ position: 'relative', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '18px', background: 'linear-gradient(160deg, #141414 0%, #0f0f0f 100%)', padding: 'clamp(1.75rem, 4vw, 3rem)' }}
+            style={{ position: 'relative', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '18px', background: 'linear-gradient(160deg, #2c2f35 0%, #272a30 100%)', padding: 'clamp(1.75rem, 4vw, 3rem)' }}
           >
             {/* ticket notches */}
-            <span style={{ position: 'absolute', top: '50%', left: '-13px', width: '26px', height: '26px', borderRadius: '50%', background: '#0a0a0a', border: '1px solid rgba(255,255,255,0.12)', transform: 'translateY(-50%)' }} />
-            <span style={{ position: 'absolute', top: '50%', right: '-13px', width: '26px', height: '26px', borderRadius: '50%', background: '#0a0a0a', border: '1px solid rgba(255,255,255,0.12)', transform: 'translateY(-50%)' }} />
+            <span style={{ position: 'absolute', top: '50%', left: '-13px', width: '26px', height: '26px', borderRadius: '50%', background: '#222429', border: '1px solid rgba(255,255,255,0.12)', transform: 'translateY(-50%)' }} />
+            <span style={{ position: 'absolute', top: '50%', right: '-13px', width: '26px', height: '26px', borderRadius: '50%', background: '#222429', border: '1px solid rgba(255,255,255,0.12)', transform: 'translateY(-50%)' }} />
 
             <div className="special-offer-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '1rem', marginBottom: '1.75rem', flexWrap: 'wrap' }}>
               <span style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(1.35rem, 2.6vw, 1.75rem)', fontWeight: 300, letterSpacing: '-0.02em', color: '#f0ede8' }}>What you get</span>

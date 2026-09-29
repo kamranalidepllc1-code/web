@@ -34,20 +34,10 @@ export function BlogArticle({ post }: { post: Post }) {
         {post.excerpt && (
           <p style={{ maxWidth: '720px', margin: '1.25rem auto 0', fontSize: 'clamp(1rem, 2vw, 1.15rem)', lineHeight: 1.7, color: 'rgba(240,237,232,0.7)' }}>{post.excerpt}</p>
         )}
-        {post.author && (
-          <div style={{ marginTop: '1.75rem', display: 'inline-flex', alignItems: 'center', gap: '0.7rem' }}>
-            <span aria-hidden style={{ width: 36, height: 36, borderRadius: '50%', background: 'linear-gradient(135deg, #CE307D, #7a1c4a)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Fraunces', serif", fontSize: '0.95rem', color: '#fff' }}>
-              {post.author.charAt(0).toUpperCase()}
-            </span>
-            <span style={{ fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(240,237,232,0.55)', textAlign: 'left' }}>
-              By <span style={{ color: '#f0ede8' }}>{post.author}</span>
-            </span>
-          </div>
-        )}
       </header>
 
       {post.image && (
-        <figure style={{ margin: '0 0 clamp(2.5rem, 6vw, 4.5rem)', borderRadius: '16px', overflow: 'hidden', background: '#141414', border: '1px solid rgba(255,255,255,0.06)' }}>
+        <figure style={{ margin: '0 0 clamp(2.5rem, 6vw, 4.5rem)', borderRadius: '16px', overflow: 'hidden', background: '#2c2f35', border: '1px solid rgba(255,255,255,0.06)' }}>
           <Image
             src={post.image.url}
             alt={post.image.alt || post.title}

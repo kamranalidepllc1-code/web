@@ -39,7 +39,7 @@ export function AboutTimeline() {
   const [active, setActive] = useState(0)
 
   return (
-    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#0f0f0f' }}>
+    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#272a30' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ display: 'grid', gap: 'clamp(2.5rem, 6vw, 4rem)', alignItems: 'center' }} className="grid grid-cols-1 lg:grid-cols-2">
           <div>
@@ -69,7 +69,7 @@ export function AboutTimeline() {
                     <motion.span
                       animate={{
                         scale: active === i ? 1.15 : 1,
-                        background: active === i ? '#CE307D' : '#0f0f0f',
+                        background: active === i ? '#CE307D' : '#272a30',
                         borderColor: active === i ? '#CE307D' : 'rgba(255,255,255,0.3)',
                       }}
                       style={{ width: '18px', height: '18px', borderRadius: '50%', border: '2px solid' }}

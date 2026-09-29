@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 
 export function ContactHero() {
   return (
-    <section style={{ minHeight: '100svh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', position: 'relative', overflow: 'hidden', background: '#0a0a0a' }}>
+    <section style={{ minHeight: '100svh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', position: 'relative', overflow: 'hidden', background: '#222429' }}>
       <Image
         src="/Assets/contact-us/imgi_9_Bg1.jpg"
         alt=""
@@ -17,7 +17,7 @@ export function ContactHero() {
         // Anchor to the top so wide screens crop the bottom (under the gradient) instead of people's heads
         style={{ objectFit: 'cover', objectPosition: 'center top' }}
       />
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.45) 45%, rgba(10,10,10,0.12) 100%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(34,36,41,0.92) 0%, rgba(34,36,41,0.45) 45%, rgba(34,36,41,0.12) 100%)', pointerEvents: 'none' }} />
 
       <div style={{ position: 'relative', zIndex: 1, padding: '0 clamp(1.25rem, 6vw, 2.5rem) clamp(3rem, 10vw, 6rem)', maxWidth: '1400px', margin: '0 auto', width: '100%', paddingTop: 'clamp(100px, 22vw, 140px)' }}>
         <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
