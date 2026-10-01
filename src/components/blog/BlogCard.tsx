@@ -27,7 +27,7 @@ export function BlogCard({ post, featured }: { post: PostSummary; featured?: boo
           )}
           <span style={{ fontSize: '0.68rem', color: '#ffffff', letterSpacing: '0.06em' }}>{formatDate(post.date, 'short')}</span>
         </div>
-        <h3 className="blog-card-title" style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: featured ? '1.5rem' : '1.15rem', letterSpacing: '-0.01em', lineHeight: 1.25, color: '#f0ede8' }}>
+        <h3 className="blog-card-title" style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: featured ? '1.5rem' : '1.15rem', letterSpacing: '-0.01em', lineHeight: 1.25, color: '#f0ede8' }}>
           {post.title}
         </h3>
         {post.excerpt && (

@@ -3,9 +3,10 @@ import Link from 'next/link'
 import { FaFacebookF, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6'
 import { formatDate, readingTime, SITE_URL } from '@/lib/blog/utils'
 import type { Post } from '@/lib/wordpress/api'
+import { BlogAiPanel } from '@/components/ai/BlogAiPanel'
 
 /** Article layout for a WordPress post. `post.html` is extracted and sanitised server-side. */
-export function BlogArticle({ post }: { post: Post }) {
+export function BlogArticle({ post, aiTools = false }: { post: Post; aiTools?: boolean }) {
   const category = post.categories[0]
   const url = `${SITE_URL}/blog/${post.slug}`
   const share = [
@@ -16,7 +17,7 @@ export function BlogArticle({ post }: { post: Post }) {
 
   return (
     <article style={{ maxWidth: '1200px', margin: '0 auto' }}>
-      <header style={{ maxWidth: '920px', margin: '0 auto', textAlign: 'center', marginBottom: 'clamp(2rem, 5vw, 3.5rem)' }}>
+      <header style={{ maxWidth: '920px', margin: '0 auto', textAlign: 'center', marginBottom: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.75rem 1rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
           {category && (
             <Link href={`/blog?category=${encodeURIComponent(category.slug)}`}
@@ -28,7 +29,7 @@ export function BlogArticle({ post }: { post: Post }) {
             <time dateTime={post.date}>{formatDate(post.date)}</time> · {readingTime(post.html)}
           </span>
         </div>
-        <h1 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2.1rem, 5vw, 4rem)', letterSpacing: '-0.03em', lineHeight: 1.08, color: '#f0ede8' }}>
+        <h1 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.1rem, 5vw, 4rem)', letterSpacing: '-0.03em', lineHeight: 1.08, color: '#f0ede8' }}>
           {post.headline}
         </h1>
         {post.excerpt && (
@@ -52,6 +53,7 @@ export function BlogArticle({ post }: { post: Post }) {
 
       <div className="blog-layout">
         <div style={{ minWidth: 0 }}>
+          {aiTools && <BlogAiPanel slug={post.slug} />}
           <div className="blog-content" dangerouslySetInnerHTML={{ __html: post.html }} />
 
           {post.tags.length > 0 && (
@@ -90,7 +92,7 @@ export function BlogArticle({ post }: { post: Post }) {
           </div>
 
           <div className="blog-side-card blog-cta">
-            <p style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: '1.45rem', lineHeight: 1.2, color: '#fff' }}>
+            <p style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: '1.45rem', lineHeight: 1.2, color: '#fff' }}>
               Ready to grow your business online?
             </p>
             <p style={{ fontSize: '0.86rem', lineHeight: 1.6, color: 'rgba(255,255,255,0.8)', margin: '0.75rem 0 1.25rem' }}>

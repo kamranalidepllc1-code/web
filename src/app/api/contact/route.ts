@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { LeadSchema, submitLead } from '@/lib/leads'
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -22,7 +23,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Please provide a valid email address.' }, { status: 400 })
   }
 
-  console.log('New contact inquiry:', { name, email, phone, message })
+  const lead = LeadSchema.safeParse({ name, email, phone, message })
+  if (!lead.success) {
+    return NextResponse.json({ error: 'Please check your details and try again.' }, { status: 400 })
+  }
+  // Same pipeline as AI-qualified leads (logged, and forwarded to LEAD_WEBHOOK_URL when set).
+  await submitLead(lead.data, 'contact_form', { page: '/contact' })
 
   return NextResponse.json({ ok: true })
 }

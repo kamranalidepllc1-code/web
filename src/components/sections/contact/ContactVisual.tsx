@@ -43,12 +43,12 @@ export function ContactVisual() {
       </video>
       <div style={{ position: 'absolute', inset: 0, background: 'rgba(34,36,41,0.68)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 55%, #222429 100%)', pointerEvents: 'none' }} />
-      <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '820px', margin: '0 auto', padding: 'clamp(3rem, 8vw, 4.5rem) clamp(1.25rem, 6vw, 2.5rem)' }}>
+      <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '820px', margin: '0 auto', padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)' }}>
         <motion.span initial={{ opacity: 0, y: 10 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
           style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D', display: 'block', marginBottom: '1.5rem' }}>
           How we work
         </motion.span>
-        <p style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(1.5rem, 3.6vw, 2.75rem)', letterSpacing: '-0.02em', lineHeight: 1.25, color: '#f0ede8', margin: 0, minHeight: '1.25em' }}>
+        <p style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(1.5rem, 3.6vw, 2.75rem)', letterSpacing: '-0.02em', lineHeight: 1.25, color: '#f0ede8', margin: 0, minHeight: '1.25em' }}>
           {typed}
           {typed.length < STATEMENT.length && (
             <motion.span animate={{ opacity: [1, 0] }} transition={{ duration: 0.6, repeat: Infinity, repeatType: 'reverse' }} style={{ marginLeft: '3px', color: '#CE307D' }}>|</motion.span>

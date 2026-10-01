@@ -89,26 +89,26 @@ export default async function BlogPostPage({ params }: PageProps<'/blog/[slug]'>
   }
 
   return (
-    <div style={{ background: '#222429', color: '#f0ede8', fontFamily: "'Outfit', sans-serif", overflowX: 'clip' }}>
+    <div style={{ background: '#222429', color: '#f0ede8', fontFamily: "var(--font-outfit), sans-serif", overflowX: 'clip' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
       <Navbar />
 
-      <main style={{ padding: 'clamp(7.5rem, 15vw, 10rem) clamp(1.25rem, 6vw, 2.5rem) clamp(4rem, 9vw, 6rem)', background: 'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(206,48,125,0.12), transparent 70%)' }}>
+      <main style={{ padding: 'clamp(7rem, 11vw, 8rem) clamp(1.25rem, 6vw, 2.5rem) clamp(2rem, 4vw, 3rem)', background: 'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(206,48,125,0.12), transparent 70%)' }}>
         <nav aria-label="Breadcrumb" style={{ maxWidth: '780px', margin: '0 auto 2.5rem', fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(240,237,232,0.5)', textAlign: 'center' }}>
           <Link href="/" style={{ color: 'inherit', textDecoration: 'none' }}>Home</Link>
           <span style={{ margin: '0 0.6rem' }}>/</span>
           <Link href="/blog" style={{ color: 'inherit', textDecoration: 'none' }}>Blog</Link>
         </nav>
-        <BlogArticle post={post} />
+        <BlogArticle post={post} aiTools={Boolean(process.env.GROQ_API_KEY)} />
       </main>
 
       {related.length > 0 && (
-        <section style={{ padding: '0 clamp(1.25rem, 6vw, 2.5rem) clamp(4rem, 9vw, 7rem)' }}>
+        <section style={{ padding: '0 clamp(1.25rem, 6vw, 2.5rem) clamp(2rem, 4vw, 3rem)' }}>
           <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
               <div>
                 <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D' }}>Keep reading</span>
-                <h2 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.03em', marginTop: '0.75rem' }}>Related articles</h2>
+                <h2 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.03em', marginTop: '0.75rem' }}>Related articles</h2>
               </div>
               <Link href="/blog" style={{ fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#fff', textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.15)', paddingBottom: '0.25rem' }}>
                 All articles →

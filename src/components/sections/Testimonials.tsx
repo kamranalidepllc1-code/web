@@ -29,11 +29,11 @@ export function Testimonials() {
   const active = clientVoices[activeTestimonial % clientVoices.length]
 
   return (
-    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429', position: 'relative', overflow: 'hidden' }}>
+    <section style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', top: '30%', left: '-10%', width: '600px', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(206,48,125,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
       <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <RevealOnScroll>
-          <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D', display: 'block', marginBottom: '4rem' }}>Client voices</span>
+          <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D', display: 'block', marginBottom: '2.5rem' }}>Client voices</span>
         </RevealOnScroll>
         <div style={{ display: 'grid', gap: '6rem', alignItems: 'start' }} className="grid grid-cols-1 lg:grid-cols-2">
           <div style={{ position: 'sticky', top: '8rem' }}>
@@ -82,7 +82,7 @@ export function Testimonials() {
                   style={{ padding: '1.25rem 2rem', cursor: 'pointer', borderLeft: '2px solid transparent', background: '#222429', flexShrink: 0 }}
                   whileHover={{ background: 'rgba(206,48,125,0.05)', borderLeftColor: '#CE307D' }}
                   transition={{ duration: 0.2 }}>
-                  <p style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: '0.95rem', margin: '0 0 0.3rem', color: '#ffffff', whiteSpace: 'nowrap' }}>{t.author}</p>
+                  <p style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: '0.95rem', margin: '0 0 0.3rem', color: '#ffffff', whiteSpace: 'nowrap' }}>{t.author}</p>
                   <p style={{ fontSize: '0.75rem', color: '#ffffff', margin: '0 0 0.3rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '28ch' }}>
                     {t.quote.slice(0, 60)}{t.quote.length > 60 ? '...' : ''}
                   </p>

@@ -14,12 +14,12 @@ export function AboutHero() {
         style={{ objectFit: 'cover', opacity: 0.55 }}
       />
       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(34,36,41,0.35) 0%, #222429 88%)', pointerEvents: 'none' }} />
-      <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '900px', margin: '0 auto', padding: '0 clamp(1.25rem, 6vw, 2.5rem) clamp(2rem, 6vw, 3.5rem)' }}>
+      <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '900px', margin: '0 auto', padding: '0 clamp(1.25rem, 6vw, 2.5rem) clamp(2rem, 4vw, 3rem)' }}>
         <RevealOnScroll>
           <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D', display: 'block', marginBottom: '1.25rem' }}>About Digi Era Pro</span>
         </RevealOnScroll>
         <RevealOnScroll delay={0.1}>
-          <h1 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2.75rem, 7vw, 5.5rem)', letterSpacing: '-0.03em', lineHeight: 1.02, margin: '0 0 1.5rem', color: '#f0ede8' }}>
+          <h1 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.75rem, 7vw, 5.5rem)', letterSpacing: '-0.03em', lineHeight: 1.02, margin: '0 0 1.5rem', color: '#f0ede8' }}>
             We build brands people <em style={{ color: '#CE307D', fontStyle: 'italic' }}>remember.</em>
           </h1>
         </RevealOnScroll>

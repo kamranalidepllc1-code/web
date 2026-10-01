@@ -27,10 +27,20 @@ export function PartnerCard({ partner, index }: { partner: (typeof PARTNERS)[0];
         minHeight: '160px',
         position: 'relative',
         overflow: 'hidden',
-        cursor: 'default',
+        cursor: partner.href ? 'pointer' : 'default',
       }}
       whileHover={{ background: '#2a2d33' }}
     >
+      {/* Full-card link overlay */}
+      {partner.href && (
+        <a
+          href={partner.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={partner.name}
+          style={{ position: 'absolute', inset: 0, zIndex: 2 }}
+        />
+      )}
       {/* Hover glow */}
       <motion.div
         animate={{ opacity: hovered ? 1 : 0 }}

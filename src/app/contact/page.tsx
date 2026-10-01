@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div style={{ background: '#222429', color: '#f0ede8', fontFamily: "'Outfit', sans-serif", overflowX: 'hidden' }}>
+    <div style={{ background: '#222429', color: '#f0ede8', fontFamily: "var(--font-outfit), sans-serif", overflowX: 'hidden' }}>
       <Navbar />
       <ContactHero />
       <ContactInfo />

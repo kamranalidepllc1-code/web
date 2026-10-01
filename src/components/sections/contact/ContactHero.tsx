@@ -19,19 +19,19 @@ export function ContactHero() {
       />
       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(34,36,41,0.92) 0%, rgba(34,36,41,0.45) 45%, rgba(34,36,41,0.12) 100%)', pointerEvents: 'none' }} />
 
-      <div style={{ position: 'relative', zIndex: 1, padding: '0 clamp(1.25rem, 6vw, 2.5rem) clamp(3rem, 10vw, 6rem)', maxWidth: '1400px', margin: '0 auto', width: '100%', paddingTop: 'clamp(100px, 22vw, 140px)' }}>
+      <div style={{ position: 'relative', zIndex: 1, padding: '0 clamp(1.25rem, 6vw, 2.5rem) clamp(2rem, 4vw, 3rem)', maxWidth: '1400px', margin: '0 auto', width: '100%', paddingTop: 'clamp(100px, 22vw, 140px)' }}>
         <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
           style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D', display: 'block', marginBottom: '1.25rem' }}>
           Contact
         </motion.span>
 
         <motion.h1 initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2.75rem, 7.5vw, 6.5rem)', lineHeight: 0.95, letterSpacing: '-0.03em', margin: '0 0 2rem', color: '#f0ede8' }}>
+          style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.75rem, 7.5vw, 6.5rem)', lineHeight: 0.95, letterSpacing: '-0.03em', margin: '0 0 2rem', color: '#f0ede8' }}>
           Let&apos;s <em style={{ color: '#CE307D', fontStyle: 'italic' }}>talk.</em>
         </motion.h1>
 
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.4 }}
-          style={{ display: 'flex', gap: 'clamp(1.5rem, 5vw, 3rem)', flexWrap: 'wrap', alignItems: 'flex-end', marginBottom: 'clamp(2rem, 5vw, 3.5rem)' }}>
+          style={{ display: 'flex', gap: 'clamp(1.5rem, 5vw, 3rem)', flexWrap: 'wrap', alignItems: 'flex-end', marginBottom: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
           <p style={{ maxWidth: '42ch', color: '#ffffff', fontSize: '1rem', lineHeight: 1.75, margin: 0 }}>
             Have a project in mind? Tell us where you want to go — we&apos;ll help you build the strategy, design, and campaigns to get there.
           </p>

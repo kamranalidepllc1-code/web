@@ -253,6 +253,80 @@ export async function getPreviewPost(id: number): Promise<Post | null> {
   return toPost(merged)
 }
 
+/**
+ * Every published post with its extracted article text, for the AI knowledge
+ * index. Fetched 10 per request so each response stays under the 2 MB limit of
+ * the Next.js data cache (Elementor posts are ~130 KB of HTML each).
+ */
+export type KnowledgePost = PostSummary & { sections: { heading: string; text: string }[]; faqs: ArticleFaq[] }
+
+export async function getPostsForKnowledge(): Promise<KnowledgePost[]> {
+  // 5 per page keeps each response under the 2 MB data-cache limit (10 did not);
+  // pages are fetched 4 at a time.
+  const fetchPage = (page: number) =>
+    wpFetch<RawPost[]>('posts', {
+      status: 'publish', per_page: 5, page, orderby: 'date', order: 'desc',
+      _fields: `${LIST_FIELDS},content`, _embed: 'wp:term',
+    })
+  const first = await fetchPage(1)
+  const raws = [...first.data]
+  const rest = Array.from({ length: Math.min(first.totalPages, 60) - 1 }, (_, i) => i + 2)
+  for (let i = 0; i < rest.length; i += 4) {
+    const batch = await Promise.all(rest.slice(i, i + 4).map(fetchPage))
+    for (const r of batch) raws.push(...r.data)
+  }
+
+  return raws.map(raw => {
+    const article = extractArticle(raw.content?.rendered ?? '')
+    // One section per H2 so retrieval can return the relevant part of a long article.
+    const sections = sanitizeBlogHtml(article.html)
+      .split(/<h2[^>]*>/i)
+      .map((part, i) => {
+        const [head, body] = i === 0 ? ['', part] : (part.split(/<\/h2>/i) as [string, string?])
+        return { heading: plainText(head ?? ''), text: plainText(body ?? '') }
+      })
+      .filter(s => s.text.length > 40)
+    return {
+      ...toSummary(raw),
+      sections,
+      faqs: article.faqs.map(f => ({ question: f.question, answer: plainText(f.answer) })),
+    }
+  })
+}
+
+/** Cheap, cached check used to redirect legacy /<slug> URLs. */
+export async function postExists(slug: string): Promise<boolean> {
+  if (!/^[a-z0-9][a-z0-9%-]*$/i.test(slug)) return false
+  const { data } = await wpFetch<{ slug: string }[]>('posts', { slug, status: 'publish', _fields: 'slug' })
+  return data.length > 0
+}
+
+/** Lightweight list of published posts (slug + title) for pickers. */
+export async function getPostTitles(): Promise<{ slug: string; title: string }[]> {
+  const out: { slug: string; title: string }[] = []
+  for (let page = 1; page <= 50; page++) {
+    const { data, totalPages } = await wpFetch<{ slug: string; title: { rendered: string } }[]>('posts', {
+      status: 'publish', per_page: 100, page, _fields: 'slug,title', orderby: 'date', order: 'desc',
+    })
+    out.push(...data.map(p => ({ slug: p.slug, title: plainText(p.title.rendered) })))
+    if (page >= totalPages) break
+  }
+  return out
+}
+
+/** Every published post's slug + modified date, for the sitemap. */
+export async function getAllPostSlugs(): Promise<{ slug: string; modified: string }[]> {
+  const out: { slug: string; modified: string }[] = []
+  for (let page = 1; page <= 50; page++) {
+    const { data, totalPages } = await wpFetch<{ slug: string; modified_gmt: string }[]>('posts', {
+      status: 'publish', per_page: 100, page, _fields: 'slug,modified_gmt',
+    })
+    out.push(...data.map(p => ({ slug: p.slug, modified: toIso(p.modified_gmt) })))
+    if (page >= totalPages) break
+  }
+  return out
+}
+
 export async function getCategories(): Promise<WPTerm[]> {
   const { data } = await wpFetch<RawTerm[]>('categories', { per_page: 100, hide_empty: 'true', _fields: 'id,name,slug,count' })
   return data.filter(c => c.slug !== 'uncategorized').map(c => ({ id: c.id, name: plainText(c.name), slug: c.slug, count: c.count ?? 0 }))

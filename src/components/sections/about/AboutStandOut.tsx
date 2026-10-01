@@ -11,14 +11,14 @@ export function AboutStandOut() {
       }}
     >
       <div style={{ position: 'absolute', inset: 0, background: 'rgba(34,36,41,0.62)', pointerEvents: 'none' }} />
-      <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '820px', margin: '0 auto', padding: 'clamp(3rem, 8vw, 4.5rem) clamp(1.25rem, 6vw, 2.5rem)' }}>
+      <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '820px', margin: '0 auto', padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)' }}>
         <RevealOnScroll>
           <span style={{ fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#ffffff', display: 'block', marginBottom: '1rem' }}>
             What makes us stand out
           </span>
         </RevealOnScroll>
         <RevealOnScroll delay={0.1}>
-          <h2 style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', letterSpacing: '-0.01em', lineHeight: 1.15, margin: '0 0 1.25rem', color: '#ffffff' }}>
+          <h2 style={{ fontFamily: "var(--font-outfit), sans-serif", fontWeight: 700, fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', letterSpacing: '-0.01em', lineHeight: 1.15, margin: '0 0 1.25rem', color: '#ffffff' }}>
             We Don&apos;t Just Talk the Talk, We Walk the Walk!
           </h2>
         </RevealOnScroll>

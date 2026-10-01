@@ -14,7 +14,7 @@ export function ServiceHero({ content }: { content: ServicePageContent }) {
   const { hero } = content
 
   return (
-    <section style={{ position: 'relative', overflow: 'hidden', background: '#222429', padding: 'clamp(120px, 18vw, 170px) clamp(1.25rem, 6vw, 2.5rem) clamp(3.5rem, 8vw, 6rem)' }}>
+    <section style={{ position: 'relative', overflow: 'hidden', background: '#222429', padding: 'clamp(120px, 18vw, 170px) clamp(1.25rem, 6vw, 2.5rem) clamp(2rem, 4vw, 3rem)' }}>
       {/* Faint grid + glow */}
       <div aria-hidden="true" style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)', backgroundSize: '72px 72px', maskImage: 'radial-gradient(ellipse at 70% 40%, #000 0%, transparent 70%)', WebkitMaskImage: 'radial-gradient(ellipse at 70% 40%, #000 0%, transparent 70%)', pointerEvents: 'none' }} />
       <div aria-hidden="true" style={{ position: 'absolute', top: '10%', right: '-10%', width: '720px', height: '720px', maxWidth: '100vw', borderRadius: '50%', background: 'radial-gradient(circle, rgba(206,48,125,0.14) 0%, transparent 65%)', pointerEvents: 'none' }} />
@@ -37,12 +37,12 @@ export function ServiceHero({ content }: { content: ServicePageContent }) {
           </motion.div>
 
           <motion.h1 initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.15, ease }}
-            style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2.6rem, 6.5vw, 5.75rem)', lineHeight: 0.98, letterSpacing: '-0.035em', margin: '0 0 clamp(1.75rem, 4vw, 2.5rem)', color: '#f0ede8', maxWidth: '15ch' }}>
+            style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.6rem, 6.5vw, 5.75rem)', lineHeight: 0.98, letterSpacing: '-0.035em', margin: '0 0 clamp(1.75rem, 4vw, 2.5rem)', color: '#f0ede8', maxWidth: '15ch' }}>
             {hero.title} <em style={{ color: '#CE307D', fontStyle: 'italic' }}>{hero.titleAccent}</em>
           </motion.h1>
 
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.35 }}
-            style={{ display: 'flex', gap: 'clamp(1.25rem, 3vw, 2rem)', alignItems: 'stretch', maxWidth: '600px', marginBottom: 'clamp(2rem, 5vw, 2.75rem)' }}>
+            style={{ display: 'flex', gap: 'clamp(1.25rem, 3vw, 2rem)', alignItems: 'stretch', maxWidth: '600px', marginBottom: 'clamp(1.5rem, 3vw, 2rem)' }}>
             <span style={{ width: '1px', background: '#CE307D', flexShrink: 0 }} />
             <p style={{ color: '#ffffff', fontSize: '1rem', lineHeight: 1.75, margin: 0, maxWidth: '50ch' }}>{hero.summary}</p>
           </motion.div>

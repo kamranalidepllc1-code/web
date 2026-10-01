@@ -41,7 +41,7 @@ function FeatureCard({ feature, index }: { feature: (typeof OFFER_FEATURES)[numb
       >
         <feature.icon size={30} strokeWidth={1.4} aria-hidden="true" />
       </motion.span>
-      <h3 style={{ position: 'relative', fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(1.35rem, 2.2vw, 1.65rem)', letterSpacing: '-0.02em', lineHeight: 1.2, margin: '0 0 0.85rem', color: featured ? '#fff' : '#f0ede8' }}>
+      <h3 style={{ position: 'relative', fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(1.35rem, 2.2vw, 1.65rem)', letterSpacing: '-0.02em', lineHeight: 1.2, margin: '0 0 0.85rem', color: featured ? '#fff' : '#f0ede8' }}>
         {feature.title}
       </h3>
       <p style={{ position: 'relative', fontSize: '0.88rem', lineHeight: 1.8, margin: 0, color: '#ffffff', maxWidth: featured ? '62ch' : '34ch' }}>
@@ -55,7 +55,7 @@ function FeatureCard({ feature, index }: { feature: (typeof OFFER_FEATURES)[numb
 
 export function OfferIncluded() {
   return (
-    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#272a30' }}>
+    <section style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#272a30' }}>
       <StaggerOnScroll
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6"
         style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gap: '1px', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.07)', overflow: 'hidden' }}

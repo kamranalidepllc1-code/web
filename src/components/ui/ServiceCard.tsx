@@ -24,10 +24,10 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
         <motion.span animate={{ color: hovered ? '#CE307D' : 'rgba(240,237,232,0.15)', scale: hovered ? 1.15 : 1 }} style={{ display: 'inline-block' }}>
           <service.icon size={28} strokeWidth={1.5} />
         </motion.span>
-        <span style={{ fontSize: '0.68rem', letterSpacing: '0.14em', color: hovered ? '#f0ede8' : 'rgba(240,237,232,0.2)', fontFamily: "'Fraunces', serif" }}>{service.num}</span>
+        <span style={{ fontSize: '0.68rem', letterSpacing: '0.14em', color: hovered ? '#f0ede8' : 'rgba(240,237,232,0.2)', fontFamily: "var(--font-fraunces), serif" }}>{service.num}</span>
       </div>
       <div style={{ flex: 1, position: 'relative', zIndex: 1 }}>
-        <h3 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(1.4rem, 2vw, 1.9rem)', letterSpacing: '-0.02em', margin: '0 0 1rem', color: '#f0ede8', lineHeight: 1.1 }}>{service.title}</h3>
+        <h3 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(1.4rem, 2vw, 1.9rem)', letterSpacing: '-0.02em', margin: '0 0 1rem', color: '#f0ede8', lineHeight: 1.1 }}>{service.title}</h3>
         <p style={{ color: '#ffffff', fontSize: '0.88rem', lineHeight: 1.8, margin: 0 }}>{service.desc}</p>
       </div>
       <motion.div animate={{ opacity: hovered ? 1 : 0, x: hovered ? 0 : -8 }} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', position: 'relative', zIndex: 1 }}>

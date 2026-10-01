@@ -50,11 +50,11 @@ export function AboutExperts() {
   }, [isHovered])
 
   return (
-    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
+    <section style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-        <RevealOnScroll style={{ textAlign: 'center', marginBottom: 'clamp(3rem, 7vw, 5rem)' }}>
+        <RevealOnScroll style={{ textAlign: 'center', marginBottom: 'clamp(1.5rem, 3vw, 2rem)' }}>
           <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D' }}>The people</span>
-          <h2 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 4rem)', letterSpacing: '-0.03em', margin: '1rem 0 0', lineHeight: 1.1, color: '#f0ede8' }}>
+          <h2 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 4rem)', letterSpacing: '-0.03em', margin: '1rem 0 0', lineHeight: 1.1, color: '#f0ede8' }}>
             Meet the experts who <em style={{ color: '#CE307D', fontStyle: 'italic' }}>drive your success.</em>
           </h2>
         </RevealOnScroll>
@@ -78,7 +78,7 @@ export function AboutExperts() {
           </motion.button>
 
           <div
-            className="w-[var(--card-w)] sm:w-[calc(var(--card-w)*2.84)]"
+            className="w-(--card-w) sm:w-[calc(var(--card-w)*2.84)]"
             style={{ ['--card-w' as string]: 'clamp(220px, 26vw, 320px)', position: 'relative', height: 'calc(var(--card-w) * 1.72)', overflow: 'hidden' }}
           >
             <AnimatePresence initial={false} custom={direction}>
@@ -112,7 +112,7 @@ export function AboutExperts() {
                       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 45%, rgba(206,48,125,0.55) 75%, rgba(206,48,125,0.92) 100%)' }} />
                       <div style={{ position: 'absolute', left: '1.5rem', right: '1.5rem', bottom: '1.75rem', textAlign: 'center' }}>
                         <span style={{ fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.85)', display: 'block', marginBottom: '0.4rem' }}>{expert.role}</span>
-                        <span style={{ fontFamily: "'Fraunces', serif", fontWeight: 500, fontSize: '1.5rem', color: '#ffffff' }}>{expert.name}</span>
+                        <span style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 500, fontSize: '1.5rem', color: '#ffffff' }}>{expert.name}</span>
                       </div>
                     </motion.div>
                   </motion.div>

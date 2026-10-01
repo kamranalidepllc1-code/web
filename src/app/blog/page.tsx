@@ -70,13 +70,13 @@ export default async function BlogIndexPage({ searchParams }: PageProps<'/blog'>
   })
 
   return (
-    <div style={{ background: '#222429', color: '#f0ede8', fontFamily: "'Outfit', sans-serif", overflowX: 'hidden' }}>
+    <div style={{ background: '#222429', color: '#f0ede8', fontFamily: "var(--font-outfit), sans-serif", overflowX: 'hidden' }}>
       <Navbar />
 
-      <section style={{ padding: 'clamp(8rem, 16vw, 11rem) clamp(1.25rem, 6vw, 2.5rem) clamp(2.5rem, 6vw, 4rem)', background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(206,48,125,0.14), transparent 70%)' }}>
+      <section style={{ padding: 'clamp(7rem, 12vw, 8.5rem) clamp(1.25rem, 6vw, 2.5rem) clamp(2rem, 4vw, 3rem)', background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(206,48,125,0.14), transparent 70%)' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D' }}>{tag ? 'Tagged' : 'Thinking'}</span>
-          <h1 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2.75rem, 7vw, 5.5rem)', letterSpacing: '-0.03em', lineHeight: 1, margin: '1rem 0 1.25rem' }}>
+          <h1 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.75rem, 7vw, 5.5rem)', letterSpacing: '-0.03em', lineHeight: 1, margin: '1rem 0 1.25rem' }}>
             {category || tag ? <>{(category ?? tag)!.name} <em style={{ color: '#CE307D' }}>articles.</em></> : <>The <em style={{ color: '#CE307D' }}>Journal.</em></>}
           </h1>
           <p style={{ maxWidth: '560px', color: 'rgba(240,237,232,0.7)', lineHeight: 1.7 }}>{DESCRIPTION}</p>
@@ -93,11 +93,11 @@ export default async function BlogIndexPage({ searchParams }: PageProps<'/blog'>
         </div>
       </section>
 
-      <section style={{ padding: '0 clamp(1.25rem, 6vw, 2.5rem) clamp(4rem, 9vw, 7rem)' }}>
+      <section style={{ padding: '0 clamp(1.25rem, 6vw, 2.5rem) clamp(2rem, 4vw, 3rem)' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           {posts.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '5rem 1rem', border: '1px solid rgba(255,255,255,0.06)' }}>
-              <p style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: '1.75rem' }}>No articles yet.</p>
+              <p style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: '1.75rem' }}>No articles yet.</p>
               <p style={{ color: 'rgba(240,237,232,0.6)', marginTop: '0.5rem' }}>{category || tag ? 'Nothing here yet — try another topic.' : 'Check back soon for new insights.'}</p>
             </div>
           ) : (

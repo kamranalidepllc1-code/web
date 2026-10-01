@@ -23,7 +23,7 @@ export function MarqueeBar() {
   }, [inView, phase, typed, firstWord])
 
   const wordStyle: CSSProperties = {
-    fontFamily: "'Fraunces', serif", fontStyle: 'italic', fontWeight: 300,
+    fontFamily: "var(--font-fraunces), serif", fontStyle: 'italic', fontWeight: 300,
     fontSize: 'clamp(1.25rem, 3vw, 2.5rem)', letterSpacing: '-0.02em', lineHeight: 1,
     color: 'transparent', WebkitTextStroke: '1.5px rgba(240,237,232,0.7)',
   } as CSSProperties

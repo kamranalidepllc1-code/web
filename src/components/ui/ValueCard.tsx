@@ -23,7 +23,7 @@ export function ValueCard({ value, index }: { value: (typeof VALUES)[0]; index: 
         <span style={{ fontSize: '0.68rem', letterSpacing: '0.12em', color: hovered ? '#f0ede8' : 'rgba(240,237,232,0.2)' }}>0{index + 1}</span>
       </div>
       <div style={{ flex: 1, position: 'relative', zIndex: 1 }}>
-        <h3 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(1.3rem, 2vw, 1.6rem)', letterSpacing: '-0.02em', margin: '0 0 0.75rem', color: '#f0ede8' }}>{value.word}</h3>
+        <h3 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(1.3rem, 2vw, 1.6rem)', letterSpacing: '-0.02em', margin: '0 0 0.75rem', color: '#f0ede8' }}>{value.word}</h3>
         <p style={{ color: '#ffffff', fontSize: '0.88rem', lineHeight: 1.8, margin: 0 }}>{value.desc}</p>
       </div>
       <motion.div animate={{ width: hovered ? '100%' : '0%' }} style={{ height: '1px', background: 'linear-gradient(90deg, #CE307D, transparent)', position: 'relative', zIndex: 1 }} transition={{ duration: 0.5 }} />

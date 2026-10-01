@@ -15,10 +15,18 @@ export function ClientLogoCard({ client }: { client: (typeof CLIENT_LOGOS)[0] })
       whileHover={{ y: -7 }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
       style={{
-        position: 'relative', overflow: 'visible', cursor: 'default',
+        position: 'relative', overflow: 'visible', cursor: 'pointer',
         zIndex: hovered ? 5 : 1,
       }}
     >
+      {/* Full-card link overlay */}
+      <a
+        href={client.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={client.name}
+        style={{ position: 'absolute', inset: 0, zIndex: 2 }}
+      />
       <div style={{
         position: 'relative', background: '#f5f5f5', padding: '2rem 1.5rem 1.25rem',
         display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.85rem',

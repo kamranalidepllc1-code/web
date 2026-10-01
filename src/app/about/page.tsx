@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Navbar } from '@/components/layout/Navbar'
 import { AboutHero } from '@/components/sections/about/AboutHero'
 import { AboutIntro } from '@/components/sections/about/AboutIntro'
-import { AboutTimeline } from '@/components/sections/about/AboutTimeline'
+import { History } from '@/components/sections/History'
 import { AboutStandOut } from '@/components/sections/about/AboutStandOut'
 import { AboutStandOutFeatures } from '@/components/sections/about/AboutStandOutFeatures'
 import { AboutValues } from '@/components/sections/about/AboutValues'
@@ -18,11 +18,11 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div style={{ background: '#222429', color: '#f0ede8', fontFamily: "'Outfit', sans-serif", overflowX: 'hidden' }}>
+    <div style={{ background: '#222429', color: '#f0ede8', fontFamily: "var(--font-outfit), sans-serif", overflowX: 'hidden' }}>
       <Navbar />
       <AboutHero />
       <AboutIntro />
-      <AboutTimeline />
+      <History />
       <AboutStandOut />
       <AboutStandOutFeatures />
       <AboutValues />

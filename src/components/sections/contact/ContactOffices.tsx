@@ -17,11 +17,11 @@ const email = FOOTER_CONTACT.find(c => c.href.startsWith('mailto:'))!
 
 export function ContactOffices() {
   return (
-    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
+    <section style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-        <RevealOnScroll style={{ textAlign: 'center', marginBottom: '4rem' }}>
+        <RevealOnScroll style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
           <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D' }}>Where to find us</span>
-          <h2 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 4rem)', letterSpacing: '-0.03em', margin: '1rem 0 1.5rem', lineHeight: 1, color: '#f0ede8' }}>
+          <h2 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 4rem)', letterSpacing: '-0.03em', margin: '1rem 0 1.5rem', lineHeight: 1, color: '#f0ede8' }}>
             Office <em style={{ color: '#CE307D', fontStyle: 'italic' }}>locations.</em>
           </h2>
           <p style={{ color: '#ffffff', fontSize: '0.95rem', lineHeight: 1.8, maxWidth: '48ch', margin: '0 auto' }}>
@@ -59,7 +59,7 @@ export function ContactOffices() {
                 </motion.div>
 
                 <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: 'clamp(1.5rem, 3vw, 2rem)' }}>
-                  <h3 style={{ fontFamily: "'Fraunces', serif", fontWeight: 400, fontStyle: 'italic', fontSize: '1.4rem', color: '#f0ede8', margin: '0 0 0.5rem' }}>
+                  <h3 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 400, fontStyle: 'italic', fontSize: '1.4rem', color: '#f0ede8', margin: '0 0 0.5rem' }}>
                     {office.city} Office
                   </h3>
                   <p style={{ color: '#ffffff', fontSize: '0.85rem', lineHeight: 1.6, margin: '0 0 1.1rem' }}>

@@ -6,12 +6,12 @@ import { FOOTER_CONTACT, SOCIAL_LINKS } from '@/data/site'
 
 export function ContactInfo() {
   return (
-    <section style={{ padding: 'clamp(3rem, 7vw, 5rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
+    <section style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 'clamp(2.5rem, 6vw, 4rem)' }}>
         <div style={{ display: 'grid', gap: '2.5rem' }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           <RevealOnScroll>
             <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D', display: 'block', marginBottom: '1rem' }}>Email</span>
-            <a href={FOOTER_CONTACT[2].href} style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(1.15rem, 1.8vw, 1.4rem)', color: '#f0ede8', textDecoration: 'none' }}>
+            <a href={FOOTER_CONTACT[2].href} style={{ fontFamily: "var(--font-fraunces), serif", fontSize: 'clamp(1.15rem, 1.8vw, 1.4rem)', color: '#f0ede8', textDecoration: 'none' }}>
               {FOOTER_CONTACT[2].value}
             </a>
           </RevealOnScroll>
@@ -20,7 +20,7 @@ export function ContactInfo() {
             <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D', display: 'block', marginBottom: '1rem' }}>Phone</span>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {FOOTER_CONTACT.filter(c => c.href.startsWith('tel:')).map(c => (
-                <a key={c.value} href={c.href} style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(1.15rem, 1.8vw, 1.4rem)', color: '#f0ede8', textDecoration: 'none' }}>
+                <a key={c.value} href={c.href} style={{ fontFamily: "var(--font-fraunces), serif", fontSize: 'clamp(1.15rem, 1.8vw, 1.4rem)', color: '#f0ede8', textDecoration: 'none' }}>
                   {c.value}
                 </a>
               ))}
@@ -29,7 +29,7 @@ export function ContactInfo() {
 
           <RevealOnScroll delay={0.16}>
             <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D', display: 'block', marginBottom: '1rem' }}>Where we work</span>
-            <p style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(1.15rem, 1.8vw, 1.4rem)', color: '#f0ede8', margin: 0, lineHeight: 1.3 }}>
+            <p style={{ fontFamily: "var(--font-fraunces), serif", fontSize: 'clamp(1.15rem, 1.8vw, 1.4rem)', color: '#f0ede8', margin: 0, lineHeight: 1.3 }}>
               United States &amp; Malaysia
             </p>
           </RevealOnScroll>

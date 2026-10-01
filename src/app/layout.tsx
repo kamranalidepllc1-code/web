@@ -1,7 +1,25 @@
 import type { Metadata } from "next";
+import { Fraunces, Outfit } from "next/font/google";
 
 import "./globals.css";
+import "./ai.css";
 import { Preloader } from "@/components/layout/Preloader";
+import { AiAssistant } from "@/components/ai/AiAssistant";
+
+// Self-hosted at build time: no request to Google, no render-blocking stylesheet.
+// Components use them through var(--font-fraunces) / var(--font-outfit).
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://digierapro.com"),
@@ -19,7 +37,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${fraunces.variable} ${outfit.variable}`}>
       <head>
         {/* Prevent browser scroll restoration from jumping to a previous section after reload */}
         <script
@@ -29,17 +47,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        {/* eslint-disable-next-line @next/next/no-page-custom-font -- App Router root layout renders on every page; this rule targets the Pages Router's pages/_document.js */}
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap"
-        />
         {/* Without JS the preloader could never dismiss itself */}
         <noscript>
           <style>{"#site-preloader{display:none!important}"}</style>
@@ -49,6 +56,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         <Preloader />
         {children}
+        <AiAssistant />
       </body>
     </html>
   );

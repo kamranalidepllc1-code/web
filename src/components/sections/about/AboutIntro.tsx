@@ -18,13 +18,13 @@ export function AboutIntro() {
   const [videoOpen, setVideoOpen] = useState(false)
 
   return (
-    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
+    <section style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ display: 'grid', gap: 'clamp(2.5rem, 6vw, 4rem)' }} className="grid grid-cols-1 lg:grid-cols-2">
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1.5rem, 4vw, 2.5rem)' }}>
             <RevealOnScroll>
               <EyebrowLabel>Who we are</EyebrowLabel>
-              <h2 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2rem, 4vw, 3.25rem)', letterSpacing: '-0.03em', margin: 0, lineHeight: 1.1, color: '#f0ede8' }}>
+              <h2 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2rem, 4vw, 3.25rem)', letterSpacing: '-0.03em', margin: 0, lineHeight: 1.1, color: '#f0ede8' }}>
                 A small team, <em style={{ color: '#CE307D', fontStyle: 'italic' }}>fully invested</em> in your growth.
               </h2>
             </RevealOnScroll>
@@ -107,7 +107,7 @@ export function AboutIntro() {
               style={{ position: 'relative', width: '100%', maxWidth: '960px', aspectRatio: '16 / 9', background: '#000' }}
             >
               <video
-                src="/Assets/coverr-sitting-down-in-the-office-72-1080p.mp4"
+                src="/Assets/hero-office-720p.mp4"
                 controls
                 autoPlay
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}

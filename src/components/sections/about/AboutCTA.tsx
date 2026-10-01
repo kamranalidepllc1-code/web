@@ -5,11 +5,11 @@ import { RevealOnScroll } from '@/lib/animations'
 
 export function AboutCTA() {
   return (
-    <section style={{ padding: 'clamp(4rem, 10vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+    <section style={{ padding: 'clamp(2.25rem, 4.5vw, 3.25rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '700px', height: '700px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(206,48,125,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
       <div style={{ maxWidth: '700px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <RevealOnScroll>
-          <h2 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 4rem)', letterSpacing: '-0.03em', margin: '0 0 1.25rem', lineHeight: 1.1, color: '#f0ede8' }}>
+          <h2 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 4rem)', letterSpacing: '-0.03em', margin: '0 0 1.25rem', lineHeight: 1.1, color: '#f0ede8' }}>
             Let&apos;s create something <em style={{ color: '#CE307D', fontStyle: 'italic' }}>meaningful.</em>
           </h2>
           <p style={{ color: '#ffffff', fontSize: '0.95rem', lineHeight: 1.8, margin: '0 auto 2.5rem', maxWidth: '48ch' }}>

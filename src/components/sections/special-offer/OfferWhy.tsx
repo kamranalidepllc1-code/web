@@ -7,11 +7,11 @@ import { OFFER_WHY } from '@/data/specialOffer'
 
 export function OfferWhy() {
   return (
-    <section style={{ padding: 'clamp(4rem, 10vw, 9rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
+    <section style={{ padding: 'clamp(2.25rem, 4.5vw, 3.25rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-        <RevealOnScroll style={{ maxWidth: '1000px', marginBottom: 'clamp(3rem, 7vw, 5.5rem)' }}>
+        <RevealOnScroll style={{ maxWidth: '1000px', marginBottom: 'clamp(1.5rem, 3vw, 2rem)' }}>
           <EyebrowLabel>Why this offer</EyebrowLabel>
-          <p style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(1.75rem, 3.8vw, 3.25rem)', letterSpacing: '-0.025em', lineHeight: 1.2, margin: 0, color: '#f0ede8' }}>
+          <p style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(1.75rem, 3.8vw, 3.25rem)', letterSpacing: '-0.025em', lineHeight: 1.2, margin: 0, color: '#f0ede8' }}>
             A strong online presence shouldn&apos;t take five vendors. This offer brings the essentials together — <em style={{ color: '#CE307D', fontStyle: 'italic' }}>so you can focus on running your business.</em>
           </p>
         </RevealOnScroll>

@@ -17,11 +17,11 @@ export function HistoryCard({ item, index }: { item: (typeof HISTORY)[0]; index:
       <motion.div animate={{ opacity: hovered ? 1 : 0 }} style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 80% 20%, rgba(206,48,125,0.1) 0%, transparent 60%)', pointerEvents: 'none' }} />
       <motion.div animate={{ scaleX: hovered ? 1 : 0 }} initial={{ scaleX: index === 0 ? 1 : 0 }} transition={{ duration: 0.4 }} style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, #CE307D, transparent)', transformOrigin: 'left' }} />
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', position: 'relative', zIndex: 1 }}>
-        <motion.span animate={{ color: hovered ? '#CE307D' : 'rgba(240,237,232,0.08)' }} style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, letterSpacing: '-0.04em', lineHeight: 1 }}>{item.year}</motion.span>
+        <motion.span animate={{ color: hovered ? '#CE307D' : 'rgba(240,237,232,0.08)' }} style={{ fontFamily: "var(--font-fraunces), serif", fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, letterSpacing: '-0.04em', lineHeight: 1 }}>{item.year}</motion.span>
         <span style={{ fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: hovered ? '#f0ede8' : 'rgba(240,237,232,0.2)', border: '1px solid rgba(255,255,255,0.08)', padding: '0.3rem 0.75rem', marginTop: '0.5rem' }}>0{index + 1}</span>
       </div>
       <div style={{ position: 'relative', zIndex: 1 }}>
-        <h3 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(1.2rem, 2vw, 1.6rem)', letterSpacing: '-0.02em', margin: '0 0 0.75rem', color: '#f0ede8', lineHeight: 1.15 }}>{item.title}</h3>
+        <h3 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(1.2rem, 2vw, 1.6rem)', letterSpacing: '-0.02em', margin: '0 0 0.75rem', color: '#f0ede8', lineHeight: 1.15 }}>{item.title}</h3>
         <p style={{ color: '#ffffff', fontSize: '0.9rem', lineHeight: 1.75, margin: 0 }}>{item.desc}</p>
       </div>
       <motion.div animate={{ opacity: hovered ? 1 : 0, x: hovered ? 0 : -8 }} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: 'auto', position: 'relative', zIndex: 1 }}>

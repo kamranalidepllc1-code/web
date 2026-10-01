@@ -50,7 +50,7 @@ export function JournalCard({ post, featured }: { post: JournalPost; featured?: 
           <span style={{ fontSize: '0.68rem', color: '#ffffff', letterSpacing: '0.06em' }}>{post.date}</span>
         </div>
         <motion.h3
-          style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: featured ? '1.5rem' : '1.1rem', margin: 0, letterSpacing: '-0.01em', lineHeight: 1.2, color: '#f0ede8' }}
+          style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: featured ? '1.5rem' : '1.1rem', margin: 0, letterSpacing: '-0.01em', lineHeight: 1.2, color: '#f0ede8' }}
           whileHover={{ color: '#CE307D' }}
         >{post.title}</motion.h3>
         {featured && <p style={{ color: '#ffffff', fontSize: '0.85rem', lineHeight: 1.7, margin: 0 }}>{post.excerpt}</p>}

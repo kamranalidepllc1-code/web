@@ -9,7 +9,7 @@ export function OfferAvailability() {
 
   return (
     <section style={{ background: '#222429', overflow: 'hidden' }}>
-      <div style={{ padding: 'clamp(4rem, 10vw, 9rem) clamp(1.25rem, 6vw, 2.5rem)', textAlign: 'center', position: 'relative' }}>
+      <div style={{ padding: 'clamp(2.25rem, 4.5vw, 3.25rem) clamp(1.25rem, 6vw, 2.5rem)', textAlign: 'center', position: 'relative' }}>
         <div style={{ position: 'absolute', left: '50%', top: '50%', width: '700px', height: '700px', transform: 'translate(-50%, -50%)', borderRadius: '50%', background: 'radial-gradient(circle, rgba(206,48,125,0.12) 0%, transparent 65%)', pointerEvents: 'none' }} />
         <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative' }}>
           <motion.span initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -18,7 +18,7 @@ export function OfferAvailability() {
           </motion.span>
           <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2.5rem, 6vw, 5rem)', letterSpacing: '-0.03em', lineHeight: 1.05, margin: '0 0 1.75rem', color: '#f0ede8' }}>
+            style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.5rem, 6vw, 5rem)', letterSpacing: '-0.03em', lineHeight: 1.05, margin: '0 0 1.75rem', color: '#f0ede8' }}>
             Ready when <em style={{ color: '#CE307D', fontStyle: 'italic' }}>you are.</em>
           </motion.h2>
 

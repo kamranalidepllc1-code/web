@@ -227,7 +227,7 @@ function GbpVisual() {
         {/* Profile card */}
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.8, ease }}
           style={{ position: 'absolute', left: 'clamp(0.75rem, 3vw, 1.25rem)', right: 'clamp(0.75rem, 3vw, 1.25rem)', bottom: 'clamp(0.75rem, 3vw, 1.25rem)', background: 'rgba(17,17,17,0.96)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 14, padding: 'clamp(0.9rem, 2.5vw, 1.2rem)' }}>
-          <p style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: '1.2rem', margin: '0 0 0.35rem', color: '#f0ede8' }}>Your Business</p>
+          <p style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: '1.2rem', margin: '0 0 0.35rem', color: '#f0ede8' }}>Your Business</p>
           <div style={{ display: 'flex', alignItems: 'center', gap: 3, marginBottom: '0.55rem' }}>
             {[0, 1, 2, 3, 4].map(i => (
               <motion.span key={i} initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1 + i * 0.08 }} style={{ display: 'inline-flex' }}>
@@ -636,7 +636,7 @@ function ContentVisual() {
       <Frame>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.9rem', padding: '0.7rem 1rem', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
           {['H1', 'B', 'I', '“'].map(t => (
-            <span key={t} style={{ fontSize: '0.66rem', fontFamily: "'Fraunces', serif", color: t === 'H1' ? '#CE307D' : 'rgba(240,237,232,0.5)' }}>{t}</span>
+            <span key={t} style={{ fontSize: '0.66rem', fontFamily: "var(--font-fraunces), serif", color: t === 'H1' ? '#CE307D' : 'rgba(240,237,232,0.5)' }}>{t}</span>
           ))}
           <span style={{ marginLeft: 'auto', display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: '0.6rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(240,237,232,0.5)' }}>
             <PenLine size={11} color="#CE307D" /> Draft
@@ -694,7 +694,7 @@ function BrandVisual() {
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
             style={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.07)', background: '#272a30', padding: '0.9rem', display: 'flex', flexDirection: 'column', gap: 6 }}>
             <span style={{ fontSize: '0.55rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(240,237,232,0.45)' }}>Typeface</span>
-            <span style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(1.9rem, 5vw, 2.6rem)', lineHeight: 1, color: '#f0ede8' }}>Aa</span>
+            <span style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(1.9rem, 5vw, 2.6rem)', lineHeight: 1, color: '#f0ede8' }}>Aa</span>
             <Bar w="80%" h={4} delay={0.9} />
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9 }}

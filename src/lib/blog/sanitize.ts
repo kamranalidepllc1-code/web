@@ -1,5 +1,6 @@
 import 'server-only'
 import sanitizeHtml from 'sanitize-html'
+import { rewriteWordPressLink } from '@/lib/wordpress/legacy'
 
 /**
  * Allow-list for article HTML coming from WordPress. Strips Elementor classes
@@ -28,8 +29,9 @@ export function sanitizeBlogHtml(html: string): string {
     transformTags: {
       h1: 'h2', // the page title is the only H1
       a: (tagName, attribs) => {
-        const href = attribs.href || '#'
-        const external = /^https?:\/\//i.test(href) && !/^https?:\/\/(www\.)?digierapro\.com/i.test(href)
+        // Old WordPress permalinks (/blog/x/, /resource/x/, WP pages) → Next.js routes.
+        const href = rewriteWordPressLink(attribs.href || '#')
+        const external = /^https?:\/\//i.test(href)
         const attribsOut: Record<string, string> = external ? { href, target: '_blank', rel: 'noopener noreferrer' } : { href }
         return { tagName, attribs: attribsOut }
       },

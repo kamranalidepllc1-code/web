@@ -16,11 +16,11 @@ export function AboutValues() {
   const [hoveredValue, setHoveredValue] = useState<string | null>(null)
 
   return (
-    <section style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
+    <section style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-        <RevealOnScroll style={{ textAlign: 'center', marginBottom: '4rem' }}>
+        <RevealOnScroll style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
           <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D' }}>What drives us</span>
-          <h2 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 4rem)', letterSpacing: '-0.03em', margin: '1rem 0 0', lineHeight: 1, color: '#f0ede8' }}>
+          <h2 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 4rem)', letterSpacing: '-0.03em', margin: '1rem 0 0', lineHeight: 1, color: '#f0ede8' }}>
             Principles, not just <em style={{ color: '#CE307D', fontStyle: 'italic' }}>slogans.</em>
           </h2>
         </RevealOnScroll>
@@ -62,7 +62,7 @@ export function AboutValues() {
                 <v.icon style={{ position: 'relative', zIndex: 1 }} size={34} strokeWidth={1.4} color={highlighted || hoveredValue === v.word ? '#fff' : '#1a1a1a'} />
                 <div style={{ position: 'relative', zIndex: 1 }}>
                   <span style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', opacity: 0.75, display: 'block', marginBottom: '0.75rem' }}>{v.word}</span>
-                  <p style={{ fontFamily: "'Fraunces', serif", fontWeight: 400, fontSize: '1.15rem', lineHeight: 1.3, margin: 0 }}>{TITLES[v.word]}</p>
+                  <p style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 400, fontSize: '1.15rem', lineHeight: 1.3, margin: 0 }}>{TITLES[v.word]}</p>
                   <p style={{ fontSize: '0.78rem', lineHeight: 1.65, opacity: 0.82, margin: '1rem auto 0', maxWidth: '24ch' }}>{v.desc}</p>
                 </div>
                 <span style={{ position: 'relative', zIndex: 1, marginTop: 'auto', fontSize: '1.1rem', opacity: 0.8 }}>↗</span>

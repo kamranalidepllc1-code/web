@@ -26,9 +26,9 @@ export function ServiceShowcase({ showcase }: { showcase: ServicePageContent['sh
       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(34,36,41,0.95) 0%, rgba(34,36,41,0.55) 50%, rgba(34,36,41,0.35) 100%)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(34,36,41,0.7) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
-      <div style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: '1400px', margin: '0 auto', padding: 'clamp(3rem, 8vw, 5.5rem) clamp(1.25rem, 6vw, 2.5rem)' }}>
+      <div style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: '1400px', margin: '0 auto', padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)' }}>
         <RevealOnScroll>
-          <p style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 6vw, 5.5rem)', letterSpacing: '-0.035em', lineHeight: 1, margin: '0 0 1.5rem', color: '#f0ede8', maxWidth: '16ch' }}>
+          <p style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 6vw, 5.5rem)', letterSpacing: '-0.035em', lineHeight: 1, margin: '0 0 1.5rem', color: '#f0ede8', maxWidth: '16ch' }}>
             {showcase.statement} <em style={{ color: '#CE307D', fontStyle: 'italic' }}>{showcase.statementAccent}</em>
           </p>
           <div style={{ display: 'flex', gap: '1.25rem', alignItems: 'stretch', maxWidth: '520px' }}>

@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { motion, useMotionValue, useMotionValueEvent, useReducedMotion, useTransform } from 'framer-motion'
 
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1]
@@ -19,7 +20,74 @@ const SERVICES = ['SEO', 'Social Media', 'Branding', 'Google Ads', 'Web Developm
 
 type Phase = 'loading' | 'complete' | 'leaving' | 'done'
 
+/**
+ * The branded intro plays once, on the first visit. Every page opened after that
+ * (client-side navigation) gets only the curtain reveal. Public site only — not the admin tools.
+ */
 export function Preloader() {
+  const pathname = usePathname()
+  // Count page changes; the layout (and this component) stays mounted across navigations.
+  const [nav, setNav] = useState({ path: pathname, count: 0 })
+  if (nav.path !== pathname) setNav({ path: pathname, count: nav.count + 1 })
+
+  if (pathname?.startsWith('/admin')) return null
+  return (
+    <>
+      <SitePreloader />
+      {nav.count > 0 && <CurtainReveal key={nav.count} />}
+    </>
+  )
+}
+
+/** Both halves of the curtain. Closed until `opening`, then each slides out with a pink layer trailing it. */
+function Curtains({ opening }: { opening: boolean }) {
+  return (
+    <div aria-hidden style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
+      {CURTAINS.map(side => {
+        const off = side === 'left' ? '-100%' : '100%'
+        const box = { position: 'absolute' as const, top: 0, bottom: 0, width: '50.5%', [side]: 0 }
+        return (
+          <div key={side}>
+            {opening && (
+              <motion.div
+                initial={{ x: '0%' }}
+                animate={{ x: off }}
+                transition={{ duration: CURTAIN_DURATION, delay: PINK_LAG, ease: wipeEase }}
+                style={{ ...box, background: '#CE307D' }}
+              />
+            )}
+            <motion.div
+              initial={{ x: '0%' }}
+              animate={{ x: opening ? off : '0%' }}
+              transition={{ duration: CURTAIN_DURATION, ease: wipeEase }}
+              style={{ ...box, background: '#222429', willChange: 'transform' }}
+            />
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+/** Curtain-only reveal for page navigations: mounts closed over the new page, then opens. */
+function CurtainReveal() {
+  const reduceMotion = useReducedMotion()
+  const [done, setDone] = useState(false)
+
+  useEffect(() => {
+    const id = window.setTimeout(() => setDone(true), (CURTAIN_DURATION + PINK_LAG) * 1000 + 100)
+    return () => window.clearTimeout(id)
+  }, [])
+
+  if (done || reduceMotion) return null
+  return (
+    <div style={{ position: 'fixed', inset: 0, zIndex: 9999, pointerEvents: 'none' }}>
+      <Curtains opening />
+    </div>
+  )
+}
+
+function SitePreloader() {
   const [phase, setPhase] = useState<Phase>('loading')
   const reduceMotion = useReducedMotion()
   const progress = useMotionValue(0)
@@ -87,7 +155,7 @@ export function Preloader() {
 
   const leaving = phase === 'leaving'
   const wordmarkStyle = {
-    display: 'block', fontFamily: "'Outfit', sans-serif", fontWeight: 700, textTransform: 'uppercase' as const,
+    display: 'block', fontFamily: "var(--font-outfit), sans-serif", fontWeight: 700, textTransform: 'uppercase' as const,
     fontSize: 'clamp(2.6rem, 11.5vw, 10.5rem)', lineHeight: 1, letterSpacing: '-0.04em', whiteSpace: 'nowrap' as const,
   }
 
@@ -101,33 +169,11 @@ export function Preloader() {
       transition={{ duration: 0.4 }}
       style={{
         position: 'fixed', inset: 0, zIndex: 9999, color: '#f0ede8',
-        fontFamily: "'Outfit', sans-serif", pointerEvents: leaving ? 'none' : 'auto',
+        fontFamily: "var(--font-outfit), sans-serif", pointerEvents: leaving ? 'none' : 'auto',
       }}
     >
       {/* Curtains: the screen splits at the centre and both halves slide out, a pink layer trailing each */}
-      <div aria-hidden style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
-        {CURTAINS.map(side => {
-          const off = side === 'left' ? '-100%' : '100%'
-          const box = { position: 'absolute' as const, top: 0, bottom: 0, width: '50.5%', [side]: 0 }
-          return (
-            <div key={side}>
-              {leaving && !reduceMotion && (
-                <motion.div
-                  initial={{ x: '0%' }}
-                  animate={{ x: off }}
-                  transition={{ duration: CURTAIN_DURATION, delay: PINK_LAG, ease: wipeEase }}
-                  style={{ ...box, background: '#CE307D' }}
-                />
-              )}
-              <motion.div
-                animate={{ x: leaving && !reduceMotion ? off : '0%' }}
-                transition={{ duration: CURTAIN_DURATION, ease: wipeEase }}
-                style={{ ...box, background: '#222429', willChange: 'transform' }}
-              />
-            </div>
-          )
-        })}
-      </div>
+      <Curtains opening={leaving && !reduceMotion} />
 
       <motion.div
         animate={{ opacity: leaving ? 0 : 1, scale: leaving ? 0.96 : 1 }}
@@ -145,16 +191,12 @@ export function Preloader() {
           style={{ position: 'absolute', top: 'clamp(1.25rem, 4vw, 2.25rem)', left: 0, right: 0, display: 'flex', justifyContent: 'center' }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/Assets/logo/logo.png" alt="Digi Era Pro" style={{ height: 'clamp(2.25rem, 6vw, 3rem)', width: 'auto', display: 'block' }} />
+          <img src="/Assets/logo/logo-112.webp" alt="Digi Era Pro" style={{ height: 'clamp(2.25rem, 6vw, 3rem)', width: 'auto', display: 'block' }} />
         </motion.div>
 
-        {/* Wordmark: outline that fills with brand pink as the site loads */}
-        <motion.div
-          initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ duration: 1.1, ease }}
-          style={{ position: 'relative' }}
-        >
+        {/* Wordmark: outline that fills with brand pink as the site loads.
+            Its entrance is CSS (globals.css .preloader-rise) so it paints before hydration. */}
+        <div className="preloader-rise" style={{ position: 'relative' }}>
           <span aria-hidden style={{ ...wordmarkStyle, color: 'transparent', WebkitTextStroke: '1px rgba(240,237,232,0.28)' }}>
             {WORDMARK}
           </span>
@@ -179,7 +221,7 @@ export function Preloader() {
               boxShadow: '0 0 12px rgba(206,48,125,0.9)',
             }}
           />
-        </motion.div>
+        </div>
 
         {/* Meta row */}
         <motion.div

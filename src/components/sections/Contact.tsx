@@ -1,8 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, Phone } from 'lucide-react'
+import { Phone } from 'lucide-react'
 import { FaWhatsapp } from 'react-icons/fa6'
+import { RotatingBadge } from '@/components/ui/RotatingBadge'
 import { FOOTER_EXPLORE, FOOTER_CONTACT, SOCIAL_LINKS } from '@/data/site'
 
 export function Contact() {
@@ -11,36 +12,28 @@ export function Contact() {
       <div style={{ position: 'absolute', top: '-30%', right: '-5%', width: '700px', height: '700px', borderRadius: '50%', background: 'rgba(255,255,255,0.06)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: '-40%', left: '-10%', width: '500px', height: '500px', borderRadius: '50%', background: 'rgba(0,0,0,0.08)', pointerEvents: 'none' }} />
       <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
-        <div style={{ display: 'grid', gap: '3rem', alignItems: 'end', marginBottom: '4.5rem' }} className="grid grid-cols-1 lg:grid-cols-2">
+        <div style={{ display: 'grid', gap: '3rem', alignItems: 'center', marginBottom: '2.75rem' }} className="grid grid-cols-1 lg:grid-cols-[1fr_auto]">
           <div>
             <motion.span initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#ffffff', display: 'block', marginBottom: '1.5rem' }}>Let&apos;s work together</motion.span>
             <motion.h2 initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2.75rem, 7vw, 6.5rem)', letterSpacing: '-0.03em', margin: 0, lineHeight: 0.95, color: '#fff' }}>
+              style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(1.6rem, 6vw, 5.5rem)', letterSpacing: '-0.03em', margin: 0, lineHeight: 0.95, color: '#fff', whiteSpace: 'nowrap' }}>
               Start your next <em style={{ fontStyle: 'italic', color: '#ffffff' }}>chapter.</em>
             </motion.h2>
           </div>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.25 }}
-            style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
-            <motion.a href={`mailto:${FOOTER_CONTACT[2].value}`}
-              style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem', background: '#fff', color: '#CE307D', padding: '1.1rem 1.75rem', fontSize: '0.85rem', letterSpacing: '0.04em', fontWeight: 600, textDecoration: 'none', borderRadius: '10px' }}
-              whileHover={{ y: -4, boxShadow: '0 16px 40px rgba(0,0,0,0.2)' }} whileTap={{ scale: 0.97 }}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}><Mail size={16} /> {FOOTER_CONTACT[2].value}</span>
-              <span>→</span>
-            </motion.a>
-            <motion.a href={FOOTER_CONTACT[0].href}
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.65rem', background: 'rgba(255,255,255,0.08)', color: '#fff', border: '1px solid rgba(255,255,255,0.4)', padding: '1.1rem 1.75rem', fontSize: '0.85rem', letterSpacing: '0.04em', textDecoration: 'none', borderRadius: '10px' }}
-              whileHover={{ borderColor: '#fff', background: 'rgba(255,255,255,0.15)' }} whileTap={{ scale: 0.97 }}>
-              <Phone size={16} /> {FOOTER_CONTACT[0].value}
-            </motion.a>
+            style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', gap: 'clamp(1.5rem, 4vw, 3rem)' }} className="justify-center sm:justify-start lg:justify-end">
+            <RotatingBadge text={`${FOOTER_CONTACT[0].value} • CALL US • `} href={FOOTER_CONTACT[0].href} label={`Call ${FOOTER_CONTACT[0].value}`} size={120}>
+              <Phone size={20} />
+            </RotatingBadge>
           </motion.div>
         </div>
 
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.25)', paddingTop: 'clamp(1.5rem, 4vw, 3rem)' }}>
           <div className="grid grid-cols-2 gap-6 sm:gap-8 lg:grid-cols-4 lg:gap-12">
             <div className="col-span-2 lg:col-span-1">
-              <span style={{ fontFamily: "'Fraunces', serif", fontWeight: 700, fontSize: '1.6rem', letterSpacing: '-0.02em', color: '#fff' }}>
+              <span style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 700, fontSize: '1.6rem', letterSpacing: '-0.02em', color: '#fff' }}>
                 DIGI ERA PRO
               </span>
               <p style={{ color: '#ffffff', fontSize: '0.9rem', lineHeight: 1.7, margin: '1.25rem 0 1.5rem', maxWidth: '32ch' }}>

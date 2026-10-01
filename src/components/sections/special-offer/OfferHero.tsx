@@ -32,7 +32,7 @@ export function OfferHero() {
       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(34,36,41,0.96) 0%, rgba(34,36,41,0.6) 45%, rgba(34,36,41,0.25) 100%)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(34,36,41,0.75) 0%, transparent 65%)', pointerEvents: 'none' }} />
 
-      <div style={{ position: 'relative', zIndex: 1, padding: '0 clamp(1.25rem, 6vw, 2.5rem) clamp(3rem, 8vw, 5rem)', maxWidth: '1400px', margin: '0 auto', width: '100%', paddingTop: 'clamp(110px, 22vw, 150px)' }}>
+      <div style={{ position: 'relative', zIndex: 1, padding: '0 clamp(1.25rem, 6vw, 2.5rem) clamp(2rem, 4vw, 3rem)', maxWidth: '1400px', margin: '0 auto', width: '100%', paddingTop: 'clamp(110px, 22vw, 150px)' }}>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
           style={{ display: 'inline-flex', alignItems: 'center', gap: '0.65rem', marginBottom: '1.75rem', border: '1px solid rgba(206,48,125,0.5)', background: 'rgba(206,48,125,0.1)', padding: '0.45rem 1rem 0.45rem 0.8rem', borderRadius: '999px' }}>
           <motion.span animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }} transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
@@ -41,12 +41,12 @@ export function OfferHero() {
         </motion.div>
 
         <motion.h1 initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.15, ease }}
-          style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2.75rem, 8vw, 7.25rem)', lineHeight: 0.95, letterSpacing: '-0.035em', margin: '0 0 clamp(2rem, 4vw, 2.75rem)', color: '#f0ede8', maxWidth: '14ch' }}>
+          style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.75rem, 8vw, 7.25rem)', lineHeight: 0.95, letterSpacing: '-0.035em', margin: '0 0 clamp(2rem, 4vw, 2.75rem)', color: '#f0ede8', maxWidth: '14ch' }}>
           Something special, <em style={{ color: '#CE307D', fontStyle: 'italic' }}>for a limited time.</em>
         </motion.h1>
 
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.4 }}
-          style={{ display: 'grid', gap: 'clamp(1.75rem, 4vw, 3rem)', alignItems: 'end', marginBottom: 'clamp(2.5rem, 6vw, 4rem)' }}
+          style={{ display: 'grid', gap: 'clamp(1.75rem, 4vw, 3rem)', alignItems: 'end', marginBottom: 'clamp(1.5rem, 3vw, 2rem)' }}
           className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_auto]">
           <div style={{ display: 'flex', gap: 'clamp(1.25rem, 3vw, 2rem)', alignItems: 'stretch', maxWidth: '640px' }}>
             <span style={{ width: '1px', background: '#CE307D', flexShrink: 0 }} />

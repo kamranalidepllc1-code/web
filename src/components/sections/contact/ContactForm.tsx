@@ -1,9 +1,13 @@
 'use client'
 
 import { useState, type FormEvent } from 'react'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { Mail } from 'lucide-react'
 import { RevealOnScroll } from '@/lib/animations'
+import { RotatingBadge } from '@/components/ui/RotatingBadge'
+import { FOOTER_CONTACT } from '@/data/site'
+
+const email = FOOTER_CONTACT.find(c => c.href.startsWith('mailto:'))!
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -31,34 +35,6 @@ function Field({
       <label htmlFor={id} style={labelStyle}>{label}</label>
       {children}
       {error && <p id={`${id}-error`} role="alert" style={{ color: '#ff8fb8', fontSize: '0.76rem', margin: '0.5rem 0 0' }}>{error}</p>}
-    </div>
-  )
-}
-
-function RotatingBadge() {
-  const text = 'DIGI ERA PRO • LET’S TALK • DIGI ERA PRO • LET’S TALK • '
-  return (
-    <div style={{ position: 'relative', width: '150px', height: '150px', flexShrink: 0 }}>
-      <motion.svg
-        viewBox="0 0 200 200"
-        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
-        animate={{ rotate: 360 }}
-        transition={{ repeat: Infinity, duration: 18, ease: 'linear' }}
-      >
-        <defs>
-          <path id="badgeCircle" d="M 100,100 m -88,0 a 88,88 0 1,1 176,0 a 88,88 0 1,1 -176,0" />
-        </defs>
-        <text fontSize="12.5" letterSpacing="1.5" fill="rgba(240,237,232,0.85)" style={{ fontFamily: "'Outfit', sans-serif" }}>
-          <textPath href="#badgeCircle">{text}</textPath>
-        </text>
-      </motion.svg>
-      <div style={{
-        position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-        width: '78px', height: '78px', borderRadius: '50%', background: '#151515',
-        border: '1px solid rgba(255,255,255,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-      }}>
-        <Image src="/Assets/logo/logo.png" alt="" width={40} height={40} style={{ objectFit: 'contain' }} />
-      </div>
     </div>
   )
 }
@@ -121,7 +97,7 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contact-form" style={{ padding: 'clamp(3.5rem, 9vw, 8rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429', position: 'relative' }}>
+    <section id="contact-form" style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429', position: 'relative' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ display: 'grid', gap: 'clamp(2.5rem, 6vw, 5rem)', alignItems: 'center' }} className="grid grid-cols-1 lg:grid-cols-2">
 
@@ -133,11 +109,14 @@ export function ContactForm() {
             }}>
               Contact Us
             </span>
-            <h2 style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', letterSpacing: '-0.02em', margin: '0 0 2.5rem', lineHeight: 1.12, color: '#f0ede8' }}>
+            <h2 style={{ fontFamily: "var(--font-outfit), sans-serif", fontWeight: 700, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', letterSpacing: '-0.02em', margin: '0 0 2.5rem', lineHeight: 1.12, color: '#f0ede8' }}>
               Ready to <span style={{ color: '#CE307D' }}>Bring</span> Your Vision to Life?
             </h2>
             <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
-              <RotatingBadge />
+              <RotatingBadge text={`${email.value.toUpperCase()} • EMAIL US • `} href={email.href} label={`Email ${email.value}`} size={150}
+                caption={{ title: email.label, value: email.value }}>
+                <Mail size={20} />
+              </RotatingBadge>
               <div className="hide-mobile" style={{ marginTop: '-1.5rem' }}>
                 <SquiggleArrow />
               </div>
@@ -149,7 +128,7 @@ export function ContactForm() {
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
                 style={{ background: '#2a2d33', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: 'clamp(2.5rem, 5vw, 3.5rem)', boxShadow: '0 30px 80px rgba(0,0,0,0.5)', textAlign: 'center' }}>
                 <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D' }}>Message sent</span>
-                <h3 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(1.6rem, 3vw, 2.25rem)', letterSpacing: '-0.03em', margin: '1rem 0 1.25rem', color: '#f0ede8' }}>
+                <h3 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(1.6rem, 3vw, 2.25rem)', letterSpacing: '-0.03em', margin: '1rem 0 1.25rem', color: '#f0ede8' }}>
                   Thanks — we got it.
                 </h3>
                 <p style={{ color: '#ffffff', fontSize: '0.92rem', lineHeight: 1.8, margin: '0 0 2rem' }}>

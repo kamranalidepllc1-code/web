@@ -32,7 +32,7 @@ export function AboutStandOutFeatures() {
   const [hoveredFeature, setHoveredFeature] = useState<string | null>(null)
 
   return (
-    <section style={{ padding: 'clamp(3rem, 7vw, 5rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
+    <section style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <StaggerOnScroll style={{ display: 'grid', gap: '1.5rem' }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {FEATURES.map((f) => (
@@ -61,7 +61,7 @@ export function AboutStandOutFeatures() {
             >
               <f.icon size={34} strokeWidth={1.4} color="#CE307D" />
               <div>
-                <h3 style={{ fontFamily: "'Fraunces', serif", fontWeight: 400, fontSize: '1.15rem', color: '#f0ede8', margin: '0 0 0.85rem' }}>{f.title}</h3>
+                <h3 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 400, fontSize: '1.15rem', color: '#f0ede8', margin: '0 0 0.85rem' }}>{f.title}</h3>
                 <p style={{ fontSize: '0.88rem', lineHeight: 1.7, color: '#ffffff', margin: 0 }}>{f.desc}</p>
               </div>
             </motion.div>

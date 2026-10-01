@@ -18,12 +18,12 @@ function OfferBadge() {
         <defs>
           <path id="offerBadgePath" d="M 65,65 m -50,0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0" fill="none" />
         </defs>
-        <text fontSize="9" letterSpacing="3" fill="#f0ede8" fontFamily="'Outfit', sans-serif">
+        <text fontSize="9" letterSpacing="3" fill="#f0ede8" fontFamily="var(--font-outfit), sans-serif">
           <textPath href="#offerBadgePath">LIMITED TIME • SPECIAL OFFER • </textPath>
         </text>
       </motion.svg>
       <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <span style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#CE307D', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontFamily: "'Fraunces', serif", fontStyle: 'italic', fontSize: '1.3rem' }}>★</span>
+        <span style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#CE307D', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontFamily: "var(--font-fraunces), serif", fontStyle: 'italic', fontSize: '1.3rem' }}>★</span>
       </div>
     </div>
   )
@@ -42,13 +42,13 @@ export function OfferHighlight() {
   const { originalPrice, offerPrice, validUntil } = SPECIAL_OFFER
 
   return (
-    <section className="special-offer-highlight" id="offer" style={{ padding: 'clamp(4rem, 10vw, 9rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429', position: 'relative', overflow: 'hidden', scrollMarginTop: '60px' }}>
+    <section className="special-offer-highlight" id="offer" style={{ padding: 'clamp(2.25rem, 4.5vw, 3.25rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429', position: 'relative', overflow: 'hidden', scrollMarginTop: '60px' }}>
       <div style={{ position: 'absolute', top: '10%', right: '-12%', width: '620px', height: '620px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(206,48,125,0.14) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
       <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', display: 'grid', gap: 'clamp(3rem, 7vw, 6rem)', alignItems: 'center' }} className="grid grid-cols-1 lg:grid-cols-[5fr_6fr]">
         <RevealOnScroll>
           <EyebrowLabel>The offer</EyebrowLabel>
-          <h2 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2.5rem, 5.5vw, 4.75rem)', letterSpacing: '-0.03em', lineHeight: 1, margin: '0 0 1.5rem', color: '#f0ede8' }}>
+          <h2 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.5rem, 5.5vw, 4.75rem)', letterSpacing: '-0.03em', lineHeight: 1, margin: '0 0 1.5rem', color: '#f0ede8' }}>
             {SPECIAL_OFFER.title.split(' ').slice(0, -1).join(' ')}{' '}
             <em style={{ color: '#CE307D', fontStyle: 'italic' }}>{SPECIAL_OFFER.title.split(' ').slice(-1)}</em>
           </h2>
@@ -69,7 +69,7 @@ export function OfferHighlight() {
             <span style={{ position: 'absolute', top: '50%', right: '-13px', width: '26px', height: '26px', borderRadius: '50%', background: '#222429', border: '1px solid rgba(255,255,255,0.12)', transform: 'translateY(-50%)' }} />
 
             <div className="special-offer-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '1rem', marginBottom: '1.75rem', flexWrap: 'wrap' }}>
-              <span style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(1.35rem, 2.6vw, 1.75rem)', fontWeight: 300, letterSpacing: '-0.02em', color: '#f0ede8' }}>What you get</span>
+              <span style={{ fontFamily: "var(--font-fraunces), serif", fontSize: 'clamp(1.35rem, 2.6vw, 1.75rem)', fontWeight: 300, letterSpacing: '-0.02em', color: '#f0ede8' }}>What you get</span>
               <span style={{ fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D' }}>Special offer</span>
             </div>
 
@@ -84,7 +84,7 @@ export function OfferHighlight() {
             <Row label="Value">
               {offerPrice ? (
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', flexWrap: 'wrap' }}>
-                  <span style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(2.25rem, 5vw, 3.25rem)', fontWeight: 300, letterSpacing: '-0.03em', color: '#CE307D', lineHeight: 1 }}>{offerPrice}</span>
+                  <span style={{ fontFamily: "var(--font-fraunces), serif", fontSize: 'clamp(2.25rem, 5vw, 3.25rem)', fontWeight: 300, letterSpacing: '-0.03em', color: '#CE307D', lineHeight: 1 }}>{offerPrice}</span>
                   {originalPrice && (
                     <span style={{ fontSize: '1rem', color: 'rgba(240,237,232,0.45)', textDecoration: 'line-through' }}>{originalPrice}</span>
                   )}

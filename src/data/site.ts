@@ -122,20 +122,20 @@ export const VIDEO_STORIES = [
 ]
 
 export const CLIENT_LOGOS = [
-  { name: 'Enterprises LLC', img: '/Assets/business success/1.webp' },
-  { name: 'Raven Rock Contracting', img: '/Assets/business success/2.webp' },
-  { name: 'OnPoint Detailing LLC', img: '/Assets/business success/7.webp' },
-  { name: 'Affordable Demolition & Construction LLC', img: '/Assets/business success/4.webp' },
-  { name: 'Creative Fence Company', img: '/Assets/business success/5.webp' },
-  { name: 'SW Mobile Detailing', img: '/Assets/business success/6.webp' },
+  { name: 'Enterprises LLC', img: '/Assets/business success/1.webp', href: 'https://ahebooks.com/' },
+  { name: 'Raven Rock Contracting', img: '/Assets/business success/2.webp', href: 'https://ravenrockcontractingva.com/' },
+  { name: 'OnPoint Detailing LLC', img: '/Assets/business success/7.webp', href: 'https://onpointdetailingllc.net/' },
+  { name: 'Affordable Demolition & Construction LLC', img: '/Assets/business success/4.webp', href: 'https://affordabledemolitionconstruction.com/' },
+  { name: 'Creative Fence Company', img: '/Assets/business success/5.webp', href: 'https://creativefenceca.com/' },
+  { name: 'SW Mobile Detailing', img: '/Assets/business success/6.webp', href: 'https://swdetailing.com/' },
 ]
 
 export const PARTNERS = [
-  { name: 'Yelp Ads Optimization', img: '/Assets/partners/imgi_40_Gemini_Generated_Image_j15rwpj15rwpj15r-e1761943136131-300x200.webp' },
-  { name: 'Meta Business Partner', img: '/Assets/partners/imgi_41_MetaBusinessPartne-e1730318781747-300x212.jpg' },
-  { name: 'Trustpilot', img: '/Assets/partners/imgi_7_Untitled-design-123.png' },
-  { name: 'Secured by PositiveSSL', img: '/Assets/partners/imgi_1_download-17.webp' },
-  { name: 'Google Partner', img: '/Assets/partners/imgi_43_BES-featured-image-1-300x150.jpg' },
+  { name: 'Yelp Ads Optimization', img: '/Assets/partners/imgi_40_Gemini_Generated_Image_j15rwpj15rwpj15r-e1761943136131-300x200.webp', href: 'https://www.youtube.com/watch?si=KWlDWxutBCHf_YDm&v=rYX04ADoxnI&feature=youtu.be' },
+  { name: 'Meta Business Partner', img: '/Assets/partners/imgi_41_MetaBusinessPartne-e1730318781747-300x212.jpg', href: undefined as string | undefined },
+  { name: 'Trustpilot', img: '/Assets/partners/imgi_7_Untitled-design-123.png', href: 'https://www.trustpilot.com/review/digierapro.com' },
+  { name: 'Secured by PositiveSSL', img: '/Assets/partners/imgi_1_download-17.webp', href: 'https://secure.trust-provider.com/ttb_searcher/trustlogo?v_querytype=W&v_shortname=POSDV&v_search=https://digierapro.com/&x=6&y=5' },
+  { name: 'Google Partner', img: '/Assets/partners/imgi_43_BES-featured-image-1-300x150.jpg', href: 'https://www.google.com/partners/agency?id=3311195559' },
 ]
 
 export const JOURNAL = [
