@@ -7,11 +7,11 @@ import { OFFER_STEPS } from '@/data/specialOffer'
 
 export function OfferProcess() {
   return (
-    <section style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#272a30' }}>
+    <section style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: 'var(--surface)' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <RevealOnScroll style={{ marginBottom: 'clamp(1.5rem, 3vw, 2rem)' }}>
           <EyebrowLabel>How to claim it</EyebrowLabel>
-          <h2 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 4.25rem)', letterSpacing: '-0.03em', lineHeight: 1, margin: 0, color: '#f0ede8' }}>
+          <h2 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 4.25rem)', letterSpacing: '-0.03em', lineHeight: 1, margin: 0, color: 'var(--fg)' }}>
             Four simple <em style={{ color: '#CE307D', fontStyle: 'italic' }}>steps.</em>
           </h2>
         </RevealOnScroll>
@@ -28,16 +28,16 @@ export function OfferProcess() {
               <motion.div key={step.num} variants={fadeUp} whileHover="hover" style={{ position: 'relative' }}>
                 <motion.span
                   variants={{ hover: { scale: 1.3, background: '#CE307D' } }}
-                  style={{ display: 'block', width: '15px', height: '15px', borderRadius: '50%', border: '1px solid #CE307D', background: '#272a30', marginBottom: '2rem', position: 'relative' }}
+                  style={{ display: 'block', width: '15px', height: '15px', borderRadius: '50%', border: '1px solid #CE307D', background: 'var(--surface)', marginBottom: '2rem', position: 'relative' }}
                 />
-                <span style={{ fontFamily: "var(--font-fraunces), serif", fontSize: 'clamp(2.75rem, 5vw, 4rem)', fontWeight: 300, letterSpacing: '-0.04em', lineHeight: 1, color: 'rgba(240,237,232,0.14)', display: 'block', marginBottom: '1rem' }}>{step.num}</span>
+                <span style={{ fontFamily: "var(--font-fraunces), serif", fontSize: 'clamp(2.75rem, 5vw, 4rem)', fontWeight: 300, letterSpacing: '-0.04em', lineHeight: 1, color: 'rgba(var(--fg-rgb),0.14)', display: 'block', marginBottom: '1rem' }}>{step.num}</span>
                 <motion.h3
                   variants={{ hover: { color: '#CE307D' } }}
-                  style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(1.3rem, 2.4vw, 1.65rem)', letterSpacing: '-0.02em', margin: '0 0 0.75rem', color: '#f0ede8' }}
+                  style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(1.3rem, 2.4vw, 1.65rem)', letterSpacing: '-0.02em', margin: '0 0 0.75rem', color: 'var(--fg)' }}
                 >
                   {step.title}
                 </motion.h3>
-                <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem', lineHeight: 1.75, margin: 0, maxWidth: '30ch' }}>{step.desc}</p>
+                <p style={{ color: 'rgba(var(--fg-rgb),0.8)', fontSize: '0.9rem', lineHeight: 1.75, margin: 0, maxWidth: '30ch' }}>{step.desc}</p>
               </motion.div>
             ))}
           </StaggerOnScroll>

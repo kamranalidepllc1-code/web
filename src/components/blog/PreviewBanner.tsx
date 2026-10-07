@@ -19,7 +19,7 @@ export async function PreviewBanner({ status, slug }: { status: string; slug: st
       position: 'fixed', left: '50%', bottom: '1.25rem', transform: 'translateX(-50%)', zIndex: 200,
       display: 'flex', alignItems: 'center', gap: '1rem', padding: '0.6rem 0.6rem 0.6rem 1.1rem', borderRadius: '999px',
       background: 'rgba(17,17,17,0.95)', border: '1px solid rgba(206,48,125,0.5)', boxShadow: '0 12px 40px rgba(0,0,0,0.5)',
-      fontSize: '0.78rem', letterSpacing: '0.04em', color: '#f0ede8', whiteSpace: 'nowrap', backdropFilter: 'blur(10px)',
+      fontSize: '0.78rem', letterSpacing: '0.04em', color: 'var(--fg)', whiteSpace: 'nowrap', backdropFilter: 'blur(10px)',
     }}>
       <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#CE307D', boxShadow: '0 0 10px #CE307D' }} />
       <span>Preview mode · <strong style={{ fontWeight: 500, textTransform: 'capitalize' }}>{status === 'publish' ? 'published + unsaved changes' : status}</strong></span>

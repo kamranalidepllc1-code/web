@@ -4,11 +4,11 @@ import { motion } from 'framer-motion'
 
 export function ContactFinalCTA() {
   return (
-    <section style={{ padding: 'clamp(2.25rem, 4.5vw, 3.25rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429', textAlign: 'center' }}>
+    <section style={{ padding: 'clamp(2.25rem, 4.5vw, 3.25rem) clamp(1.25rem, 6vw, 2.5rem)', background: 'var(--bg)', textAlign: 'center' }}>
       <div style={{ maxWidth: '900px', margin: '0 auto' }}>
         <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.5rem, 6vw, 5rem)', letterSpacing: '-0.03em', lineHeight: 1.05, margin: '0 0 2.5rem', color: '#f0ede8' }}>
+          style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.5rem, 6vw, 5rem)', letterSpacing: '-0.03em', lineHeight: 1.05, margin: '0 0 2.5rem', color: 'var(--fg)' }}>
           Have an idea?<br />Let&apos;s make it <em style={{ color: '#CE307D', fontStyle: 'italic' }}>happen.</em>
         </motion.h2>
         <motion.a href="#contact-form"

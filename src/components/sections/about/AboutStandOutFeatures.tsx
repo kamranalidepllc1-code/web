@@ -8,23 +8,23 @@ import { useState } from 'react'
 const FEATURES: { icon: LucideIcon; title: string; desc: string }[] = [
   {
     icon: FileSearch,
-    title: 'Custom Solutions',
-    desc: 'We believe in personalized strategies for every client. Your business is unique, and we make sure the plan we create is tailored specifically to meet your goals and drive real, lasting results.',
+    title: 'Plans Built for Your Market',
+    desc: 'We start with an audit of your website, Google Business Profile, and competitors, then recommend only the services that address what is actually holding you back.',
   },
   {
     icon: Database,
-    title: 'Real Growth Focus',
-    desc: "We focus on what truly matters—growing your business in meaningful ways. Our goal isn't just numbers; it's delivering results that help you succeed and thrive in the long term, not just the short term.",
+    title: 'Measured by Leads, Not Likes',
+    desc: 'We set up call, form, and conversion tracking before campaigns launch, so progress is measured in inquiries and sales rather than impressions and follower counts.',
   },
   {
     icon: Headset,
-    title: 'Always Here for You',
-    desc: "You're never alone in your journey. Our team is always available to provide hands-on support, expert advice, and guidance, making sure you're on the right track every step of the way.",
+    title: 'A Dedicated Account Manager',
+    desc: 'You work with a named account manager who knows your business, coordinates our specialists, and walks you through progress each month.',
   },
   {
     icon: Globe,
-    title: 'Long-Term Partnerships',
-    desc: "We're not here for quick wins. Our focus is on building lasting relationships with our clients, helping your business grow and evolve as the digital world changes around you.",
+    title: 'You Own Everything',
+    desc: 'Your Google Business Profile, ad accounts, and tracking data stay in your name. If we ever stop working together, they stay with you.',
   },
 ]
 
@@ -32,7 +32,7 @@ export function AboutStandOutFeatures() {
   const [hoveredFeature, setHoveredFeature] = useState<string | null>(null)
 
   return (
-    <section style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
+    <section style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: 'var(--bg)' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <StaggerOnScroll style={{ display: 'grid', gap: '1.5rem' }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {FEATURES.map((f) => (
@@ -48,8 +48,8 @@ export function AboutStandOutFeatures() {
               }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
               style={{
-                background: hoveredFeature === f.title ? 'rgba(206,48,125,0.06)' : '#2a2d33',
-                border: '1px solid rgba(255,255,255,0.08)',
+                background: hoveredFeature === f.title ? 'rgba(206,48,125,0.06)' : 'var(--surface-2)',
+                border: '1px solid rgba(var(--line-rgb), 0.08)',
                 borderRadius: '16px',
                 padding: 'clamp(2rem, 4vw, 2.5rem) clamp(1.5rem, 3vw, 1.75rem)',
                 display: 'flex',
@@ -61,8 +61,8 @@ export function AboutStandOutFeatures() {
             >
               <f.icon size={34} strokeWidth={1.4} color="#CE307D" />
               <div>
-                <h3 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 400, fontSize: '1.15rem', color: '#f0ede8', margin: '0 0 0.85rem' }}>{f.title}</h3>
-                <p style={{ fontSize: '0.88rem', lineHeight: 1.7, color: '#ffffff', margin: 0 }}>{f.desc}</p>
+                <h3 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 400, fontSize: '1.15rem', color: 'var(--fg)', margin: '0 0 0.85rem' }}>{f.title}</h3>
+                <p style={{ fontSize: '0.88rem', lineHeight: 1.7, color: 'var(--fg-strong)', margin: 0 }}>{f.desc}</p>
               </div>
             </motion.div>
           ))}

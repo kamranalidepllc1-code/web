@@ -13,7 +13,7 @@ export const SPECIAL_OFFER = {
   title: 'The Growth Starter Offer',
   // PLACEHOLDER — one-line summary shown in the hero and offer panel
   summary:
-    'A focused bundle of our core services to help your business look sharp, get found, and start turning attention into enquiries.',
+    'A focused bundle of our core services to help your business look sharp, get found, and start turning attention into inquiries.',
 
   // e.g. '$2,400' — shown struck through when both prices are set
   originalPrice: null as string | null,
@@ -71,6 +71,7 @@ export const GBP_PLANS = [
     price: '$350.00',
     icon: ReceiptText,
     featured: false,
+    buttonHref: 'https://buy.stripe.com/5kQ28r0kgajm9Ge8gjawo0w',
     features: [
       'Weekly 2 GBP Posts (Offers, Updates, or Announcements)',
       '10 Local Citations per Month',
@@ -87,6 +88,7 @@ export const GBP_PLANS = [
     price: '$525.00',
     icon: Gem,
     featured: true,
+    buttonHref: 'https://buy.stripe.com/dRmbJ16IE0IMaKidADawo0x',
     features: [
       '3 Google Business Profile Posts per Week',
       '20 Local Citations per Month',
@@ -103,6 +105,7 @@ export const GBP_PLANS = [
     price: '$925.00',
     icon: ReceiptText,
     featured: false,
+    buttonHref: 'https://buy.stripe.com/3cI28raYUdvy3hQ68bawo0z',
     features: [
       'Weekly 5 GBP Posts (Offers, Updates, or Announcements)',
       '30 Local Citations per Month',
@@ -118,4 +121,4 @@ export const GBP_PLANS = [
 ]
 
 // Replace '#' with the Terms & Conditions page URL once it exists
-export const GBP_TERMS_HREF = '#'
+export const GBP_TERMS_HREF = '/terms-conditions'

@@ -8,11 +8,11 @@ export function BlogCard({ post, featured }: { post: PostSummary; featured?: boo
   const category = post.categories[0]
   return (
     <Link href={`/blog/${post.slug}`} className={`blog-card${featured ? ' md:col-span-2' : ''}`}
-      style={{ background: '#222429', overflow: 'hidden', display: 'flex', flexDirection: 'column', textDecoration: 'none', color: 'inherit' }}>
+      style={{ background: 'var(--bg)', overflow: 'hidden', display: 'flex', flexDirection: 'column', textDecoration: 'none', color: 'inherit' }}>
       {/* WordPress banners carry their headline in the artwork, so keep their real proportions (no cropping). */}
       <div className="blog-card-media" style={{
         aspectRatio: post.image?.width && post.image?.height ? `${post.image.width} / ${post.image.height}` : '16 / 9',
-        overflow: 'hidden', background: '#2c2f35', flexShrink: 0, position: 'relative', borderBottom: '1px solid rgba(255,255,255,0.06)',
+        overflow: 'hidden', background: 'var(--surface-3)', flexShrink: 0, position: 'relative', borderBottom: '1px solid rgba(var(--line-rgb), 0.06)',
       }}>
         {post.image && (
           <Image src={post.image.url} alt={post.image.alt || post.title} fill
@@ -25,13 +25,13 @@ export function BlogCard({ post, featured }: { post: PostSummary; featured?: boo
           {category && (
             <span style={{ fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#CE307D', background: 'rgba(206,48,125,0.12)', border: '1px solid rgba(206,48,125,0.25)', padding: '0.25rem 0.7rem' }}>{category.name}</span>
           )}
-          <span style={{ fontSize: '0.68rem', color: '#ffffff', letterSpacing: '0.06em' }}>{formatDate(post.date, 'short')}</span>
+          <span style={{ fontSize: '0.68rem', color: 'var(--fg-strong)', letterSpacing: '0.06em' }}>{formatDate(post.date, 'short')}</span>
         </div>
-        <h3 className="blog-card-title" style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: featured ? '1.5rem' : '1.15rem', letterSpacing: '-0.01em', lineHeight: 1.25, color: '#f0ede8' }}>
+        <h3 className="blog-card-title" style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: featured ? '1.5rem' : '1.15rem', letterSpacing: '-0.01em', lineHeight: 1.25, color: 'var(--fg)' }}>
           {post.title}
         </h3>
         {post.excerpt && (
-          <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.85rem', lineHeight: 1.7, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{post.excerpt}</p>
+          <p style={{ color: 'rgba(var(--fg-rgb),0.75)', fontSize: '0.85rem', lineHeight: 1.7, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{post.excerpt}</p>
         )}
         <span style={{ fontSize: '0.7rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#CE307D', marginTop: 'auto', paddingTop: '0.5rem' }}>Read article →</span>
       </div>

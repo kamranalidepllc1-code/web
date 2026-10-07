@@ -11,6 +11,7 @@ const plans = [
         pages: '3-5 pages starting',
         price: '$1,299',
         icon: Monitor,
+        buttonHref: 'https://buy.stripe.com/3cI3cv2so1MQ7y6gMPawo0o',
         features: [
             '3-5 fully designed pages',
             'Mobile-friendly, SEO-ready design',
@@ -27,6 +28,7 @@ const plans = [
         price: '$1,949.99',
         icon: Wrench,
         featured: true,
+        buttonHref: 'https://buy.stripe.com/9B6bJ1eb6fDG19I8gjawo0p',
         features: [
             '5-10 responsive pages',
             'Smart content recommendations',
@@ -40,6 +42,7 @@ const plans = [
         pages: '10-20 pages starting',
         price: '$3,785',
         icon: Code2,
+        buttonHref: 'https://buy.stripe.com/eVqbJ18QM8be7y6547awo0y',
         features: [
             '10-20 responsive pages',
             'Chatbot and automation features',
@@ -55,6 +58,8 @@ const plans = [
         pages: 'Built around your requirements',
         price: 'Let’s talk',
         icon: Braces,
+        buttonHref: 'tel:+17866001595',
+        buttonLabel: 'Call (786) 600-1595',
         features: [
             'Fully custom architecture',
             'E-commerce or SaaS development',
@@ -75,19 +80,19 @@ export function ServicePricingCard({ plan }: { plan: ServicePricingPlan }) {
 
 export function WebDevelopmentPricing() {
     return (
-        <section id="web-development-pricing" className="web-pricing-section" style={{ padding: 'clamp(4rem, 9vw, 7rem) clamp(1rem, 2vw, 2rem)', background: '#272a30', scrollMarginTop: '60px' }}>
+        <section id="web-development-pricing" className="web-pricing-section" style={{ padding: 'clamp(4rem, 9vw, 7rem) clamp(1rem, 2vw, 2rem)', background: 'var(--surface)', scrollMarginTop: '60px' }}>
             <div style={{ maxWidth: '1600px', margin: '0 auto' }}>
                 <RevealOnScroll style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
                     <EyebrowLabel>Web development pricing</EyebrowLabel>
-                    <h2 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 4.25rem)', lineHeight: 1, margin: 0, color: '#f0ede8' }}>
+                    <h2 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 4.25rem)', lineHeight: 1, margin: 0, color: 'var(--fg)' }}>
                         Choose your <em style={{ color: '#CE307D', fontStyle: 'italic' }}>starting point.</em>
                     </h2>
-                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.95rem', lineHeight: 1.7, margin: '1.25rem 0 0', maxWidth: '58ch' }}>
+                    <p style={{ color: 'rgba(var(--fg-rgb),0.7)', fontSize: '0.95rem', lineHeight: 1.7, margin: '1.25rem 0 0', maxWidth: '58ch' }}>
                         Clear starting packages for different stages of growth. We’ll confirm the final scope and quote around your needs.
                     </p>
                 </RevealOnScroll>
 
-                <StaggerOnScroll className="web-pricing-grid" style={{ display: 'grid', gap: '1px', alignItems: 'stretch', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.08)', overflow: 'hidden' }}>
+                <StaggerOnScroll className="web-pricing-grid" style={{ display: 'grid', gap: '1px', alignItems: 'stretch', background: 'rgba(var(--line-rgb), 0.08)', border: '1px solid rgba(var(--line-rgb), 0.08)', overflow: 'hidden' }}>
                     {plans.map((plan) => <ServicePricingCard key={plan.name} plan={plan} />)}
                 </StaggerOnScroll>
             </div>

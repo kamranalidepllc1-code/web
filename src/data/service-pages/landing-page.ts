@@ -2,9 +2,11 @@ import type { ServicePageContent } from '@/types/site'
 
 const content: ServicePageContent = {
   slug: 'landing-page',
+  shortName: 'landing page design',
+  seo: { title: 'Landing Page Design Services for Ads & Offers | Digi Era Pro', description: 'Conversion-focused landing page design for Google Ads, social campaigns, and special offers: clear messaging, strong calls to action, fast mobile-first pages.' },
   visual: 'landing',
   hero: {
-    title: 'Landing pages that turn attention into',
+    title: 'Landing page design that turns clicks into',
     titleAccent: 'action.',
     summary: 'Focused, single-purpose pages with clear messaging and a strong call to action — built for your campaigns, offers, and launches.',
     cta: 'Plan your landing page',
@@ -56,6 +58,28 @@ const content: ServicePageContent = {
     statementAccent: 'More clarity.',
     caption: 'Every section is planned around the one action you want visitors to take — nothing competes with it.',
   },
+  fit: {
+    audience: [
+      { title: 'Businesses running paid ads', desc: 'Google Ads or social campaigns that currently send visitors to a busy homepage instead of a page built for the offer.' },
+      { title: 'Launches, offers, and events', desc: 'A new service, seasonal promotion, or event that needs its own page with one clear next step.' },
+      { title: 'Service businesses wanting more quote requests', desc: 'A page focused on a single service and area, with proof, pricing cues, and a short form.' },
+      { title: 'Teams testing new ideas', desc: 'A fast way to test demand for a new offer before investing in a full website section.' },
+    ],
+    why: [
+      { title: 'Built alongside your ads', desc: 'Our paid search team and designers work together, so the headline matches the ad and the page delivers on its promise.' },
+      { title: 'Copy, design, and build in one team', desc: 'No waiting on separate writers, designers, and developers — one team takes the page from brief to launch.' },
+      { title: 'Tracking connected from day one', desc: 'Forms, calls, and bookings are tracked so you can see exactly how many inquiries the page produces.' },
+      { title: 'Refined after launch', desc: 'We review how visitors use the page and adjust headlines, layout, and calls to action where the data points.' },
+    ],
+  },
+  faq: [
+    { question: 'What is the difference between a landing page and a website?', answer: 'A website serves many purposes and audiences. A landing page has one goal — such as a quote request or booking — and removes anything that distracts from it, which usually makes it more effective for a specific campaign.' },
+    { question: 'Do I need a landing page for Google Ads?', answer: 'It isn’t required, but it usually helps. Google rewards ads whose landing pages are relevant to the search, and visitors are more likely to act on a page that matches the ad they clicked.' },
+    { question: 'Can you connect the form to my email or CRM?', answer: 'Yes. We can send form submissions to your inbox and to most common CRM and email marketing tools, and set up tracking so each submission is recorded as a conversion.' },
+    { question: 'Will the landing page work on mobile?', answer: 'Yes. We design mobile-first with large tap targets, short forms, and click-to-call buttons, because much paid and social traffic arrives on phones.' },
+    { question: 'Can you A/B test landing pages?', answer: 'Yes, where there is enough traffic for a fair test. On lower-traffic pages we make one considered change at a time and compare results over a reasonable period.' },
+  ],
+  related: ['google-ads', 'website-design', 'content-creation', 'social-media-marketing'],
   cta: {
     heading: 'Have a campaign that needs a',
     headingAccent: 'landing page?',

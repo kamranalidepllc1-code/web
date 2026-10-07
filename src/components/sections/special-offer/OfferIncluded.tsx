@@ -16,10 +16,10 @@ function FeatureCard({ feature, index }: { feature: (typeof OFFER_FEATURES)[numb
     <motion.div
       variants={fadeUp}
       onHoverStart={() => setHovered(true)} onHoverEnd={() => setHovered(false)}
-      whileHover={{ background: featured ? '#d23a86' : '#2a2d33' }}
+      whileHover={{ background: featured ? '#d23a86' : 'var(--surface-2)' }}
       className={SPANS[index]}
       style={{
-        background: featured ? '#CE307D' : '#222429',
+        background: featured ? '#CE307D' : 'var(--bg)',
         position: 'relative', overflow: 'hidden',
         padding: 'clamp(1.75rem, 3.5vw, 2.5rem) clamp(1.5rem, 3vw, 2.25rem)',
         display: 'flex', flexDirection: 'column', justifyContent: featured ? 'center' : 'flex-start',
@@ -41,10 +41,10 @@ function FeatureCard({ feature, index }: { feature: (typeof OFFER_FEATURES)[numb
       >
         <feature.icon size={30} strokeWidth={1.4} aria-hidden="true" />
       </motion.span>
-      <h3 style={{ position: 'relative', fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(1.35rem, 2.2vw, 1.65rem)', letterSpacing: '-0.02em', lineHeight: 1.2, margin: '0 0 0.85rem', color: featured ? '#fff' : '#f0ede8' }}>
+      <h3 style={{ position: 'relative', fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(1.35rem, 2.2vw, 1.65rem)', letterSpacing: '-0.02em', lineHeight: 1.2, margin: '0 0 0.85rem', color: featured ? '#fff' : 'var(--fg)' }}>
         {feature.title}
       </h3>
-      <p style={{ position: 'relative', fontSize: '0.88rem', lineHeight: 1.8, margin: 0, color: '#ffffff', maxWidth: featured ? '62ch' : '34ch' }}>
+      <p style={{ position: 'relative', fontSize: '0.88rem', lineHeight: 1.8, margin: 0, color: featured ? '#fff' : 'var(--fg-strong)', maxWidth: featured ? '62ch' : '34ch' }}>
         {feature.desc}
       </p>
 
@@ -55,10 +55,10 @@ function FeatureCard({ feature, index }: { feature: (typeof OFFER_FEATURES)[numb
 
 export function OfferIncluded() {
   return (
-    <section style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#272a30' }}>
+    <section style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: 'var(--surface)' }}>
       <StaggerOnScroll
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6"
-        style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gap: '1px', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.07)', overflow: 'hidden' }}
+        style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gap: '1px', background: 'rgba(var(--line-rgb), 0.07)', border: '1px solid rgba(var(--line-rgb), 0.07)', overflow: 'hidden' }}
       >
         {OFFER_FEATURES.map((f, i) => <FeatureCard key={f.title} feature={f} index={i} />)}
       </StaggerOnScroll>

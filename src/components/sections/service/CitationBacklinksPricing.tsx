@@ -15,6 +15,7 @@ const citationPlans: ServicePricingPlan[] = [
         featured: true,
         category: 'Link building package',
         buttonLabel: 'Sign Up Now',
+        buttonHref: 'https://buy.stripe.com/6oU3cv6IE6365pYeEHawo0m',
         features: [
             '30+ High-Authority Backlinks',
             'DA 60+ Guaranteed Sites',
@@ -37,7 +38,8 @@ const citationPlans: ServicePricingPlan[] = [
         pricePeriod: '',
         icon: Gem,
         category: 'Link building package',
-        buttonLabel: 'Call Now',
+        buttonLabel: 'Call (786) 600-1595',
+        buttonHref: 'tel:+17866001595',
         features: [
             '60+ Premium Editorial Backlinks',
             'DA 70+ High-Traffic Sites',
@@ -52,16 +54,16 @@ const citationPlans: ServicePricingPlan[] = [
 
 export function CitationBacklinksPricing() {
     return (
-        <section id="citation-backlinks-pricing" style={{ padding: 'clamp(3.5rem, 9vw, 7rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#272a30', scrollMarginTop: '60px' }}>
+        <section id="citation-backlinks-pricing" style={{ padding: 'clamp(3.5rem, 9vw, 7rem) clamp(1.25rem, 6vw, 2.5rem)', background: 'var(--surface)', scrollMarginTop: '60px' }}>
             <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
                 <RevealOnScroll style={{ marginBottom: 'clamp(2.5rem, 6vw, 4rem)' }}>
                     <EyebrowLabel>The Authority Amplifier</EyebrowLabel>
-                    <h2 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 4.25rem)', lineHeight: 1, margin: 0, color: '#f0ede8' }}>
+                    <h2 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 4.25rem)', lineHeight: 1, margin: 0, color: 'var(--fg)' }}>
                         Choose your <em style={{ color: '#CE307D', fontStyle: 'italic' }}>best plan.</em>
                     </h2>
                 </RevealOnScroll>
 
-                <StaggerOnScroll className="social-pricing-grid" style={{ display: 'grid', gap: '1px', alignItems: 'stretch', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.08)', overflow: 'hidden' }}>
+                <StaggerOnScroll className="social-pricing-grid" style={{ display: 'grid', gap: '1px', alignItems: 'stretch', background: 'rgba(var(--line-rgb), 0.08)', border: '1px solid rgba(var(--line-rgb), 0.08)', overflow: 'hidden' }}>
                     {citationPlans.map((plan) => <ServicePricingCard key={plan.name} plan={plan} />)}
                 </StaggerOnScroll>
             </div>

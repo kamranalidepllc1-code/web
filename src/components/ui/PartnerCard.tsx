@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import type { PARTNERS } from '@/data/site'
 
@@ -17,7 +18,7 @@ export function PartnerCard({ partner, index }: { partner: (typeof PARTNERS)[0];
       viewport={{ once: true }}
       transition={{ delay: index * 0.08, duration: 0.6, ease: easeOut }}
       style={{
-        background: '#222429',
+        background: 'var(--bg)',
         padding: 'clamp(1.75rem, 5vw, 3rem) clamp(1.25rem, 4vw, 2.5rem)',
         display: 'flex',
         flexDirection: 'column',
@@ -29,46 +30,28 @@ export function PartnerCard({ partner, index }: { partner: (typeof PARTNERS)[0];
         overflow: 'hidden',
         cursor: partner.href ? 'pointer' : 'default',
       }}
-      whileHover={{ background: '#2a2d33' }}
+      whileHover={{ background: 'var(--surface-2)' }}
     >
-      {/* Full-card link overlay */}
       {partner.href && (
-        <a
-          href={partner.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={partner.name}
-          style={{ position: 'absolute', inset: 0, zIndex: 2 }}
-        />
+        <a href={partner.href} target="_blank" rel="noopener noreferrer" aria-label={partner.name}
+          style={{ position: 'absolute', inset: 0, zIndex: 2 }} />
       )}
-      {/* Hover glow */}
-      <motion.div
-        animate={{ opacity: hovered ? 1 : 0 }}
-        style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 50% 50%, rgba(206,48,125,0.1) 0%, transparent 70%)', pointerEvents: 'none' }}
-      />
-      {/* Top accent line */}
-      <motion.div
-        animate={{ scaleX: hovered ? 1 : 0 }}
-        initial={{ scaleX: 0 }}
-        transition={{ duration: 0.4 }}
-        style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, #CE307D, transparent)', transformOrigin: 'center' }}
-      />
-      {/* Logo image — no background, just the image itself */}
+      <motion.div animate={{ opacity: hovered ? 1 : 0 }}
+        style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 50% 50%, rgba(206,48,125,0.1) 0%, transparent 70%)', pointerEvents: 'none' }} />
+      <motion.div animate={{ scaleX: hovered ? 1 : 0 }} initial={{ scaleX: 0 }} transition={{ duration: 0.4 }}
+        style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, #CE307D, transparent)', transformOrigin: 'center' }} />
       <motion.div
         animate={{ y: hovered ? -4 : 0, scale: hovered ? 1.05 : 1 }}
         transition={{ duration: 0.35, ease: easeOut }}
-        style={{ position: 'relative', zIndex: 1 }}
+        style={{ position: 'relative', zIndex: 1, width: '140px', height: '52px' }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={partner.img}
           alt={partner.name}
+          fill
+          sizes="140px"
           style={{
-            maxWidth: '140px',
-            maxHeight: '52px',
-            width: '100%',
             objectFit: 'contain',
-            display: 'block',
             filter: hovered
               ? 'grayscale(0) drop-shadow(0 0 12px rgba(206,48,125,0.4))'
               : 'grayscale(1) opacity(0.55)',
@@ -76,12 +59,8 @@ export function PartnerCard({ partner, index }: { partner: (typeof PARTNERS)[0];
           }}
         />
       </motion.div>
-      {/* Partner name — fades in on hover */}
-      <motion.span
-        animate={{ opacity: hovered ? 1 : 0, y: hovered ? 0 : 6 }}
-        transition={{ duration: 0.3 }}
-        style={{ fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#ffffff', position: 'relative', zIndex: 1 }}
-      >
+      <motion.span animate={{ opacity: hovered ? 1 : 0, y: hovered ? 0 : 6 }} transition={{ duration: 0.3 }}
+        style={{ fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--fg-strong)', position: 'relative', zIndex: 1 }}>
         {partner.name}
       </motion.span>
     </motion.div>

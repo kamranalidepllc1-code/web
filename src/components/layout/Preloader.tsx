@@ -1,4 +1,4 @@
-'use client'
+  'use client'
 
 import { useEffect, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
@@ -60,7 +60,7 @@ function Curtains({ opening }: { opening: boolean }) {
               initial={{ x: '0%' }}
               animate={{ x: opening ? off : '0%' }}
               transition={{ duration: CURTAIN_DURATION, ease: wipeEase }}
-              style={{ ...box, background: '#222429', willChange: 'transform' }}
+              style={{ ...box, background: 'var(--bg)', willChange: 'transform' }}
             />
           </div>
         )
@@ -168,7 +168,7 @@ function SitePreloader() {
       animate={reduceMotion && leaving ? { opacity: 0 } : { opacity: 1 }}
       transition={{ duration: 0.4 }}
       style={{
-        position: 'fixed', inset: 0, zIndex: 9999, color: '#f0ede8',
+        position: 'fixed', inset: 0, zIndex: 9999, color: 'var(--fg)',
         fontFamily: "var(--font-outfit), sans-serif", pointerEvents: leaving ? 'none' : 'auto',
       }}
     >
@@ -191,13 +191,13 @@ function SitePreloader() {
           style={{ position: 'absolute', top: 'clamp(1.25rem, 4vw, 2.25rem)', left: 0, right: 0, display: 'flex', justifyContent: 'center' }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/Assets/logo/logo-112.webp" alt="Digi Era Pro" style={{ height: 'clamp(2.25rem, 6vw, 3rem)', width: 'auto', display: 'block' }} />
+          <img src="/Assets/logo/logo-112.webp" alt="Digi Era Pro" width={112} height={56} style={{ height: 'clamp(2.25rem, 6vw, 3rem)', width: 'auto', display: 'block' }} />
         </motion.div>
 
         {/* Wordmark: outline that fills with brand pink as the site loads.
             Its entrance is CSS (globals.css .preloader-rise) so it paints before hydration. */}
         <div className="preloader-rise" style={{ position: 'relative' }}>
-          <span aria-hidden style={{ ...wordmarkStyle, color: 'transparent', WebkitTextStroke: '1px rgba(240,237,232,0.28)' }}>
+          <span aria-hidden style={{ ...wordmarkStyle, color: 'transparent', WebkitTextStroke: '1px rgba(var(--fg-rgb),0.28)' }}>
             {WORDMARK}
           </span>
           <motion.span
@@ -217,7 +217,7 @@ function SitePreloader() {
             animate={{ opacity: phase === 'loading' ? 0.7 : 0 }}
             style={{
               position: 'absolute', left: '-4%', right: '-4%', top: lineTop, height: '1px',
-              background: 'linear-gradient(90deg, transparent, #f0ede8 20%, #f0ede8 80%, transparent)',
+              background: 'linear-gradient(90deg, transparent, var(--fg) 20%, var(--fg) 80%, transparent)',
               boxShadow: '0 0 12px rgba(206,48,125,0.9)',
             }}
           />
@@ -231,12 +231,12 @@ function SitePreloader() {
           style={{
             width: '100%', maxWidth: '62rem', marginTop: 'clamp(1.25rem, 3vw, 2rem)',
             display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem',
-            fontSize: '0.66rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'rgba(240,237,232,0.5)',
+            fontSize: '0.66rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'rgba(var(--fg-rgb),0.5)',
           }}
         >
           <span>Est. 2018</span>
           <span className="hidden sm:inline">Strategy · Creativity · Growth</span>
-          <span style={{ color: '#f0ede8', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.12em' }}>
+          <span style={{ color: 'var(--fg)', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.12em' }}>
             <span ref={countRef}>00</span><span style={{ color: '#CE307D' }}>%</span>
           </span>
         </motion.div>
@@ -257,7 +257,7 @@ function SitePreloader() {
             {[0, 1].map(copy => (
               <div key={copy} style={{ display: 'flex' }}>
                 {SERVICES.map(s => (
-                  <span key={s} style={{ padding: '0 1.4rem', fontSize: '0.68rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'rgba(240,237,232,0.3)', whiteSpace: 'nowrap' }}>
+                  <span key={s} style={{ padding: '0 1.4rem', fontSize: '0.68rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'rgba(var(--fg-rgb),0.3)', whiteSpace: 'nowrap' }}>
                     {s}<span style={{ color: '#CE307D', marginLeft: '2.8rem' }}>✦</span>
                   </span>
                 ))}

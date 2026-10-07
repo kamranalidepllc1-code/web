@@ -6,21 +6,21 @@ import { RevealOnScroll, StaggerOnScroll, fadeUp } from '@/lib/animations'
 import { VALUES } from '@/data/site'
 
 const TITLES: Record<string, string> = {
-  Conviction: 'We argue for the work.',
-  Rigour: 'Evidence over guesswork.',
-  Economy: 'Nothing extraneous.',
-  Authorship: 'We own the outcome.',
+  Clarity: 'No jargon, no surprises.',
+  Responsiveness: 'A person, not a ticket queue.',
+  Evidence: 'Data over guesswork.',
+  Accountability: 'We own the outcome.',
 }
 
 export function AboutValues() {
   const [hoveredValue, setHoveredValue] = useState<string | null>(null)
 
   return (
-    <section style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429' }}>
+    <section style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: 'var(--bg)' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <RevealOnScroll style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
           <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D' }}>What drives us</span>
-          <h2 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 4rem)', letterSpacing: '-0.03em', margin: '1rem 0 0', lineHeight: 1, color: '#f0ede8' }}>
+          <h2 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 4rem)', letterSpacing: '-0.03em', margin: '1rem 0 0', lineHeight: 1, color: 'var(--fg)' }}>
             Principles, not just <em style={{ color: '#CE307D', fontStyle: 'italic' }}>slogans.</em>
           </h2>
         </RevealOnScroll>
@@ -39,6 +39,7 @@ export function AboutValues() {
                   position: 'relative',
                   overflow: 'hidden',
                   background: highlighted ? '#CE307D' : '#f5f5f5',
+                  border: '1px solid rgba(var(--line-rgb), 0.08)',
                   color: highlighted || hoveredValue === v.word ? '#fff' : '#1a1a1a',
                   borderRadius: '999px',
                   minHeight: 'clamp(280px, 75vw, 360px)',

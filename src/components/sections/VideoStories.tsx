@@ -36,16 +36,16 @@ export function VideoStories() {
   }, [activeSlide, playingStory, touching])
 
   return (
-    <section style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429', position: 'relative', overflow: 'hidden' }}>
+    <section style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: 'var(--bg)', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', top: '20%', right: '-8%', width: '600px', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(206,48,125,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
       <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <RevealOnScroll style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
           <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D', display: 'block', marginBottom: '1rem' }}>Client stories</span>
-          <h2 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2rem, 4vw, 3.5rem)', letterSpacing: '-0.03em', color: '#f0ede8', margin: '0 0 1rem', lineHeight: 1.05 }}>
+          <h2 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2rem, 4vw, 3.5rem)', letterSpacing: '-0.03em', color: 'var(--fg)', margin: '0 0 1rem', lineHeight: 1.05 }}>
             Stories of growth <em style={{ color: '#CE307D', fontStyle: 'italic' }}>&amp; success.</em>
           </h2>
-          <p style={{ color: '#ffffff', fontSize: '0.95rem', maxWidth: '52ch', margin: '0 auto' }}>
-            From strategy to execution — hear directly from the founders and leaders we&apos;ve partnered with.
+          <p style={{ color: 'var(--fg-strong)', fontSize: '0.95rem', maxWidth: '52ch', margin: '0 auto' }}>
+            Hear directly from business owners about working with our team on their marketing and websites.
           </p>
         </RevealOnScroll>
         <div

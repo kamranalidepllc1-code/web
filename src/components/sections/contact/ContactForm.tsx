@@ -24,7 +24,7 @@ type Errors = Partial<Record<keyof FormState, string>>
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
 const labelStyle: React.CSSProperties = {
-  display: 'block', fontSize: '0.85rem', color: 'rgba(240,237,232,0.65)', marginBottom: '0.4rem',
+  display: 'block', fontSize: '0.85rem', color: 'rgba(var(--fg-rgb),0.65)', marginBottom: '0.4rem',
 }
 
 function Field({
@@ -41,12 +41,12 @@ function Field({
 
 function SquiggleArrow() {
   return (
-    <svg width="110" height="90" viewBox="0 0 110 90" fill="none" aria-hidden="true" style={{ opacity: 0.5 }}>
+    <svg width="110" height="90" viewBox="0 0 110 90" fill="none" aria-hidden="true" style={{ opacity: 0.5, color: 'var(--fg)' }}>
       <path
         d="M8 8c20 4 46 10 50 28 3 14-14 24-28 16-11-6-9-22 3-27 20-8 45 2 55 20"
-        stroke="#f0ede8" strokeWidth="1.4" strokeLinecap="round" fill="none"
+        stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" fill="none"
       />
-      <path d="M79 40 L88 45 L80 52" stroke="#f0ede8" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      <path d="M79 40 L88 45 L80 52" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
     </svg>
   )
 }
@@ -97,20 +97,20 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contact-form" style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429', position: 'relative' }}>
+    <section id="contact-form" style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: 'var(--bg)', position: 'relative' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ display: 'grid', gap: 'clamp(2.5rem, 6vw, 5rem)', alignItems: 'center' }} className="grid grid-cols-1 lg:grid-cols-2">
 
           <RevealOnScroll>
             <span style={{
               display: 'inline-block', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase',
-              color: '#f0ede8', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.15)',
+              color: 'var(--fg)', background: 'rgba(var(--line-rgb), 0.06)', border: '1px solid rgba(var(--line-rgb), 0.15)',
               borderRadius: '999px', padding: '0.5rem 1.1rem', marginBottom: '1.75rem',
             }}>
               Contact Us
             </span>
-            <h2 style={{ fontFamily: "var(--font-outfit), sans-serif", fontWeight: 700, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', letterSpacing: '-0.02em', margin: '0 0 2.5rem', lineHeight: 1.12, color: '#f0ede8' }}>
-              Ready to <span style={{ color: '#CE307D' }}>Bring</span> Your Vision to Life?
+            <h2 style={{ fontFamily: "var(--font-outfit), sans-serif", fontWeight: 700, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', letterSpacing: '-0.02em', margin: '0 0 2.5rem', lineHeight: 1.12, color: 'var(--fg)' }}>
+              Request a <span style={{ color: '#CE307D' }}>Proposal</span> for Your Business
             </h2>
             <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
               <RotatingBadge text={`${email.value.toUpperCase()} • EMAIL US • `} href={email.href} label={`Email ${email.value}`} size={150}
@@ -126,26 +126,26 @@ export function ContactForm() {
           <RevealOnScroll delay={0.12} className="lg:border-l lg:border-white/10 lg:pl-14">
             {status === 'success' ? (
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                style={{ background: '#2a2d33', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: 'clamp(2.5rem, 5vw, 3.5rem)', boxShadow: '0 30px 80px rgba(0,0,0,0.5)', textAlign: 'center' }}>
+                style={{ background: 'var(--surface-2)', border: '1px solid rgba(var(--line-rgb), 0.08)', borderRadius: '20px', padding: 'clamp(2.5rem, 5vw, 3.5rem)', boxShadow: '0 30px 80px rgba(0,0,0,0.5)', textAlign: 'center' }}>
                 <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D' }}>Message sent</span>
-                <h3 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(1.6rem, 3vw, 2.25rem)', letterSpacing: '-0.03em', margin: '1rem 0 1.25rem', color: '#f0ede8' }}>
+                <h3 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(1.6rem, 3vw, 2.25rem)', letterSpacing: '-0.03em', margin: '1rem 0 1.25rem', color: 'var(--fg)' }}>
                   Thanks — we got it.
                 </h3>
-                <p style={{ color: '#ffffff', fontSize: '0.92rem', lineHeight: 1.8, margin: '0 0 2rem' }}>
+                <p style={{ color: 'var(--fg-strong)', fontSize: '0.92rem', lineHeight: 1.8, margin: '0 0 2rem' }}>
                   A member of our team will get back to you shortly. In the meantime, feel free to reach us directly at{' '}
                   <a href="mailto:info@digierapro.com" style={{ color: '#CE307D' }}>info@digierapro.com</a>.
                 </p>
                 <motion.button
                   onClick={() => setStatus('idle')}
                   whileHover={{ y: -3 }} whileTap={{ scale: 0.97 }}
-                  style={{ background: 'none', border: '1px solid rgba(255,255,255,0.2)', color: '#f0ede8', padding: '0.85rem 1.75rem', fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', cursor: 'pointer', borderRadius: '999px' }}
+                  style={{ background: 'none', border: '1px solid rgba(var(--line-rgb), 0.2)', color: 'var(--fg)', padding: '0.85rem 1.75rem', fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', cursor: 'pointer', borderRadius: '999px' }}
                 >
                   Send another message
                 </motion.button>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} noValidate
-                style={{ display: 'grid', gap: '1.35rem', background: '#2a2d33', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: 'clamp(2rem, 5vw, 3rem)', boxShadow: '0 30px 80px rgba(0,0,0,0.5)' }}>
+                style={{ display: 'grid', gap: '1.35rem', background: 'var(--surface-2)', border: '1px solid rgba(var(--line-rgb), 0.08)', borderRadius: '20px', padding: 'clamp(2rem, 5vw, 3rem)', boxShadow: '0 30px 80px rgba(0,0,0,0.5)' }}>
 
                 <Field id="name" label="Your full name *" error={errors.name}>
                   <input

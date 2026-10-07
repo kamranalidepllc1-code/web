@@ -3,10 +3,25 @@ import type { NextConfig } from "next";
 const wordpressHost = new URL(process.env.WORDPRESS_API_URL || "https://digierapro.com/wp-json/wp/v2").hostname;
 
 const nextConfig: NextConfig = {
-  // src/proxy.ts strips trailing slashes itself so legacy WordPress URLs
-  // (/resource/post/) reach /blog/post in one redirect instead of two.
   skipTrailingSlashRedirect: true,
+  async headers() {
+    return [
+      {
+        // Static assets: JS, CSS, fonts, images — immutable, 1 year
+        source: '/_next/static/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      {
+        // Public folder assets
+        source: '/Assets/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+    ]
+  },
   images: {
+    formats: ['image/avif', 'image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    minimumCacheTTL: 31536000,
     remotePatterns: [
       {
         protocol: "https",

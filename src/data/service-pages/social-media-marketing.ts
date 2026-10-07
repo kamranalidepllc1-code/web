@@ -2,9 +2,11 @@ import type { ServicePageContent } from '@/types/site'
 
 const content: ServicePageContent = {
   slug: 'social-media-marketing',
+  shortName: 'social media marketing',
+  seo: { title: 'Social Media Marketing & Management Services | Digi Era Pro', description: 'Social media marketing and management for growing businesses: strategy, content creation, scheduling, and community engagement on Facebook, Instagram, and more.' },
   visual: 'social',
   hero: {
-    title: 'Social media with a',
+    title: 'Social media marketing with a',
     titleAccent: 'plan behind it.',
     summary: 'We plan, create, and publish social content that reflects your brand, keeps your channels active, and gives your audience a reason to engage.',
     cta: 'Talk about your socials',
@@ -58,12 +60,29 @@ const content: ServicePageContent = {
     caption: 'A well-run social presence keeps your business visible, familiar, and easy to connect with between purchases.',
   },
   faq: [
+    { question: 'What does social media management include?', answer: 'Strategy, a monthly content calendar, post design and captions, scheduling and publishing, profile optimization, monitoring comments and messages, and a monthly performance report. The exact number of posts and platforms is agreed in your plan.' },
+    { question: 'Can you create social media content?', answer: 'Yes. Our designers and writers create the graphics, carousels, short-form videos, and captions. If you have your own photos or video of your work, we can edit them into posts too — real footage of your business often performs best.' },
     { question: 'Which platforms do you manage?', answer: 'We commonly work with Facebook, Instagram, LinkedIn, TikTok, and X. We’ll recommend the platforms that make sense for your audience rather than trying to be everywhere.' },
     { question: 'Can you guarantee more followers or sales?', answer: 'No. Social media results depend on your audience, industry, and many platform factors. We focus on consistent, quality content and clear insight into what is working.' },
     { question: 'Do I approve content before it goes live?', answer: 'Yes. We share each month’s content calendar for your review and approval before anything is published.' },
     { question: 'How often will you post?', answer: 'Posting frequency is agreed in your plan, based on your goals, platforms, and budget. Consistency matters more than volume.' },
     { question: 'Do you handle paid social advertising?', answer: 'Our social media marketing service focuses on organic content. If you want to run paid social campaigns, we can discuss that as an addition.' },
   ],
+  fit: {
+    audience: [
+      { title: 'Businesses with quiet channels', desc: 'Your last post was months ago, and customers checking your page can’t tell whether you’re still open.' },
+      { title: 'Owners short on time', desc: 'You know social media matters, but creating content every week competes with actually running the business.' },
+      { title: 'Brands posting without direction', desc: 'You post, but without a plan, a consistent look, or a clear idea of which posts bring in inquiries.' },
+      { title: 'Local businesses building trust', desc: 'Restaurants, salons, contractors, and service providers whose customers check Facebook and Instagram before they call.' },
+    ],
+    why: [
+      { title: 'Design and writing in one team', desc: 'Graphics, short videos, and captions are created by our own designers and writers, so every post looks and sounds like you.' },
+      { title: 'Nothing goes live without approval', desc: 'You review each month’s content calendar before we schedule a single post.' },
+      { title: 'Connected to the rest of your marketing', desc: 'Posts can support your offers, Google Business Profile updates, website content, and ad campaigns rather than living in isolation.' },
+      { title: 'Insights, not vanity metrics', desc: 'Monthly reports cover reach and engagement, and which posts led to profile visits, link clicks, and messages.' },
+    ],
+  },
+  related: ['graphic-design', 'content-creation', 'branding-strategy', 'google-ads'],
   cta: {
     heading: 'Let’s give your socials',
     headingAccent: 'some direction.',

@@ -37,11 +37,11 @@ export function Contact() {
                 DIGI ERA PRO
               </span>
               <p style={{ color: '#ffffff', fontSize: '0.9rem', lineHeight: 1.7, margin: '1.25rem 0 1.5rem', maxWidth: '32ch' }}>
-                Your partner in building a strong online presence with creative, results-focused marketing!
+                Digi Era Pro LLC is a digital marketing agency in New York offering SEO, Google Ads, social media marketing, branding, and web development for growing businesses.
               </p>
               <div style={{ display: 'flex', gap: '0.75rem' }}>
                 {SOCIAL_LINKS.map(s => (
-                  <motion.a key={s.name} href={s.href} aria-label={s.name}
+                  <motion.a key={s.name} href={s.href} aria-label={`Digi Era Pro on ${s.name}`} target="_blank" rel="noopener noreferrer"
                     style={{ width: '2.25rem', height: '2.25rem', borderRadius: '50%', background: 'rgba(0,0,0,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', flexShrink: 0 }}
                     whileHover={{ background: '#000', y: -3 }}>
                     <s.icon size={14} />
@@ -89,9 +89,9 @@ export function Contact() {
           </div>
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.25)', marginTop: '3.5rem', paddingTop: '1.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem' }}>
             <p style={{ fontSize: '0.82rem', color: '#ffffff', margin: 0 }}>
-              ©{new Date().getFullYear()}. All rights reserved by <span style={{ color: '#fff', fontWeight: 600 }}>Digi Era Pro LLC</span>
+              ©{new Date().getFullYear()}. All rights reserved by <span style={{ color: '#fff', fontWeight: 600 }}>DIGI ERA PRO LLC</span>
             </p>
-            <a href="#" style={{ fontSize: '0.82rem', color: '#fff', textDecoration: 'underline' }}>Terms &amp; Conditions</a>
+            <a href="/terms-conditions" style={{ fontSize: '0.82rem', color: '#fff', textDecoration: 'underline' }}>Terms &amp; Conditions</a>
           </div>
         </div>
       </div>

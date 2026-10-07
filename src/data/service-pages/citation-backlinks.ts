@@ -2,10 +2,12 @@ import type { ServicePageContent } from '@/types/site'
 
 const content: ServicePageContent = {
   slug: 'citation-backlinks',
+  shortName: 'citation and backlink building',
+  seo: { title: 'Local Citation & Backlink Building Services | Digi Era Pro', description: 'White-hat citation and backlink building. We audit and fix your business listings, build citations on quality directories, and earn relevant links for SEO.' },
   visual: 'links',
   hero: {
-    title: 'Build trust signals that',
-    titleAccent: 'point to you.',
+    title: 'Citation and backlink building,',
+    titleAccent: 'done properly.',
     summary: 'We build accurate local citations and earn relevant backlinks, strengthening the signals that help search engines understand and trust your business.',
     cta: 'Get a citation audit',
   },
@@ -58,12 +60,28 @@ const content: ServicePageContent = {
     caption: 'Accurate listings and relevant links help search engines — and customers — feel confident about who you are.',
   },
   faq: [
+    { question: 'Which directories do you list businesses on?', answer: 'Major platforms such as Bing Places, Apple Business Connect, and Yelp, plus data aggregators where relevant and directories specific to your industry and location. The exact list depends on your business type and the areas you serve.' },
     { question: 'What is the difference between a citation and a backlink?', answer: 'A citation is a mention of your business details, like name, address, and phone number, usually on a directory. A backlink is a link from another website to yours. Both are off-page signals, and some listings provide both.' },
     { question: 'Will backlinks guarantee higher rankings?', answer: 'No. Backlinks are one of many factors search engines consider. Relevant, quality links can support your visibility, but rankings also depend on your website, content, and competition.' },
     { question: 'Do you buy links?', answer: 'No. Buying links for ranking purposes goes against search engine guidelines and can harm your site. We focus on legitimate citations and links earned through relevance and outreach.' },
     { question: 'Why does citation consistency matter?', answer: 'Inconsistent details — an old address or a different phone number — can confuse both customers and search engines. Consistent listings reinforce accurate information about your business.' },
     { question: 'How long does it take to see an effect?', answer: 'Citations can be indexed within weeks, while the effect of backlinks builds gradually over months. We report on progress throughout so you can see the work as it happens.' },
   ],
+  fit: {
+    audience: [
+      { title: 'Businesses that moved or rebranded', desc: 'Old addresses, phone numbers, or names are still listed online and confusing both customers and search engines.' },
+      { title: 'New businesses with no footprint', desc: 'Few directories list you yet, and almost no other websites link to yours.' },
+      { title: 'Good pages that still won’t rank', desc: 'Your on-page SEO is in order, but competitors with stronger link profiles keep outranking you.' },
+      { title: 'Businesses unsure about past link work', desc: 'A previous provider built links you’re not confident about, and you want them reviewed before they cause problems.' },
+    ],
+    why: [
+      { title: 'Part of a complete local SEO plan', desc: 'Citations and links are planned alongside your website SEO and Google Business Profile, not sold as a standalone numbers game.' },
+      { title: 'No paid links or private networks', desc: 'We don’t buy links or use private blog networks. Every link is pursued through relevance, outreach, and useful content.' },
+      { title: 'Relevant to your trade and location', desc: 'We prioritize directories and websites connected to your industry and the areas you serve over generic bulk submissions.' },
+      { title: 'Every listing documented', desc: 'You get a record of each citation built and link earned, so the work is fully visible.' },
+    ],
+  },
+  related: ['search-engine-optimization', 'gbp-optimization', 'content-creation'],
   cta: {
     heading: 'Let’s tidy up your',
     headingAccent: 'online footprint.',

@@ -12,23 +12,23 @@ export function AboutTimeline() {
   const [active, setActive] = useState(0)
 
   return (
-    <section id="work" style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#272a30' }}>
+    <section id="work" style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(1.25rem, 6vw, 2.5rem)', background: 'var(--surface)' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ display: 'grid', gap: 'clamp(2.5rem, 6vw, 4rem)', alignItems: 'center' }} className="grid grid-cols-1 lg:grid-cols-2">
           <div>
             <RevealOnScroll>
               <EyebrowLabel>Our story</EyebrowLabel>
-              <h2 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', letterSpacing: '-0.03em', margin: '0 0 1.25rem', lineHeight: 1.05, color: '#f0ede8' }}>
+              <h2 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', letterSpacing: '-0.03em', margin: '0 0 1.25rem', lineHeight: 1.05, color: 'var(--fg)' }}>
                 Company History
               </h2>
-              <p style={{ color: '#ffffff', fontSize: '0.92rem', lineHeight: 1.8, margin: 0, maxWidth: '48ch' }}>
+              <p style={{ color: 'var(--fg-strong)', fontSize: '0.92rem', lineHeight: 1.8, margin: 0, maxWidth: '48ch' }}>
                 What started as a two-person side project in 2018 has grown into a team spanning strategy, design, and performance marketing — without losing the parts that made clients stick around.
               </p>
             </RevealOnScroll>
 
             <RevealOnScroll delay={0.15}>
               <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', position: 'relative', paddingTop: '0.5rem', marginTop: '2.5rem' }}>
-                <div style={{ position: 'absolute', top: 'calc(0.5rem + 9px)', left: 0, right: 0, height: '1px', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.12)' }} />
+                <div style={{ position: 'absolute', top: 'calc(0.5rem + 9px)', left: 0, right: 0, height: '1px', transform: 'translateY(-50%)', background: 'rgba(var(--line-rgb), 0.12)' }} />
                 {HISTORY.map((item, i) => (
                   <button
                     key={item.year}
@@ -42,14 +42,14 @@ export function AboutTimeline() {
                     <motion.span
                       animate={{
                         scale: active === i ? 1.15 : 1,
-                        background: active === i ? '#CE307D' : '#272a30',
-                        borderColor: active === i ? '#CE307D' : 'rgba(255,255,255,0.3)',
+                        background: active === i ? '#CE307D' : 'var(--surface)',
+                        borderColor: active === i ? '#CE307D' : 'var(--line-a30)',
                       }}
                       style={{ width: '18px', height: '18px', borderRadius: '50%', border: '2px solid' }}
                     />
                     <span style={{
                       fontFamily: "var(--font-fraunces), serif", fontSize: 'clamp(0.9rem, 2vw, 1.1rem)',
-                      color: active === i ? '#f0ede8' : 'rgba(240,237,232,0.4)', transition: 'color 0.2s',
+                      color: active === i ? 'var(--fg)' : 'rgba(var(--fg-rgb),0.4)', transition: 'color 0.2s',
                     }}>{item.year}</span>
                   </button>
                 ))}
@@ -66,7 +66,7 @@ export function AboutTimeline() {
                 <h3 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(1.25rem, 3vw, 1.6rem)', letterSpacing: '-0.02em', margin: '0 0 0.6rem', color: '#CE307D' }}>
                   {HISTORY[active].title}
                 </h3>
-                <p style={{ color: '#ffffff', fontSize: '0.9rem', lineHeight: 1.8, margin: 0 }}>
+                <p style={{ color: 'var(--fg-strong)', fontSize: '0.9rem', lineHeight: 1.8, margin: 0 }}>
                   {HISTORY[active].desc}
                 </p>
               </motion.div>

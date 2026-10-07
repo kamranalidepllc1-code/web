@@ -2,10 +2,12 @@ import type { ServicePageContent } from '@/types/site'
 
 const content: ServicePageContent = {
   slug: 'google-ads',
+  shortName: 'Google Ads management',
+  seo: { title: 'Google Ads Management & PPC Services | Digi Era Pro', description: 'Google Ads management for businesses that want leads, not wasted spend: keyword research, ad copy, conversion tracking, and ongoing PPC optimization.' },
   visual: 'ads',
   hero: {
-    title: 'Google Ads, managed with',
-    titleAccent: 'care and clarity.',
+    title: 'Google Ads management that',
+    titleAccent: 'respects your budget.',
     summary: 'We plan, build, and manage Google Ads campaigns that put your business in front of people actively searching — with careful targeting, proper tracking, and clear reporting on your spend.',
     cta: 'Get a campaign review',
   },
@@ -58,6 +60,8 @@ const content: ServicePageContent = {
     caption: 'Well-managed campaigns put your business in front of customers who are already looking for what you offer.',
   },
   faq: [
+    { question: 'How does Google Ads work?', answer: 'You bid on keywords related to your business. When someone searches for one of them, Google runs an auction based on your bid and the quality and relevance of your ad and landing page. With search campaigns you pay when someone clicks, so the goal is to attract clicks from people likely to become customers.' },
+    { question: 'How do you measure PPC results?', answer: 'We measure conversions — phone calls, form submissions, bookings, or purchases — alongside cost per conversion, conversion rate, click-through rate, and search impression share. Reports show what you spent, what it produced, and what we changed.' },
     { question: 'How much should I spend on Google Ads?', answer: 'It depends on your industry, location, and goals. We’ll look at keyword costs in your market and recommend a starting budget that is realistic, then adjust based on what the data shows.' },
     { question: 'Can you guarantee a number of leads or sales?', answer: 'No. Results depend on many factors, including competition, your offer, and your website. We focus on sound strategy, accurate tracking, and continuous optimization, and we report honestly on performance.' },
     { question: 'Is my ad spend included in your fee?', answer: 'No. Your ad spend is paid directly to Google from your own account. Our management fee covers strategy, setup, optimization, and reporting.' },
@@ -65,6 +69,21 @@ const content: ServicePageContent = {
     { question: 'Can you take over an existing account?', answer: 'Yes. We start by auditing your current campaigns and tracking, then fix what isn’t working before making larger changes.' },
     { question: 'How quickly will ads start running?', answer: 'Once tracking is in place and campaigns are approved by Google, ads can run within days. The first few weeks are used to gather data and refine the setup.' },
   ],
+  fit: {
+    audience: [
+      { title: 'Businesses that need leads soon', desc: 'SEO takes months to build. Paid search can put you in front of people searching for your service as soon as campaigns are approved.' },
+      { title: 'Advertisers who can’t see what works', desc: 'You’re spending on Google Ads but can’t tell which keywords or ads actually lead to calls, quote requests, or sales.' },
+      { title: 'Service businesses with a defined area', desc: 'Location targeting and ad scheduling let you show ads only where you work and when you can answer the phone.' },
+      { title: 'Owners running ads themselves', desc: 'You set up campaigns on your own and suspect broad keywords and default settings are spending money on the wrong searches.' },
+    ],
+    why: [
+      { title: 'Tracking before spending', desc: 'We set up and test call, form, and purchase tracking before campaigns go live, so every dollar can be tied to an outcome.' },
+      { title: 'Your account, your data', desc: 'Campaigns run in a Google Ads account you own. If we ever part ways, the account and its history stay with you.' },
+      { title: 'Landing pages handled in-house', desc: 'Our designers and developers can build or fix the page your ads send people to — often the place where paid clicks are lost.' },
+      { title: 'Active management, not set-and-forget', desc: 'We review search terms, bids, budgets, and ads on an ongoing basis and add negative keywords to cut irrelevant clicks.' },
+    ],
+  },
+  related: ['landing-page', 'search-engine-optimization', 'website-design', 'social-media-marketing'],
   cta: {
     heading: 'Let’s make your ad spend',
     headingAccent: 'work smarter.',

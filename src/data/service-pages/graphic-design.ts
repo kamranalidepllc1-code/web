@@ -2,10 +2,12 @@ import type { ServicePageContent } from '@/types/site'
 
 const content: ServicePageContent = {
   slug: 'graphic-design',
+  shortName: 'graphic design',
+  seo: { title: 'Graphic Design Services for Marketing & Print | Digi Era Pro', description: 'Graphic design services for social media, flyers, ads, business cards, and brand materials — on-brand visuals delivered print-ready and web-ready.' },
   visual: 'design',
   hero: {
-    title: 'Design that makes your brand',
-    titleAccent: 'impossible to ignore.',
+    title: 'Graphic design that communicates',
+    titleAccent: 'at a glance.',
     summary: 'From social posts to campaign creatives, we design visuals that look sharp, stay on-brand, and communicate your message at a glance.',
     cta: 'Start a design project',
   },
@@ -59,12 +61,28 @@ const content: ServicePageContent = {
     caption: 'Thoughtful design gives your message clarity, your brand consistency, and your audience a reason to stop and look.',
   },
   faq: [
+    { question: 'Do you design business cards and flyers?', answer: 'Yes. Business cards, flyers, brochures, door hangers, and posters are some of our most common requests. We set up files to your printer’s specifications so they print correctly.' },
     { question: 'What kinds of design projects do you take on?', answer: 'Marketing materials, social media graphics, campaign creatives, digital ads, print materials, presentations, and more. If it is visual and represents your business, we can likely help.' },
     { question: 'Do you need brand guidelines to start?', answer: 'No. If you have guidelines, we follow them closely. If you don’t, we can work from your existing materials or help you define a simple visual direction first.' },
     { question: 'How many revisions are included?', answer: 'Revision rounds are agreed at the start of each project, so you know exactly what is included. We aim to get the direction right early to keep revisions focused.' },
     { question: 'Which file formats will I receive?', answer: 'You receive files suited to how the design will be used — for example print-ready PDFs, high-resolution PNG or JPG files, and source files where agreed.' },
     { question: 'Can you design on an ongoing basis?', answer: 'Yes. Many clients work with us monthly for social graphics and marketing materials, which keeps their visuals consistent over time.' },
   ],
+  fit: {
+    audience: [
+      { title: 'Businesses needing regular social graphics', desc: 'You post every week and need a steady supply of on-brand graphics without hiring a designer.' },
+      { title: 'Owners preparing print materials', desc: 'Flyers, business cards, brochures, and signage that need to look professional and print correctly the first time.' },
+      { title: 'Advertisers needing ad creatives', desc: 'Display and social ads in every size the platforms require, designed to read clearly on a phone.' },
+      { title: 'Teams without an in-house designer', desc: 'Marketing managers who need dependable design support for presentations, emails, and campaigns.' },
+    ],
+    why: [
+      { title: 'Design made for marketing', desc: 'Our designers work alongside the people running your ads and social channels, so every graphic is made for where it will appear.' },
+      { title: 'Consistent with your brand', desc: 'We follow your guidelines — or create simple ones — so everything looks like it came from the same business.' },
+      { title: 'Files ready to use', desc: 'Print-ready PDFs, correctly sized web and social files, and source files where agreed.' },
+      { title: 'Trusted for everyday materials', desc: 'Clients regularly come to us for flyers, business cards, logos, and social content alongside their website and marketing.' },
+    ],
+  },
+  related: ['branding-strategy', 'social-media-marketing', 'content-creation', 'landing-page'],
   cta: {
     heading: 'Let’s create something',
     headingAccent: 'worth noticing.',

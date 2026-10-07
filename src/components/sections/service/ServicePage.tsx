@@ -16,15 +16,50 @@ import { BrandingStrategyPricing } from '@/components/sections/service/BrandingS
 import { SocialMediaPricing } from '@/components/sections/service/SocialMediaPricing'
 import { CitationBacklinksPricing } from '@/components/sections/service/CitationBacklinksPricing'
 import { ServiceFAQ } from '@/components/sections/service/ServiceFAQ'
+import { ServiceFit } from '@/components/sections/service/ServiceFit'
+import { JsonLd } from '@/components/seo/JsonLd'
 import { OfferPricing } from '@/components/sections/special-offer/OfferPricing'
 import { getService } from '@/data/services'
+import { ORG_ID, SITE_NAME, breadcrumbSchema, faqSchema, pageMetadata, webPageSchema } from '@/lib/seo'
+import { SITE_URL } from '@/lib/blog/utils'
 import type { ServicePageContent } from '@/types/site'
 
 export function serviceMetadata(content: ServicePageContent): Metadata {
-  return {
-    title: `${getService(content.slug).title} | Digi Era Pro`,
-    description: content.hero.summary,
-  }
+  return pageMetadata({ ...content.seo, path: `/services/${content.slug}` })
+}
+
+function serviceSchema(content: ServicePageContent) {
+  const service = getService(content.slug)
+  const path = `/services/${content.slug}`
+  const url = `${SITE_URL}${path}`
+  return [
+    webPageSchema({ name: content.seo.title, description: content.seo.description, path }),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      '@id': `${url}#service`,
+      name: service.title,
+      serviceType: service.title,
+      description: content.seo.description,
+      url,
+      provider: { '@id': ORG_ID, '@type': 'Organization', name: SITE_NAME },
+      areaServed: { '@type': 'Country', name: 'United States' },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: `${service.title} services`,
+        itemListElement: content.features.items.map(item => ({
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: item.title, description: item.desc },
+        })),
+      },
+    },
+    breadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'Services', path: '/#services' },
+      { name: service.title, path },
+    ]),
+    faqSchema(content.faq),
+  ]
 }
 
 // Shared layout for every /services/<slug> page. Each page supplies its own content.
@@ -32,12 +67,13 @@ export function ServicePage({ content }: { content: ServicePageContent }) {
   return (
     <div
       style={{
-        background: '#222429',
-        color: '#f0ede8',
+        background: 'var(--bg)',
+        color: 'var(--fg)',
         fontFamily: "'Outfit', sans-serif",
         overflowX: 'hidden',
       }}
     >
+      <JsonLd data={serviceSchema(content)} />
       <Navbar />
       <ServiceHero content={content} />
       <ServiceIntro intro={content.intro} />
@@ -51,10 +87,11 @@ export function ServicePage({ content }: { content: ServicePageContent }) {
       {content.slug === 'social-media-marketing' && <SocialMediaPricing />}
       {content.slug === 'citation-backlinks' && <CitationBacklinksPricing />}
       <ServiceShowcase showcase={content.showcase} />
+      <ServiceFit shortName={content.shortName} fit={content.fit} />
       {content.pricing && <OfferPricing />}
       {content.stack && <ServiceStack stack={content.stack} />}
-      {content.faq && <ServiceFAQ faq={content.faq} />}
-      <ServiceCTA slug={content.slug} cta={content.cta} />
+      <ServiceFAQ faq={content.faq} shortName={content.shortName} />
+      <ServiceCTA slug={content.slug} cta={content.cta} relatedSlugs={content.related} />
       <Contact />
     </div>
   )

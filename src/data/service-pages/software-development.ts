@@ -2,10 +2,12 @@ import type { ServicePageContent } from '@/types/site'
 
 const content: ServicePageContent = {
   slug: 'software-development',
+  shortName: 'custom software development',
+  seo: { title: 'Custom Software Development Services | Digi Era Pro', description: 'Custom software development for small and mid-sized businesses: internal tools, dashboards, workflow automation, and API integrations built around how you work.' },
   visual: 'software',
   hero: {
-    title: 'Software shaped around the way you',
-    titleAccent: 'work.',
+    title: 'Custom software development shaped around',
+    titleAccent: 'how you work.',
     summary: 'Custom software, internal tools, and integrations that remove manual work, connect your systems, and give your team one clear place to get things done.',
     cta: 'Talk about your project',
   },
@@ -54,6 +56,28 @@ const content: ServicePageContent = {
     statementAccent: 'More business.',
     caption: 'The right software quietly handles the repetitive work, so your team can spend its time where it counts.',
   },
+  fit: {
+    audience: [
+      { title: 'Businesses running on spreadsheets', desc: 'Jobs, orders, or inventory tracked across shared spreadsheets that break, conflict, or depend on one person.' },
+      { title: 'Teams retyping the same data', desc: 'Information copied by hand between your CRM, invoicing, scheduling, and email tools.' },
+      { title: 'Companies outgrowing off-the-shelf tools', desc: 'Software that fit when you were smaller but now forces workarounds for how your team actually operates.' },
+      { title: 'Businesses that need a customer portal', desc: 'A secure place for customers to see orders, documents, or project status without calling you.' },
+    ],
+    why: [
+      { title: 'Built in reviewable stages', desc: 'You see working software early and often, so feedback shapes the product before it is finished.' },
+      { title: 'Integrations with what you already use', desc: 'We connect new software to your existing tools where they offer an API, instead of asking you to replace everything.' },
+      { title: 'Plain-language process', desc: 'Requirements, progress, and trade-offs are explained without technical jargon.' },
+      { title: 'Long-term support', desc: 'We maintain and extend the software after launch as your processes change.' },
+    ],
+  },
+  faq: [
+    { question: 'When does custom software make sense?', answer: 'When off-the-shelf tools force constant workarounds, when your team re-enters the same data in several places, or when your process is a genuine advantage that generic software can’t support.' },
+    { question: 'Can you integrate with my existing tools?', answer: 'Usually, yes. We can connect to commonly used CRMs, accounting, payment, scheduling, and email platforms where they provide an API.' },
+    { question: 'How do you keep a software project on budget?', answer: 'We define requirements up front, build the most valuable features first, and deliver in stages, so scope decisions are made with working software in front of you.' },
+    { question: 'How do you handle security?', answer: 'We build with secure logins, role-based access, encrypted connections, and reputable cloud hosting, and we limit access to data to the people who need it.' },
+    { question: 'Do you maintain software after launch?', answer: 'Yes. We offer ongoing support for fixes, updates, and new features.' },
+  ],
+  related: ['ai-solutions', 'app-development', 'web-development'],
   cta: {
     heading: 'Ready to simplify how your business',
     headingAccent: 'runs?',

@@ -2,9 +2,11 @@ import type { ServicePageContent } from '@/types/site'
 
 const content: ServicePageContent = {
   slug: 'web-development',
+  shortName: 'web development',
+  seo: { title: 'Web Development Services | Custom Websites | Digi Era Pro', description: 'Web development for businesses that need fast, secure, responsive websites and custom web applications, built with clean code and SEO best practices.' },
   visual: 'web',
   hero: {
-    title: 'Websites engineered to',
+    title: 'Web development built to',
     titleAccent: 'perform.',
     summary: 'From business websites to custom web applications, we design and build fast, secure, responsive sites that are easy to use and built to grow with your business.',
     cta: 'Start your project',
@@ -59,6 +61,29 @@ const content: ServicePageContent = {
     note: 'This website is built on the same modern stack — a solid foundation for fast, maintainable sites.',
     items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
   },
+  fit: {
+    audience: [
+      { title: 'Businesses with slow or outdated websites', desc: 'Pages take too long to load, break on phones, or still look like they did years ago.' },
+      { title: 'Companies that need custom functionality', desc: 'Booking systems, customer portals, calculators, dashboards, or integrations a template can’t handle.' },
+      { title: 'Businesses planning SEO or ads', desc: 'Search and paid traffic only pay off if the site underneath is fast, crawlable, and built to convert.' },
+      { title: 'Teams stuck with a site nobody can update', desc: 'You rely on a developer for every small text change and want a site your team can manage.' },
+    ],
+    why: [
+      { title: 'Developers who work with marketers', desc: 'Our developers build alongside our SEO, ads, and design teams, so the site is ready for marketing from launch day.' },
+      { title: 'Modern, maintainable code', desc: 'We build with modern frameworks such as Next.js and React, with clean code that is straightforward to extend.' },
+      { title: 'Performance and SEO built in', desc: 'Fast loading, mobile responsiveness, metadata, structured data, and redirects are part of the build, not an afterthought.' },
+      { title: 'Support after launch', desc: 'We stay on hand to fix issues, make updates, and add features as your business grows.' },
+    ],
+  },
+  faq: [
+    { question: 'What is the difference between web design and web development?', answer: 'Web design covers how a site looks and how visitors move through it — layout, visuals, and page structure. Web development is building it: the code, content management, forms, integrations, and performance. We handle both, and our website design service focuses specifically on the visual and conversion side.' },
+    { question: 'How long does it take to build a website?', answer: 'It depends on the number of pages, features, and how quickly content and feedback come together. A focused business website takes far less time than a custom web application. We agree a timeline with clear milestones before work begins.' },
+    { question: 'Will my website work on phones and tablets?', answer: 'Yes. Every site we build is responsive and tested on phones, tablets, and desktops, since many visitors arrive on mobile.' },
+    { question: 'Will I be able to update the website myself?', answer: 'Yes, if you want to. We can set up a content management system so your team can edit text, images, and blog posts without touching code.' },
+    { question: 'Do you redesign or rebuild existing websites?', answer: 'Yes. We review your current site first, keep what works — including pages that already rank — and set up redirects so you don’t lose search traffic in the move.' },
+    { question: 'Is SEO included in web development?', answer: 'Technical SEO foundations are included: fast pages, clean structure, metadata, and crawlable code. Ongoing work such as keyword targeting, content, and link building is part of our separate SEO service.' },
+  ],
+  related: ['website-design', 'ecommerce-development', 'landing-page', 'search-engine-optimization'],
   cta: {
     heading: 'Ready to build something',
     headingAccent: 'better?',

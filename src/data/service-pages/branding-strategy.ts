@@ -2,9 +2,11 @@ import type { ServicePageContent } from '@/types/site'
 
 const content: ServicePageContent = {
   slug: 'branding-strategy',
+  shortName: 'branding strategy',
+  seo: { title: 'Branding Strategy & Brand Identity Services | Digi Era Pro', description: 'Branding strategy for growing businesses: positioning, messaging, tone of voice, visual direction, and brand guidelines that keep every touchpoint consistent.' },
   visual: 'brand',
   hero: {
-    title: 'A brand with a clear idea',
+    title: 'Branding strategy with a clear idea',
     titleAccent: 'at its core.',
     summary: 'We help you define what your business stands for, who it serves, and how it should look and sound — so every decision about your brand has a strong foundation.',
     cta: 'Start a brand conversation',
@@ -59,12 +61,28 @@ const content: ServicePageContent = {
     caption: 'A clear brand strategy gives every design, message, and campaign a shared direction — and makes your business easier to remember.',
   },
   faq: [
+    { question: 'Do you design logos as part of branding?', answer: 'Yes. Once the strategy is agreed, our graphic design team develops the logo and visual identity — color palette, typography, and imagery style — so the look expresses the positioning.' },
     { question: 'What is the difference between branding and a logo?', answer: 'A logo is one visual element of your brand. Branding strategy defines the thinking behind it — your positioning, audience, messaging, and personality — so the logo and everything else express a clear idea.' },
     { question: 'Do I need a brand strategy if I already have a logo?', answer: 'Often, yes. Many businesses have a logo but no clear positioning or messaging. A strategy helps you use your existing identity more effectively, or shows where it needs to evolve.' },
     { question: 'How long does a branding strategy project take?', answer: 'It depends on the scope and how quickly decisions can be made. We agree a timeline at the start, covering research, workshops, strategy development, and guidelines.' },
     { question: 'Can you help with a rebrand?', answer: 'Yes. We review what your current brand does well and what customers already recognize, so a rebrand builds on your strengths rather than starting from nothing.' },
     { question: 'What will I receive at the end?', answer: 'A documented brand strategy covering positioning, audience, messaging, personality, and visual direction, along with guidelines your team can refer to.' },
   ],
+  fit: {
+    audience: [
+      { title: 'New businesses before launch', desc: 'Set your positioning, name usage, messaging, and visual direction before you spend on a website, signage, and ads.' },
+      { title: 'Businesses that have outgrown their brand', desc: 'Your services, prices, or customers have changed, but your logo and messaging still reflect where you started.' },
+      { title: 'Companies that blend in', desc: 'Prospects compare you with competitors and can’t see a meaningful difference — so they choose on price.' },
+      { title: 'Inconsistent materials', desc: 'Your website, social profiles, vehicles, and printed materials all look slightly different.' },
+    ],
+    why: [
+      { title: 'Strategy that feeds your marketing', desc: 'Positioning and messaging flow straight into your website copy, SEO, ads, and social content, because the same team handles them.' },
+      { title: 'Design in-house', desc: 'Our designers turn the strategy into a logo, color palette, typography, and templates without a hand-off to another agency.' },
+      { title: 'Guidelines people actually use', desc: 'Practical, visual guidelines your staff and suppliers can follow — not a document that sits in a drawer.' },
+      { title: 'Built on what customers already recognize', desc: 'For rebrands, we keep the equity you’ve earned and change only what is holding you back.' },
+    ],
+  },
+  related: ['graphic-design', 'website-design', 'content-creation', 'social-media-marketing'],
   cta: {
     heading: 'Let’s define what makes',
     headingAccent: 'you different.',

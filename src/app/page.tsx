@@ -1,4 +1,6 @@
 import { Navbar } from '@/components/layout/Navbar'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { pageMetadata, webPageSchema } from '@/lib/seo'
 import { Hero } from '@/components/sections/Hero'
 import { VideoStories } from '@/components/sections/VideoStories'
 import { AboutTimeline } from '@/components/sections/about/AboutTimeline'
@@ -15,6 +17,14 @@ import { Contact } from '@/components/sections/Contact'
 import { getPosts } from '@/lib/wordpress/api'
 import { formatDate } from '@/lib/blog/utils'
 import type { JournalPost } from '@/components/ui/JournalCard'
+
+const SEO = {
+  title: 'Digital Marketing Agency in New York | Digi Era Pro',
+  description: 'New York digital marketing agency helping U.S. businesses grow with SEO, Google Ads, social media marketing, Google Business Profile optimization, and web design.',
+  path: '/',
+}
+
+export const metadata = pageMetadata(SEO)
 
 async function latestJournalPosts(): Promise<JournalPost[]> {
   try {
@@ -38,7 +48,8 @@ async function latestJournalPosts(): Promise<JournalPost[]> {
 export default async function Home() {
   const journalPosts = await latestJournalPosts()
   return (
-    <div style={{ background: '#222429', color: '#f0ede8', fontFamily: "var(--font-outfit), sans-serif", overflowX: 'hidden' }}>
+    <div style={{ background: 'var(--bg)', color: 'var(--fg)', fontFamily: "var(--font-outfit), sans-serif", overflowX: 'hidden' }}>
+      <JsonLd data={webPageSchema({ name: SEO.title, description: SEO.description, path: SEO.path })} />
       <Navbar />
       <Hero />
       <VideoStories />

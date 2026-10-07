@@ -14,7 +14,7 @@ const GROUPS: { key: string; label: string; types: string[] }[] = [
   { key: 'articles', label: 'Articles', types: ['blog'] },
   { key: 'pages', label: 'Pages & offers', types: ['page', 'company', 'offer', 'review'] },
 ]
-const EXAMPLES = ['I need help getting more customers from Google', 'My website gets visits but no enquiries', 'How much is Google Business Profile management?', 'We need a new logo and brand']
+const EXAMPLES = ['I need help getting more customers from Google', 'My website gets visits but no inquiries', 'How much is Google Business Profile management?', 'We need a new logo and brand']
 const TYPE_LABEL: Record<string, string> = { service: 'Service', faq: 'FAQ', blog: 'Article', page: 'Page', company: 'About us', offer: 'Offer', review: 'Review' }
 
 /** syncUrl: keep /search?q= in the address bar (off when used inside the navbar popup) */
@@ -108,11 +108,11 @@ export function AiSearch({ initialQuery, syncUrl = true }: { initialQuery: strin
           {data.ai && (data.ai.summary || data.ai.recommended.length > 0) && (
             <section style={{ borderRadius: 16, padding: 'clamp(1.1rem, 3vw, 1.5rem)', border: '1px solid rgba(206,48,125,0.3)', background: 'linear-gradient(180deg, rgba(206,48,125,0.1), rgba(206,48,125,0.02))', marginBottom: '2rem' }}>
               <p style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D' }}><Sparkles size={13} /> AI recommendation</p>
-              {data.ai.summary && <p style={{ marginTop: '0.6rem', lineHeight: 1.7, color: 'rgba(240,237,232,0.88)' }}>{data.ai.summary}</p>}
+              {data.ai.summary && <p style={{ marginTop: '0.6rem', lineHeight: 1.7, color: 'rgba(var(--fg-rgb),0.88)' }}>{data.ai.summary}</p>}
               {data.ai.recommended.length > 0 && (
                 <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: '0.75rem', marginTop: '1rem' }}>
                   {data.ai.recommended.map(r => (
-                    <Link key={r.id} href={r.url} className="ai-result" style={{ background: '#272a30' }}>
+                    <Link key={r.id} href={r.url} className="ai-result" style={{ background: 'var(--surface)' }}>
                       <h3>{r.title}</h3>
                       <p>{r.reason}</p>
                       <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', marginTop: '0.7rem', fontSize: '0.7rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#CE307D' }}>View <ArrowRight size={12} /></span>
@@ -124,20 +124,20 @@ export function AiSearch({ initialQuery, syncUrl = true }: { initialQuery: strin
           )}
 
           {grouped.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '3rem 1rem', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 16 }}>
+            <div style={{ textAlign: 'center', padding: '3rem 1rem', border: '1px solid rgba(var(--line-rgb), 0.07)', borderRadius: 16 }}>
               <p style={{ fontFamily: "var(--font-fraunces), serif", fontSize: '1.5rem', fontWeight: 300 }}>No matches on our website</p>
-              <p style={{ color: 'rgba(240,237,232,0.65)', marginTop: '0.5rem' }}>Try different words, or <Link href="/contact" className="ai-link">contact our team</Link> — we’re happy to help.</p>
+              <p style={{ color: 'rgba(var(--fg-rgb),0.65)', marginTop: '0.5rem' }}>Try different words, or <Link href="/contact" className="ai-link">contact our team</Link> — we’re happy to help.</p>
             </div>
           ) : (
             grouped.map(g => (
               <section key={g.key} style={{ marginBottom: '2rem' }}>
-                <h2 style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(240,237,232,0.55)', marginBottom: '0.9rem' }}>{g.label}</h2>
+                <h2 style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(var(--fg-rgb),0.55)', marginBottom: '0.9rem' }}>{g.label}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ gap: '0.75rem' }}>
                   {g.items.map(r => (
                     <Link key={r.id} href={r.url} className="ai-result">
                       <span className="ai-badge">{TYPE_LABEL[r.type] ?? r.type}</span>
                       <h3>{r.title}</h3>
-                      {r.section && r.type !== 'service' && <p style={{ marginTop: '0.25rem', fontSize: '0.75rem', color: 'rgba(240,237,232,0.5)' }}>{r.section}</p>}
+                      {r.section && r.type !== 'service' && <p style={{ marginTop: '0.25rem', fontSize: '0.75rem', color: 'rgba(var(--fg-rgb),0.5)' }}>{r.section}</p>}
                       <p>{r.snippet}</p>
                     </Link>
                   ))}

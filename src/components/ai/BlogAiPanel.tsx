@@ -75,7 +75,7 @@ export function BlogAiPanel({ slug }: { slug: string }) {
         </p>
       )}
       {(summary || answer) && (
-        <p style={{ fontSize: '0.68rem', color: 'rgba(240,237,232,0.45)', marginTop: '0.7rem' }}>AI-generated from this article — may contain mistakes.</p>
+        <p style={{ fontSize: '0.68rem', color: 'rgba(var(--fg-rgb),0.45)', marginTop: '0.7rem' }}>AI-generated from this article — may contain mistakes.</p>
       )}
     </section>
   )

@@ -9,9 +9,9 @@ import type { TEAM } from '@/data/site'
 export function TeamCard({ person }: { person: (typeof TEAM)[0] }) {
   const [hovered, setHovered] = useState(false)
   return (
-    <motion.div variants={fadeUp} style={{ background: '#272a30', overflow: 'hidden', position: 'relative' }}
+    <motion.div variants={fadeUp} style={{ background: 'var(--surface)', overflow: 'hidden', position: 'relative' }}
       onHoverStart={() => setHovered(true)} onHoverEnd={() => setHovered(false)}>
-      <div style={{ height: '380px', overflow: 'hidden', background: '#30333a', position: 'relative' }}>
+      <div style={{ height: '380px', overflow: 'hidden', background: 'var(--surface-3)', position: 'relative' }}>
         <motion.div
           animate={{ scale: hovered ? 1.07 : 1 }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           style={{ position: 'absolute', inset: 0 }}
@@ -30,10 +30,10 @@ export function TeamCard({ person }: { person: (typeof TEAM)[0] }) {
           <p style={{ fontSize: '0.72rem', letterSpacing: '0.08em', color: '#ffffff', textTransform: 'uppercase', margin: 0 }}>{person.role}</p>
         </motion.div>
       </div>
-      <div style={{ padding: '1.25rem 1.5rem', borderTop: '1px solid rgba(255,255,255,0.06)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div style={{ padding: '1.25rem 1.5rem', borderTop: '1px solid rgba(var(--line-rgb), 0.06)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
-          <p style={{ fontFamily: "var(--font-fraunces), serif", fontSize: '1.05rem', fontWeight: 300, margin: '0 0 0.2rem', color: '#f0ede8' }}>{person.name}</p>
-          <p style={{ fontSize: '0.72rem', letterSpacing: '0.06em', color: '#ffffff', textTransform: 'uppercase', margin: 0 }}>{person.role}</p>
+          <p style={{ fontFamily: "var(--font-fraunces), serif", fontSize: '1.05rem', fontWeight: 300, margin: '0 0 0.2rem', color: 'var(--fg)' }}>{person.name}</p>
+          <p style={{ fontSize: '0.72rem', letterSpacing: '0.06em', color: 'var(--fg-strong)', textTransform: 'uppercase', margin: 0 }}>{person.role}</p>
         </div>
         <motion.span animate={{ opacity: hovered ? 1 : 0, x: hovered ? 0 : -6 }} style={{ color: '#CE307D', fontSize: '1.1rem' }}>→</motion.span>
       </div>

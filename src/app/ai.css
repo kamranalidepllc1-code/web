@@ -1,16 +1,100 @@
-/* ── AI layer UI — same tokens as the site: #222429 surfaces, #CE307D accent, Fraunces + Outfit ── */
+/* ── AI layer UI — same tokens as the site: var(--bg) surfaces, #CE307D accent, Fraunces + Outfit ── */
 
-.ai-launcher {
+/* Launcher dock — the robot walks in from a random side once scrolling settles (see useLauncherWalk).
+   Phases: hidden (waiting off-screen on its next side) → shown (walks to the corner, settles, then the pink pill
+   unfolds from behind it and the label fades in) → leaving (pill folds back, robot walks off the nearest edge:
+   right for left/right entries, bottom for top/bottom). Interrupted mid-walk → vanishing (fades out where it is).
+   Transform + opacity (+ clip-path) only. */
+.ai-launcher-dock {
+  --walk: 1s; --step: 0.25s; --steps: 4; --lean: 0deg; --pill-closed: inset(8px calc(100% - 46px) 8px 6px round 999px);
   position: fixed; right: clamp(1rem, 3vw, 1.75rem); bottom: clamp(1rem, 3vw, 1.75rem); z-index: 150;
+  display: flex; opacity: 0; pointer-events: none; transition: none;
+  will-change: transform, opacity;
+}
+/* Start positions (hidden), walk length and lean (into the direction of travel) per side */
+.ai-launcher-dock.from-left { --walk: 2.4s; --step: 0.3s; --steps: 8; --lean: 6deg; transform: translate3d(calc(-100vw - 1rem), 0, 0); }
+.ai-launcher-dock.from-top { --walk: 1.8s; --step: 0.3s; --steps: 6; transform: translate3d(0, calc(-100vh - 1rem), 0); }
+.ai-launcher-dock.from-right { --lean: -6deg; transform: translate3d(calc(100% + 2.5rem), 0, 0); }
+.ai-launcher-dock.from-bottom { transform: translate3d(0, calc(100% + 2.5rem), 0); }
+@media (max-width: 1024px) { .ai-launcher-dock.from-left { --walk: 1.8s; --steps: 6; } }
+@media (max-width: 480px) {
+  .ai-launcher-dock { --walk: 0.8s; --step: 0.2s; --pill-closed: inset(9px round 999px); }
+  .ai-launcher-dock.from-left { --walk: 1.2s; --step: 0.3s; --steps: 4; }
+}
+
+.ai-launcher-dock.is-shown,
+.ai-launcher-dock:focus-within { /* keyboard users can always reach it */
+  opacity: 1; pointer-events: auto; transform: none;
+  transition: transform var(--walk) cubic-bezier(0.4, 0.1, 0.3, 1), opacity 0.4s ease-out;
+}
+/* Same transform target as .is-shown, so an unfinished walk carries on while it fades */
+.ai-launcher-dock.is-vanishing {
+  transform: none;
+  transition: transform var(--walk) cubic-bezier(0.4, 0.1, 0.3, 1), opacity 0.25s ease-in;
+}
+.ai-launcher-dock.is-leaving {
+  --lean: 6deg; transform: translate3d(calc(100% + 2.5rem), 0, 0);
+  transition: transform 0.72s cubic-bezier(0.45, 0, 0.8, 0.5) 0.18s, opacity 0.25s ease-in 0.62s;
+}
+.ai-launcher-dock.is-leaving:is(.from-top, .from-bottom) { --lean: 0deg; transform: translate3d(0, calc(100% + 2.5rem), 0); }
+
+/* The pill (gradient + glow) lives on ::before so it can fold away while the robot walks */
+.ai-launcher {
+  position: relative; isolation: isolate;
   display: inline-flex; align-items: center; gap: 0.6rem; height: 56px; padding: 0 1.3rem 0 0.4rem;
   border: none; border-radius: 999px; cursor: pointer; color: #fff; font: inherit; font-size: 0.8rem;
-  letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
-  background: linear-gradient(135deg, #CE307D, #a4225f); box-shadow: 0 12px 34px rgba(206, 48, 125, 0.45);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; background: none;
 }
-.ai-launcher:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(206, 48, 125, 0.55); }
+.ai-launcher::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit;
+  background: linear-gradient(135deg, #CE307D, #a4225f); box-shadow: 0 12px 34px rgba(206, 48, 125, 0.45);
+  clip-path: var(--pill-closed); opacity: 0;
+  transition: clip-path 0.28s cubic-bezier(0.55, 0, 0.75, 0.2), opacity 0.2s ease-in 0.08s, box-shadow 0.2s ease;
+}
+.ai-launcher-label { opacity: 0; transform: translateX(-8px); transition: opacity 0.15s ease-in, transform 0.15s ease-in; }
+.ai-launcher-dock:is(.is-shown, :focus-within) .ai-launcher::before {
+  /* generous negative inset so the glow isn't clipped once open */
+  clip-path: inset(-20px -28px -48px -28px round 999px); opacity: 1;
+  transition: clip-path 0.5s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--walk) - 0.05s), opacity 0.2s ease calc(var(--walk) - 0.05s), box-shadow 0.2s ease;
+}
+.ai-launcher-dock:is(.is-shown, :focus-within) .ai-launcher-label {
+  opacity: 1; transform: none;
+  transition: opacity 0.35s ease calc(var(--walk) + 0.15s), transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--walk) + 0.15s);
+}
+.ai-launcher:hover::before { box-shadow: 0 16px 40px rgba(206, 48, 125, 0.55); }
 .ai-launcher:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 @media (max-width: 480px) { .ai-launcher { width: 58px; height: 58px; padding: 0; justify-content: center; } .ai-launcher-label { display: none; } }
+
+/* Walking gait: small steps that lean into the direction of travel, then a soft settle on arrival */
+.ai-launcher-dock.is-shown .ai-avatar {
+  animation: ai-step var(--step) ease-in-out 0s var(--steps) alternate, ai-settle 0.5s cubic-bezier(0.22, 1, 0.36, 1) var(--walk) 1;
+}
+.ai-launcher-dock.is-leaving .ai-avatar { animation: ai-step calc(var(--step) * 0.8) ease-in-out 0.18s 4 alternate; }
+@keyframes ai-step {
+  from { transform: translateY(0) rotate(var(--lean)) rotate(-1.5deg); }
+  to { transform: translateY(-3px) rotate(calc(var(--lean) / 6)) rotate(1.5deg); }
+}
+@keyframes ai-settle {
+  0% { transform: translateY(0) rotate(var(--lean)) rotate(-1.5deg); }
+  35% { transform: translateY(1px) scale(1.06, 0.94); }
+  70% { transform: translateY(-2px) scale(0.98, 1.02); }
+  100% { transform: none; }
+}
+
+/* Back from the open chat, or reached by keyboard: just be there — no walk played on the spot */
+.ai-launcher-dock.is-instant { transition: opacity 0.3s ease-out; }
+.ai-launcher-dock:not(.is-shown):focus-within { transition: opacity 0.2s ease-out; }
+.ai-launcher-dock.is-instant .ai-avatar { animation: none; }
+.ai-launcher-dock.is-instant .ai-launcher::before, .ai-launcher-dock.is-instant .ai-launcher-label,
+.ai-launcher-dock:not(.is-shown):focus-within .ai-launcher::before, .ai-launcher-dock:not(.is-shown):focus-within .ai-launcher-label { transition-delay: 0s; }
+
+@media (prefers-reduced-motion: reduce) {
+  /* No walking: a plain fade, with the pill always fully formed */
+  .ai-launcher-dock[class] { transform: none !important; transition: opacity 0.2s linear !important; } /* beats every per-side/phase rule */
+  .ai-launcher-dock:is(.is-shown, .is-leaving) .ai-avatar { animation: none; }
+  .ai-launcher::before, .ai-launcher-dock:is(.is-shown, :focus-within) .ai-launcher::before { clip-path: none; opacity: 1; transition: none; }
+  .ai-launcher-label, .ai-launcher-dock:is(.is-shown, :focus-within) .ai-launcher-label { opacity: 1; transform: none; transition: none; }
+}
 
 /* Mascot avatar (white robot) — shown on a white disc so it reads on the pink and dark surfaces */
 .ai-avatar { display: block; flex-shrink: 0; border-radius: 50%; background: #fff; object-fit: cover; box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9), 0 4px 14px rgba(0, 0, 0, 0.25); }
@@ -24,27 +108,27 @@
   position: fixed; right: clamp(1rem, 3vw, 1.75rem); bottom: clamp(1rem, 3vw, 1.75rem); z-index: 150;
   width: min(400px, calc(100vw - 2rem)); height: min(640px, calc(100vh - 2rem));
   display: flex; flex-direction: column; overflow: hidden; border-radius: 18px;
-  background: #2a2d33; border: 1px solid rgba(255, 255, 255, 0.09); color: #f0ede8;
+  background: var(--surface-2); border: 1px solid rgba(var(--line-rgb), 0.09); color: var(--fg);
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55); font-family: var(--font-outfit), sans-serif;
 }
 @media (max-width: 640px) {
   .ai-panel { inset: 0; width: 100%; height: 100dvh; border-radius: 0; border: none; }
 }
 
-.ai-head { display: flex; align-items: center; gap: 0.75rem; padding: 0.95rem 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.07); background: #272a30; }
+.ai-head { display: flex; align-items: center; gap: 0.75rem; padding: 0.95rem 1rem; border-bottom: 1px solid rgba(var(--line-rgb), 0.07); background: var(--surface); }
 .ai-head-mark { width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; background: linear-gradient(135deg, #CE307D, #7a1c4a); flex-shrink: 0; }
 .ai-head-title { font-family: var(--font-fraunces), serif; font-size: 1.02rem; font-weight: 400; line-height: 1.2; }
-.ai-head-sub { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240, 237, 232, 0.5); margin-top: 0.15rem; }
-.ai-icon-btn { width: 32px; height: 32px; border-radius: 8px; border: none; background: transparent; color: rgba(240, 237, 232, 0.6); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; }
-.ai-icon-btn:hover { background: rgba(255, 255, 255, 0.07); color: #f0ede8; }
+.ai-head-sub { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(var(--fg-rgb), 0.5); margin-top: 0.15rem; }
+.ai-icon-btn { width: 32px; height: 32px; border-radius: 8px; border: none; background: transparent; color: rgba(var(--fg-rgb), 0.6); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; }
+.ai-icon-btn:hover { background: rgba(var(--line-rgb), 0.07); color: var(--fg); }
 
 .ai-body { flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: rgba(206, 48, 125, 0.5) transparent; }
 
 .ai-empty { margin: auto 0; padding: 0.5rem 0.25rem; }
 .ai-empty-title { font-family: var(--font-fraunces), serif; font-size: 1.35rem; line-height: 1.25; font-weight: 300; }
-.ai-empty-text { font-size: 0.88rem; line-height: 1.6; color: rgba(240, 237, 232, 0.65); margin: 0.6rem 0 1.1rem; }
+.ai-empty-text { font-size: 0.88rem; line-height: 1.6; color: rgba(var(--fg-rgb), 0.65); margin: 0.6rem 0 1.1rem; }
 .ai-suggestions { display: flex; flex-direction: column; gap: 0.5rem; }
-.ai-chip { text-align: left; font: inherit; font-size: 0.85rem; color: #f0ede8; background: #30333a; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 0.7rem 0.9rem; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
+.ai-chip { text-align: left; font: inherit; font-size: 0.85rem; color: var(--fg); background: var(--surface-3); border: 1px solid rgba(var(--line-rgb), 0.08); border-radius: 12px; padding: 0.7rem 0.9rem; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
 .ai-chip:hover { border-color: rgba(206, 48, 125, 0.6); background: rgba(206, 48, 125, 0.1); }
 
 .ai-msg { max-width: 88%; font-size: 0.9rem; line-height: 1.6; padding: 0.7rem 0.9rem; border-radius: 14px; overflow-wrap: anywhere; }
@@ -53,18 +137,18 @@
 .ai-msg ul { list-style: disc; } .ai-msg ol { list-style: decimal; }
 .ai-msg li + li { margin-top: 0.25em; }
 .ai-msg li::marker { color: #CE307D; }
-.ai-msg strong { font-weight: 600; color: #fff; }
+.ai-msg strong { font-weight: 600; color: var(--fg-strong); }
 .ai-msg-user { align-self: flex-end; background: #CE307D; color: #fff; border-bottom-right-radius: 4px; }
-.ai-msg-assistant { align-self: flex-start; background: #30333a; border: 1px solid rgba(255, 255, 255, 0.06); border-bottom-left-radius: 4px; }
+.ai-msg-assistant { align-self: flex-start; background: var(--surface-3); border: 1px solid rgba(var(--line-rgb), 0.06); border-bottom-left-radius: 4px; }
 .ai-msg-error { background: rgba(239, 90, 90, 0.08); border-color: rgba(239, 90, 90, 0.3); color: #ffb3b3; }
 .ai-link { color: #f38bbd; text-decoration: underline; text-underline-offset: 3px; }
 .ai-msg-user .ai-link { color: #fff; }
 
 .ai-sources { display: flex; flex-wrap: wrap; gap: 0.35rem; padding-top: 0.2rem; }
-.ai-source { font-size: 0.7rem; color: rgba(240, 237, 232, 0.75); text-decoration: none; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 999px; padding: 0.22rem 0.6rem; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; transition: border-color 0.2s, color 0.2s; }
-.ai-source:hover { color: #fff; border-color: #CE307D; }
+.ai-source { font-size: 0.7rem; color: rgba(var(--fg-rgb), 0.75); text-decoration: none; border: 1px solid rgba(var(--line-rgb), 0.12); border-radius: 999px; padding: 0.22rem 0.6rem; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; transition: border-color 0.2s, color 0.2s; }
+.ai-source:hover { color: var(--fg-strong); border-color: #CE307D; }
 .ai-lead-ok { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.75rem; color: #3ecf8e; }
-.ai-retry { align-self: flex-start; display: inline-flex; align-items: center; gap: 0.35rem; font: inherit; font-size: 0.78rem; color: #f0ede8; background: transparent; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 999px; padding: 0.35rem 0.8rem; cursor: pointer; }
+.ai-retry { align-self: flex-start; display: inline-flex; align-items: center; gap: 0.35rem; font: inherit; font-size: 0.78rem; color: var(--fg); background: transparent; border: 1px solid rgba(var(--line-rgb), 0.18); border-radius: 999px; padding: 0.35rem 0.8rem; cursor: pointer; }
 .ai-retry:hover { border-color: #CE307D; }
 
 .ai-typing { display: inline-flex; gap: 4px; padding: 0.35rem 0.1rem; }
@@ -73,37 +157,71 @@
 @keyframes ai-dot { 0%, 80%, 100% { opacity: 0.25; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-3px); } }
 @media (prefers-reduced-motion: reduce) { .ai-typing i { animation: none; opacity: 0.7; } }
 
-.ai-input { display: flex; align-items: flex-end; gap: 0.5rem; padding: 0.75rem; border-top: 1px solid rgba(255, 255, 255, 0.07); background: #272a30; }
-.ai-input textarea { flex: 1; resize: none; max-height: 120px; min-height: 42px; font: inherit; font-size: 0.9rem; line-height: 1.45; color: #f0ede8; background: #222429; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 12px; padding: 0.6rem 0.8rem; outline: none; field-sizing: content; }
+.ai-input { display: flex; align-items: flex-end; gap: 0.5rem; padding: 0.75rem; border-top: 1px solid rgba(var(--line-rgb), 0.07); background: var(--surface); }
+.ai-input textarea { flex: 1; resize: none; max-height: 120px; min-height: 42px; font: inherit; font-size: 0.9rem; line-height: 1.45; color: var(--fg); background: var(--bg); border: 1px solid rgba(var(--line-rgb), 0.12); border-radius: 12px; padding: 0.6rem 0.8rem; outline: none; field-sizing: content; }
 .ai-input textarea:focus { border-color: #CE307D; box-shadow: 0 0 0 3px rgba(206, 48, 125, 0.15); }
 .ai-send { width: 42px; height: 42px; flex-shrink: 0; border: none; border-radius: 12px; background: #CE307D; color: #fff; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s, opacity 0.2s; }
 .ai-send:hover { background: #b8286d; }
 .ai-send:disabled { opacity: 0.4; cursor: not-allowed; }
-.ai-disclaimer { font-size: 0.66rem; line-height: 1.4; color: rgba(240, 237, 232, 0.45); text-align: center; padding: 0 1rem 0.7rem; background: #272a30; }
+.ai-disclaimer { font-size: 0.66rem; line-height: 1.4; color: rgba(var(--fg-rgb), 0.45); text-align: center; padding: 0 1rem 0.7rem; background: var(--surface); }
 
 /* ── AI search page ── */
-.ai-search-box { display: flex; gap: 0.6rem; background: #2a2d33; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 0.45rem; transition: border-color 0.2s, box-shadow 0.2s; }
+.ai-search-box { display: flex; gap: 0.6rem; background: var(--surface-2); border: 1px solid rgba(var(--line-rgb), 0.1); border-radius: 16px; padding: 0.45rem; transition: border-color 0.2s, box-shadow 0.2s; }
 .ai-search-box:focus-within { border-color: #CE307D; box-shadow: 0 0 0 4px rgba(206, 48, 125, 0.14); }
-.ai-search-box input { flex: 1; min-width: 0; background: transparent; border: none; outline: none; color: #f0ede8; font: inherit; font-size: clamp(0.95rem, 2vw, 1.1rem); padding: 0.6rem 0.8rem; }
+.ai-search-box input { flex: 1; min-width: 0; background: transparent; border: none; outline: none; color: var(--fg); font: inherit; font-size: clamp(0.95rem, 2vw, 1.1rem); padding: 0.6rem 0.8rem; }
 .ai-search-box button { flex-shrink: 0; display: inline-flex; align-items: center; gap: 0.45rem; border: none; border-radius: 12px; background: #CE307D; color: #fff; font: inherit; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 1.1rem; cursor: pointer; }
 .ai-search-box button:disabled { opacity: 0.5; cursor: not-allowed; }
-.ai-result { display: block; text-decoration: none; color: inherit; background: #2a2d33; border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 14px; padding: 1.1rem 1.2rem; transition: border-color 0.2s, transform 0.2s; }
+.ai-result { display: block; text-decoration: none; color: inherit; background: var(--surface-2); border: 1px solid rgba(var(--line-rgb), 0.07); border-radius: 14px; padding: 1.1rem 1.2rem; transition: border-color 0.2s, transform 0.2s; }
 .ai-result:hover { border-color: rgba(206, 48, 125, 0.55); transform: translateY(-2px); }
-.ai-result h3 { font-family: var(--font-fraunces), serif; font-weight: 400; font-size: 1.08rem; line-height: 1.3; color: #f0ede8; }
-.ai-result p { font-size: 0.85rem; line-height: 1.6; color: rgba(240, 237, 232, 0.68); margin-top: 0.45rem; }
+.ai-result h3 { font-family: var(--font-fraunces), serif; font-weight: 400; font-size: 1.08rem; line-height: 1.3; color: var(--fg); }
+.ai-result p { font-size: 0.85rem; line-height: 1.6; color: rgba(var(--fg-rgb), 0.68); margin-top: 0.45rem; }
 .ai-badge { display: inline-block; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: #CE307D; background: rgba(206, 48, 125, 0.12); border: 1px solid rgba(206, 48, 125, 0.25); padding: 0.18rem 0.55rem; border-radius: 4px; margin-bottom: 0.55rem; }
-.ai-skeleton { border-radius: 14px; background: linear-gradient(90deg, #2a2d33 0%, #30333a 50%, #2a2d33 100%); background-size: 200% 100%; animation: ai-shimmer 1.3s infinite linear; }
+.ai-skeleton { border-radius: 14px; background: linear-gradient(90deg, var(--surface-2) 0%, var(--surface-3) 50%, var(--surface-2) 100%); background-size: 200% 100%; animation: ai-shimmer 1.3s infinite linear; }
 @keyframes ai-shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
 
 /* ── Blog AI panel ── */
 .ai-blog { border: 1px solid rgba(206, 48, 125, 0.28); background: linear-gradient(180deg, rgba(206, 48, 125, 0.08), rgba(206, 48, 125, 0.02)); border-radius: 14px; padding: 1rem 1.1rem; margin-bottom: clamp(1.75rem, 4vw, 2.5rem); }
 .ai-blog-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
-.ai-blog-btn { display: inline-flex; align-items: center; gap: 0.4rem; font: inherit; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: #f0ede8; background: #30333a; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 999px; padding: 0.5rem 0.95rem; cursor: pointer; transition: border-color 0.2s; }
+.ai-blog-btn { display: inline-flex; align-items: center; gap: 0.4rem; font: inherit; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg); background: var(--surface-3); border: 1px solid rgba(var(--line-rgb), 0.12); border-radius: 999px; padding: 0.5rem 0.95rem; cursor: pointer; transition: border-color 0.2s; }
 .ai-blog-btn:hover { border-color: #CE307D; }
 .ai-blog-btn:disabled { opacity: 0.55; cursor: wait; }
-.ai-blog-out { margin-top: 0.9rem; font-size: 0.95rem; line-height: 1.7; color: rgba(240, 237, 232, 0.86); }
+.ai-blog-out { margin-top: 0.9rem; font-size: 0.95rem; line-height: 1.7; color: rgba(var(--fg-rgb), 0.86); }
 .ai-blog-out ul { list-style: disc; padding-left: 1.2em; margin-top: 0.5rem; }
 .ai-blog-out li::marker { color: #CE307D; }
 .ai-blog-ask { display: flex; gap: 0.5rem; margin-top: 0.8rem; }
-.ai-blog-ask input { flex: 1; min-width: 0; font: inherit; font-size: 0.9rem; color: #f0ede8; background: #222429; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 10px; padding: 0.55rem 0.8rem; outline: none; }
+.ai-blog-ask input { flex: 1; min-width: 0; font: inherit; font-size: 0.9rem; color: var(--fg); background: var(--bg); border: 1px solid rgba(var(--line-rgb), 0.12); border-radius: 10px; padding: 0.55rem 0.8rem; outline: none; }
 .ai-blog-ask input:focus { border-color: #CE307D; }
+
+/* Blog sidebar AI buddy — walks along the CTA card's top edge while scrolling */
+.blog-cta { position: relative; margin-top: 3.25rem; }
+.ai-buddy-track { position: absolute; left: 1.35rem; right: 1.35rem; top: -40px; height: 46px; pointer-events: none; }
+.ai-buddy {
+  --x: 0px; --tilt: 0deg;
+  position: absolute; left: 0; bottom: 0; padding: 0; border: 0; background: none; cursor: pointer;
+  transform: translateX(var(--x)); transition: transform 0.12s linear; pointer-events: auto;
+}
+.ai-buddy .ai-avatar { transition: transform 0.3s ease; }
+.ai-buddy.is-walking .ai-avatar { animation: ai-buddy-walk 0.32s ease-in-out infinite alternate; }
+.ai-buddy:hover .ai-avatar, .ai-buddy:focus-visible .ai-avatar { transform: scale(1.1); }
+.ai-buddy:focus-visible { outline: 2px solid #fff; outline-offset: 3px; border-radius: 50%; }
+.ai-buddy-bubble {
+  position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translate(-50%, 4px);
+  white-space: nowrap; font-size: 0.68rem; letter-spacing: 0.04em; color: #222429; background: #fff;
+  padding: 0.3rem 0.6rem; border-radius: 999px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  opacity: 0; transition: opacity 0.25s ease, transform 0.25s ease; pointer-events: none;
+}
+.ai-buddy-bubble::after { content: ''; position: absolute; top: 100%; left: 50%; margin-left: -4px; border: 4px solid transparent; border-top-color: #fff; }
+.ai-buddy:not(.is-walking) .ai-buddy-bubble { opacity: 1; transform: translate(-50%, 0); }
+@keyframes ai-buddy-walk {
+  from { transform: translateY(0) rotate(calc(var(--tilt) * -0.5)); }
+  to { transform: translateY(-5px) rotate(var(--tilt)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ai-buddy, .ai-buddy .ai-avatar, .ai-buddy-bubble { transition: none; }
+  .ai-buddy.is-walking .ai-avatar { animation: none; }
+}
+
+/* Light theme: the pastel accents above are tuned for dark surfaces */
+:root[data-theme="light"] .ai-link { color: #b8256c; }
+:root[data-theme="light"] .ai-msg-error { color: #b42318; }
+:root[data-theme="light"] .ai-panel { box-shadow: 0 30px 80px rgba(0, 0, 0, 0.18); }

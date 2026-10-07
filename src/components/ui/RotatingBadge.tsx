@@ -39,14 +39,14 @@ export function RotatingBadge({ text, href, label, children, size = 110, caption
         style={{
           position: 'relative', width: size, height: size, borderRadius: '50%',
           background: 'radial-gradient(circle at 30% 25%, #1c1d21 0%, #000 70%)',
-          border: '1px solid rgba(255,255,255,0.12)',
+          border: '1px solid rgba(var(--line-rgb), 0.12)',
           boxShadow: hovered ? '0 18px 40px rgba(0,0,0,0.35)' : '0 10px 26px rgba(0,0,0,0.25)',
           transition: 'box-shadow 0.35s ease',
         }}
       >
         {/* Static inner ring */}
         <svg width={size} height={size} viewBox="0 0 110 110" aria-hidden="true" style={{ position: 'absolute', inset: 0 }}>
-          <circle cx="55" cy="55" r="31" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="0.75" strokeDasharray="2 3" />
+          <circle cx="55" cy="55" r="31" fill="none" stroke="rgba(var(--line-rgb), 0.1)" strokeWidth="0.75" strokeDasharray="2 3" />
         </svg>
         {/* Rotating text */}
         <motion.svg
@@ -81,7 +81,7 @@ export function RotatingBadge({ text, href, label, children, size = 110, caption
       </motion.div>
 
       {caption && (
-        <a href={href} style={{ textAlign: 'center', textDecoration: 'none', color: '#fff', lineHeight: 1.3 }}>
+        <a href={href} style={{ textAlign: 'center', textDecoration: 'none', color: 'var(--fg-strong)', lineHeight: 1.3 }}>
           <span style={{ display: 'block', fontSize: '0.66rem', letterSpacing: '0.14em', textTransform: 'uppercase', opacity: 0.8 }}>{caption.title}</span>
           <span style={{ display: 'block', fontSize: '0.92rem', fontWeight: 600, marginTop: '0.2rem', textDecoration: hovered ? 'underline' : 'none', textUnderlineOffset: '3px' }}>{caption.value}</span>
         </a>

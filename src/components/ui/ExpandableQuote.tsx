@@ -9,7 +9,7 @@ export function ExpandableQuote({ quote }: { quote: string }) {
   const displayed = expanded || !isLong ? quote : quote.slice(0, LIMIT) + '...'
   return (
     <div style={{ marginBottom: '2rem' }}>
-      <blockquote style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(1rem, 2vw, 1.5rem)', lineHeight: 1.6, letterSpacing: '-0.01em', margin: '0 0 0.75rem', color: '#f0ede8', fontStyle: 'italic', borderLeft: '2px solid #CE307D', paddingLeft: '1.5rem' }}>
+      <blockquote style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(1rem, 2vw, 1.5rem)', lineHeight: 1.6, letterSpacing: '-0.01em', margin: '0 0 0.75rem', color: 'var(--fg)', fontStyle: 'italic', borderLeft: '2px solid #CE307D', paddingLeft: '1.5rem' }}>
         &quot;{displayed}&quot;
       </blockquote>
       {isLong && (

@@ -20,7 +20,7 @@ export function StoryCard({
     <motion.div
       variants={fadeUp}
       whileHover={{ y: -4 }} transition={{ duration: 0.25 }}
-      style={{ position: 'relative', aspectRatio: '9 / 16', overflow: 'hidden', background: '#2a2d33', cursor: playing ? 'default' : 'pointer' }}
+      style={{ position: 'relative', aspectRatio: '9 / 16', overflow: 'hidden', background: 'var(--surface-2)', cursor: playing ? 'default' : 'pointer' }}
       onClick={() => { if (!playing) onPlay() }}
     >
       {playing ? (
@@ -56,7 +56,7 @@ export function StoryCard({
             style={{
               position: 'absolute', top: '50%', left: '50%',
               width: '64px', height: '64px', borderRadius: '50%',
-              background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(4px)',
+              background: 'rgba(var(--line-rgb), 0.15)', backdropFilter: 'blur(4px)',
               border: '1.5px solid rgba(255,255,255,0.8)', boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
               display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
             }}

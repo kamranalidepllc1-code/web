@@ -7,7 +7,7 @@ import { BlogCard } from '@/components/blog/BlogCard'
 import { getCategories, getPosts, getTermBySlug } from '@/lib/wordpress/api'
 import { SITE_URL } from '@/lib/blog/utils'
 
-const DESCRIPTION = 'Insights on digital marketing, SEO, branding, social media and web development from the Digi Era Pro team.'
+const DESCRIPTION = 'Practical digital marketing advice from the Digi Era Pro team on SEO, Google Ads, Google Business Profile, social media, branding, and web design.'
 
 type Filters = { page: number; category: string | null; tag: string | null }
 
@@ -36,12 +36,14 @@ export async function generateMetadata({ searchParams }: PageProps<'/blog'>): Pr
     filters.tag ? getTermBySlug('tags', filters.tag) : null,
   ])
   const label = category?.name ?? tag?.name
-  const title = label ? `${label} Articles | Digi Era Pro Blog` : 'Blog | Digi Era Pro'
+  const title = label ? `${label} Articles | Digi Era Pro Blog` : 'Digital Marketing Blog | Digi Era Pro'
   const url = `${SITE_URL}${listHref(filters)}`
   return {
-    title,
+    title: { absolute: title },
     description: DESCRIPTION,
     alternates: { canonical: url },
+    // Tag archives are thin and overlap with categories: keep them out of the index, but crawlable.
+    ...(tag ? { robots: { index: false, follow: true } } : {}),
     openGraph: { type: 'website', title, description: DESCRIPTION, url, siteName: 'Digi Era Pro' },
     twitter: { card: 'summary_large_image', title, description: DESCRIPTION },
   }
@@ -65,21 +67,21 @@ export default async function BlogIndexPage({ searchParams }: PageProps<'/blog'>
 
   const pill = (active: boolean): React.CSSProperties => ({
     fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', textDecoration: 'none', padding: '0.5rem 1rem',
-    border: `1px solid ${active ? '#CE307D' : 'rgba(255,255,255,0.12)'}`, background: active ? '#CE307D' : 'transparent',
-    color: active ? '#fff' : 'rgba(240,237,232,0.75)', whiteSpace: 'nowrap',
+    border: `1px solid ${active ? '#CE307D' : 'rgba(var(--line-rgb), 0.12)'}`, background: active ? '#CE307D' : 'transparent',
+    color: active ? '#fff' : 'rgba(var(--fg-rgb),0.75)', whiteSpace: 'nowrap',
   })
 
   return (
-    <div style={{ background: '#222429', color: '#f0ede8', fontFamily: "var(--font-outfit), sans-serif", overflowX: 'hidden' }}>
+    <div style={{ background: 'var(--bg)', color: 'var(--fg)', fontFamily: "var(--font-outfit), sans-serif", overflowX: 'hidden' }}>
       <Navbar />
 
       <section style={{ padding: 'clamp(7rem, 12vw, 8.5rem) clamp(1.25rem, 6vw, 2.5rem) clamp(2rem, 4vw, 3rem)', background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(206,48,125,0.14), transparent 70%)' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <span style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#CE307D' }}>{tag ? 'Tagged' : 'Thinking'}</span>
           <h1 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.75rem, 7vw, 5.5rem)', letterSpacing: '-0.03em', lineHeight: 1, margin: '1rem 0 1.25rem' }}>
-            {category || tag ? <>{(category ?? tag)!.name} <em style={{ color: '#CE307D' }}>articles.</em></> : <>The <em style={{ color: '#CE307D' }}>Journal.</em></>}
+            {category || tag ? <>{(category ?? tag)!.name} <em style={{ color: '#CE307D' }}>articles.</em></> : <>Digital marketing <em style={{ color: '#CE307D' }}>insights.</em></>}
           </h1>
-          <p style={{ maxWidth: '560px', color: 'rgba(240,237,232,0.7)', lineHeight: 1.7 }}>{DESCRIPTION}</p>
+          <p style={{ maxWidth: '560px', color: 'rgba(var(--fg-rgb),0.7)', lineHeight: 1.7 }}>{DESCRIPTION}</p>
 
           {(filterable.length > 0 || tag) && (
             <nav aria-label="Blog categories" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '2.5rem' }}>
@@ -96,12 +98,12 @@ export default async function BlogIndexPage({ searchParams }: PageProps<'/blog'>
       <section style={{ padding: '0 clamp(1.25rem, 6vw, 2.5rem) clamp(2rem, 4vw, 3rem)' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           {posts.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '5rem 1rem', border: '1px solid rgba(255,255,255,0.06)' }}>
+            <div style={{ textAlign: 'center', padding: '5rem 1rem', border: '1px solid rgba(var(--line-rgb), 0.06)' }}>
               <p style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: '1.75rem' }}>No articles yet.</p>
-              <p style={{ color: 'rgba(240,237,232,0.6)', marginTop: '0.5rem' }}>{category || tag ? 'Nothing here yet — try another topic.' : 'Check back soon for new insights.'}</p>
+              <p style={{ color: 'rgba(var(--fg-rgb),0.6)', marginTop: '0.5rem' }}>{category || tag ? 'Nothing here yet — try another topic.' : 'Check back soon for new insights.'}</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: '1px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.06)' }}>
+            <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: '1px', background: 'rgba(var(--line-rgb), 0.06)', border: '1px solid rgba(var(--line-rgb), 0.06)' }}>
               {posts.map(post => <BlogCard key={post.id} post={post} />)}
             </div>
           )}
@@ -111,7 +113,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<'/blog'>
               {filters.page > 1 && <Link href={listHref({ ...filters, page: filters.page - 1 })} style={pill(false)} rel="prev">← Newer</Link>}
               {pageWindow.map((p, i) => (
                 <span key={p} style={{ display: 'contents' }}>
-                  {i > 0 && p - pageWindow[i - 1] > 1 && <span style={{ color: 'rgba(240,237,232,0.4)' }}>…</span>}
+                  {i > 0 && p - pageWindow[i - 1] > 1 && <span style={{ color: 'rgba(var(--fg-rgb),0.4)' }}>…</span>}
                   <Link href={listHref({ ...filters, page: p })} style={pill(p === filters.page)} aria-current={p === filters.page ? 'page' : undefined}>{p}</Link>
                 </span>
               ))}

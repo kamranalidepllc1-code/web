@@ -13,6 +13,7 @@ const googleAdsPlans: ServicePricingPlan[] = [
         pricePeriod: '/ Month',
         icon: ListChecks,
         category: 'Google Ads package',
+        buttonHref: 'https://buy.stripe.com/aFa6oH9UQgHK2dM7cfawo0q',
         ribbon: 'Up to $2,000.00 ad spend limit',
         features: [
             '1 High-Conversion Ad Variation',
@@ -36,6 +37,7 @@ const googleAdsPlans: ServicePricingPlan[] = [
         icon: ListChecks,
         featured: true,
         category: 'Google Ads package',
+        buttonHref: 'https://buy.stripe.com/6oUcN55EA1MQg4C403awo0A',
         ribbon: 'Up to $3,000.00 ad spend limit',
         features: [
             '3 High-Conversion Ad Variations',
@@ -58,6 +60,7 @@ const googleAdsPlans: ServicePricingPlan[] = [
         pricePeriod: '/ Month',
         icon: Gem,
         category: 'Google Ads package',
+        buttonHref: 'https://buy.stripe.com/6oU28r3wsgHK19I2VZawo0B',
         ribbon: 'Up to $6,000.00 ad spend limit',
         features: [
             '5 High-Conversion Ad Variations',
@@ -77,16 +80,16 @@ const googleAdsPlans: ServicePricingPlan[] = [
 
 export function GoogleAdsPricing() {
     return (
-        <section id="google-ads-pricing" style={{ padding: 'clamp(3.5rem, 9vw, 7rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#272a30', scrollMarginTop: '60px' }}>
+        <section id="google-ads-pricing" style={{ padding: 'clamp(3.5rem, 9vw, 7rem) clamp(1.25rem, 6vw, 2.5rem)', background: 'var(--surface)', scrollMarginTop: '60px' }}>
             <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
                 <RevealOnScroll style={{ marginBottom: 'clamp(2.5rem, 6vw, 4rem)' }}>
                     <EyebrowLabel>Google Ads pricing packages</EyebrowLabel>
-                    <h2 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 4.25rem)', lineHeight: 1, margin: 0, color: '#f0ede8' }}>
+                    <h2 style={{ fontFamily: "'Fraunces', serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 4.25rem)', lineHeight: 1, margin: 0, color: 'var(--fg)' }}>
                         Choose your <em style={{ color: '#CE307D', fontStyle: 'italic' }}>best plan.</em>
                     </h2>
                 </RevealOnScroll>
 
-                <StaggerOnScroll className="seo-pricing-grid" style={{ display: 'grid', gap: '1px', alignItems: 'stretch', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.08)', overflow: 'hidden' }}>
+                <StaggerOnScroll className="seo-pricing-grid" style={{ display: 'grid', gap: '1px', alignItems: 'stretch', background: 'rgba(var(--line-rgb), 0.08)', border: '1px solid rgba(var(--line-rgb), 0.08)', overflow: 'hidden' }}>
                     {googleAdsPlans.map((plan) => <ServicePricingCard key={plan.name} plan={plan} />)}
                 </StaggerOnScroll>
             </div>

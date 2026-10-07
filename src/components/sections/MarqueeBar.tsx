@@ -25,7 +25,7 @@ export function MarqueeBar() {
   const wordStyle: CSSProperties = {
     fontFamily: "var(--font-fraunces), serif", fontStyle: 'italic', fontWeight: 300,
     fontSize: 'clamp(1.25rem, 3vw, 2.5rem)', letterSpacing: '-0.02em', lineHeight: 1,
-    color: 'transparent', WebkitTextStroke: '1.5px rgba(240,237,232,0.7)',
+    color: 'transparent', WebkitTextStroke: '1.5px rgba(var(--fg-rgb),0.7)',
   } as CSSProperties
 
   return (
@@ -34,8 +34,8 @@ export function MarqueeBar() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       style={{
-        overflow: 'hidden', background: '#222429',
-        borderTop: '1px solid rgba(255,255,255,0.08)', borderBottom: '1px solid rgba(255,255,255,0.08)',
+        overflow: 'hidden', background: 'var(--bg)',
+        borderTop: '1px solid rgba(var(--line-rgb), 0.08)', borderBottom: '1px solid rgba(var(--line-rgb), 0.08)',
         WebkitMaskImage: 'linear-gradient(to right, transparent, black 6%, black 94%, transparent)',
         maskImage: 'linear-gradient(to right, transparent, black 6%, black 94%, transparent)',
       }}

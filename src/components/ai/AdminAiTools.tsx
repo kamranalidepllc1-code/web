@@ -4,11 +4,11 @@ import { useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Check, Copy, Loader2, LogOut, RotateCcw, Sparkles } from 'lucide-react'
 
-const card: React.CSSProperties = { background: '#2a2d33', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 16, padding: 'clamp(1.1rem, 3vw, 1.6rem)' }
-const label: React.CSSProperties = { display: 'block', fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(240,237,232,0.55)', marginBottom: '0.45rem' }
-const input: React.CSSProperties = { width: '100%', font: 'inherit', fontSize: '0.92rem', color: '#f0ede8', background: '#222429', border: '1px solid rgba(255,255,255,0.14)', borderRadius: 10, padding: '0.65rem 0.8rem', outline: 'none' }
+const card: React.CSSProperties = { background: 'var(--surface-2)', border: '1px solid rgba(var(--line-rgb), 0.08)', borderRadius: 16, padding: 'clamp(1.1rem, 3vw, 1.6rem)' }
+const label: React.CSSProperties = { display: 'block', fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(var(--fg-rgb),0.55)', marginBottom: '0.45rem' }
+const input: React.CSSProperties = { width: '100%', font: 'inherit', fontSize: '0.92rem', color: 'var(--fg)', background: 'var(--bg)', border: '1px solid rgba(var(--line-rgb), 0.14)', borderRadius: 10, padding: '0.65rem 0.8rem', outline: 'none' }
 const primary: React.CSSProperties = { display: 'inline-flex', alignItems: 'center', gap: '0.45rem', border: 'none', borderRadius: 10, background: '#CE307D', color: '#fff', font: 'inherit', fontSize: '0.78rem', letterSpacing: '0.08em', textTransform: 'uppercase', padding: '0.75rem 1.2rem', cursor: 'pointer' }
-const ghost: React.CSSProperties = { ...primary, background: 'transparent', border: '1px solid rgba(255,255,255,0.18)', color: '#f0ede8' }
+const ghost: React.CSSProperties = { ...primary, background: 'transparent', border: '1px solid rgba(var(--line-rgb), 0.18)', color: 'var(--fg)' }
 
 export function AdminAiLogin() {
   const router = useRouter()
@@ -32,7 +32,7 @@ export function AdminAiLogin() {
   return (
     <form onSubmit={submit} style={{ ...card, maxWidth: 440, display: 'grid', gap: '1rem' }}>
       <p style={{ fontFamily: "var(--font-fraunces), serif", fontSize: '1.35rem', fontWeight: 300 }}>Sign in with WordPress</p>
-      <p style={{ fontSize: '0.85rem', lineHeight: 1.6, color: 'rgba(240,237,232,0.65)' }}>
+      <p style={{ fontSize: '0.85rem', lineHeight: 1.6, color: 'rgba(var(--fg-rgb),0.65)' }}>
         Use your WordPress username and an <strong>Application Password</strong> (WordPress → Users → Profile → Application Passwords). Your account must be able to edit posts.
       </p>
       {error && <p role="alert" style={{ fontSize: '0.85rem', color: '#ffb3b3', background: 'rgba(239,90,90,0.08)', border: '1px solid rgba(239,90,90,0.3)', borderRadius: 10, padding: '0.7rem 0.9rem' }}>{error}</p>}
@@ -116,8 +116,8 @@ export function AdminAiTools({ userName, posts }: { userName: string; posts: { s
 
   return (
     <div style={{ display: 'grid', gap: '1.25rem' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', fontSize: '0.85rem', color: 'rgba(240,237,232,0.65)' }}>
-        <span>Signed in as <strong style={{ color: '#f0ede8' }}>{userName}</strong></span>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', fontSize: '0.85rem', color: 'rgba(var(--fg-rgb),0.65)' }}>
+        <span>Signed in as <strong style={{ color: 'var(--fg)' }}>{userName}</strong></span>
         <button type="button" style={{ ...ghost, padding: '0.5rem 0.9rem' }} onClick={signOut}><LogOut size={14} /> Sign out</button>
       </div>
 
@@ -140,9 +140,9 @@ export function AdminAiTools({ userName, posts }: { userName: string; posts: { s
           <div className="grid grid-cols-2 md:grid-cols-3" style={{ gap: '0.6rem' }}>
             {TOOLS.map(t => (
               <button key={t.id} type="button" onClick={() => { setTool(t.id); setBlocks(null) }}
-                style={{ textAlign: 'left', font: 'inherit', cursor: 'pointer', borderRadius: 12, padding: '0.75rem 0.9rem', color: '#f0ede8', background: tool === t.id ? 'rgba(206,48,125,0.14)' : '#222429', border: `1px solid ${tool === t.id ? '#CE307D' : 'rgba(255,255,255,0.1)'}` }}>
+                style={{ textAlign: 'left', font: 'inherit', cursor: 'pointer', borderRadius: 12, padding: '0.75rem 0.9rem', color: 'var(--fg)', background: tool === t.id ? 'rgba(206,48,125,0.14)' : 'var(--bg)', border: `1px solid ${tool === t.id ? '#CE307D' : 'rgba(var(--line-rgb), 0.1)'}` }}>
                 <span style={{ display: 'block', fontSize: '0.9rem' }}>{t.name}</span>
-                <span style={{ display: 'block', fontSize: '0.72rem', color: 'rgba(240,237,232,0.55)', marginTop: '0.2rem' }}>{t.desc}</span>
+                <span style={{ display: 'block', fontSize: '0.72rem', color: 'rgba(var(--fg-rgb),0.55)', marginTop: '0.2rem' }}>{t.desc}</span>
               </button>
             ))}
           </div>
@@ -174,7 +174,7 @@ export function AdminAiTools({ userName, posts }: { userName: string; posts: { s
 
       {blocks && (
         <section style={{ display: 'grid', gap: '0.8rem' }} aria-live="polite">
-          {blocks.length === 0 && <p style={{ ...card, color: 'rgba(240,237,232,0.7)' }}>No suggestions — try another tool or post.</p>}
+          {blocks.length === 0 && <p style={{ ...card, color: 'rgba(var(--fg-rgb),0.7)' }}>No suggestions — try another tool or post.</p>}
           {blocks.map((b, i) => (
             <div key={i} style={{ ...card, padding: '1rem 1.1rem' }}>
               {b.title && <p style={{ fontSize: '0.88rem', fontWeight: 500, marginBottom: '0.5rem' }}>{b.title}</p>}
@@ -185,7 +185,7 @@ export function AdminAiTools({ userName, posts }: { userName: string; posts: { s
                 aria-label={`Suggestion ${i + 1}`}
               />
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.75rem', marginTop: '0.5rem', flexWrap: 'wrap' }}>
-                <span style={{ fontSize: '0.74rem', color: 'rgba(240,237,232,0.5)' }}>
+                <span style={{ fontSize: '0.74rem', color: 'rgba(var(--fg-rgb),0.5)' }}>
                   {b.note}{(tool === 'seo_titles' || tool === 'meta_descriptions') && ` · ${b.body.length} chars`}
                 </span>
                 <button type="button" style={{ ...ghost, padding: '0.4rem 0.75rem', fontSize: '0.7rem' }} onClick={() => copy(i, b.body)}>
@@ -194,7 +194,7 @@ export function AdminAiTools({ userName, posts }: { userName: string; posts: { s
               </div>
             </div>
           ))}
-          <p style={{ fontSize: '0.75rem', color: 'rgba(240,237,232,0.5)' }}>AI suggestions — review and edit before using them in WordPress. Nothing here is published.</p>
+          <p style={{ fontSize: '0.75rem', color: 'rgba(var(--fg-rgb),0.5)' }}>AI suggestions — review and edit before using them in WordPress. Nothing here is published.</p>
         </section>
       )}
     </div>

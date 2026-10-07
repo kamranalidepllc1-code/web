@@ -8,18 +8,20 @@ import type { ServicePageContent } from '@/types/site'
 
 const MotionLink = motion.create(Link)
 
-export function ServiceCTA({ slug, cta }: { slug: string; cta: ServicePageContent['cta'] }) {
-  const related = SERVICES.filter(s => s.slug !== slug && hasServicePage(s))
+export function ServiceCTA({ slug, cta, relatedSlugs }: { slug: string; cta: ServicePageContent['cta']; relatedSlugs: string[] }) {
+  const related = relatedSlugs
+    .map(r => SERVICES.find(s => s.slug === r))
+    .filter((s): s is (typeof SERVICES)[number] => !!s && s.slug !== slug && hasServicePage(s))
 
   return (
-    <section style={{ padding: 'clamp(2.25rem, 4.5vw, 3.25rem) clamp(1.25rem, 6vw, 2.5rem)', background: '#222429', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+    <section style={{ padding: 'clamp(2.25rem, 4.5vw, 3.25rem) clamp(1.25rem, 6vw, 2.5rem)', background: 'var(--bg)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
       <div aria-hidden="true" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '700px', height: '700px', maxWidth: '100vw', borderRadius: '50%', background: 'radial-gradient(circle, rgba(206,48,125,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
       <div style={{ maxWidth: '760px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <RevealOnScroll>
-          <h2 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 4rem)', letterSpacing: '-0.03em', margin: '0 0 1.25rem', lineHeight: 1.1, color: '#f0ede8' }}>
+          <h2 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.25rem, 5vw, 4rem)', letterSpacing: '-0.03em', margin: '0 0 1.25rem', lineHeight: 1.1, color: 'var(--fg)' }}>
             {cta.heading} <em style={{ color: '#CE307D', fontStyle: 'italic' }}>{cta.headingAccent}</em>
           </h2>
-          <p style={{ color: '#ffffff', fontSize: '0.95rem', lineHeight: 1.8, margin: '0 auto 2.5rem', maxWidth: '52ch' }}>{cta.body}</p>
+          <p style={{ color: 'var(--fg-strong)', fontSize: '0.95rem', lineHeight: 1.8, margin: '0 auto 2.5rem', maxWidth: '52ch' }}>{cta.body}</p>
         </RevealOnScroll>
         <RevealOnScroll delay={0.1}>
           <MotionLink href="/contact#contact-form"
@@ -32,8 +34,8 @@ export function ServiceCTA({ slug, cta }: { slug: string; cta: ServicePageConten
         </RevealOnScroll>
 
         {related.length > 0 && (
-          <RevealOnScroll delay={0.2} style={{ marginTop: 'clamp(2rem, 4vw, 2.75rem)', paddingTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-            <span style={{ fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(240,237,232,0.5)', display: 'block', marginBottom: '1.1rem' }}>Explore more services</span>
+          <RevealOnScroll delay={0.2} style={{ marginTop: 'clamp(2rem, 4vw, 2.75rem)', paddingTop: '2rem', borderTop: '1px solid rgba(var(--line-rgb), 0.08)' }}>
+            <span style={{ fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(var(--fg-rgb),0.5)', display: 'block', marginBottom: '1.1rem' }}>Related services</span>
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.75rem 2rem' }}>
               {related.map(s => (
                 <Link key={s.slug} href={s.href} className="mega-link">

@@ -14,7 +14,7 @@ export default async function SearchPage({ searchParams }: PageProps<'/search'>)
   const initialQuery = typeof q === 'string' ? q.slice(0, 200) : ''
 
   return (
-    <div style={{ background: '#222429', color: '#f0ede8', fontFamily: "var(--font-outfit), sans-serif", overflowX: 'clip' }}>
+    <div style={{ background: 'var(--bg)', color: 'var(--fg)', fontFamily: "var(--font-outfit), sans-serif", overflowX: 'clip' }}>
       <Navbar />
       <main style={{ padding: 'clamp(7rem, 12vw, 8.5rem) clamp(1.25rem, 6vw, 2.5rem) clamp(2rem, 4vw, 3rem)', background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(206,48,125,0.14), transparent 70%)', minHeight: '70vh' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
@@ -22,7 +22,7 @@ export default async function SearchPage({ searchParams }: PageProps<'/search'>)
           <h1 style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', letterSpacing: '-0.03em', lineHeight: 1.05, margin: '1rem 0 1rem' }}>
             What does your <em style={{ color: '#CE307D' }}>business need?</em>
           </h1>
-          <p style={{ maxWidth: '600px', color: 'rgba(240,237,232,0.7)', lineHeight: 1.7, marginBottom: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
+          <p style={{ maxWidth: '600px', color: 'rgba(var(--fg-rgb),0.7)', lineHeight: 1.7, marginBottom: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
             Describe your goal or problem in your own words — we’ll match it to our services, answers and articles.
           </p>
           <AiSearch initialQuery={initialQuery} />

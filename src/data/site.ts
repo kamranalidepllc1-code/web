@@ -21,11 +21,13 @@ export const NAV_LINKS = [
 export const MARQUEE_WORDS = ['Digital Marketing', 'Social Media', 'Branding', 'Content', 'Performance']
 
 export const FOOTER_EXPLORE = [
-  { label: 'Home', href: '#' },
-  { label: 'About Us', href: '#' },
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/#services' },
+  { label: 'About Us', href: '/about' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact Us', href: '/contact' },
-  { label: 'Privacy Policy', href: '#' },
+  { label: 'Privacy Policy', href: '/privacy-policy' },
+  { label: 'Terms & Conditions', href: '/terms-conditions' },
 ]
 
 export const FOOTER_CONTACT = [
@@ -35,11 +37,12 @@ export const FOOTER_CONTACT = [
 ]
 
 export const SOCIAL_LINKS = [
-  { name: 'Facebook', href: '#', icon: FaFacebookF },
-  { name: 'LinkedIn', href: '#', icon: FaLinkedinIn },
-  { name: 'Instagram', href: '#', icon: FaInstagram },
-  { name: 'TikTok', href: '#', icon: FaTiktok },
-  { name: 'X', href: '#', icon: FaXTwitter },
+  // Profile URLs as linked from the live digierapro.com site.
+  { name: 'Facebook', href: 'https://www.facebook.com/DigiEraProUS', icon: FaFacebookF },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/digierapro', icon: FaLinkedinIn },
+  { name: 'Instagram', href: 'https://www.instagram.com/digierapro/', icon: FaInstagram },
+  { name: 'TikTok', href: 'https://www.tiktok.com/@digierapro', icon: FaTiktok },
+  { name: 'X', href: 'https://twitter.com/digierapro', icon: FaXTwitter },
 ]
 
 export const HISTORY = [
@@ -50,25 +53,27 @@ export const HISTORY = [
 ]
 
 export const TEAM = [
-  { name: 'Talha Khalid', role: 'CEO/Co-Founder, Strategy', img: '/Assets/images/IMG_3074.JPG' },
-  { name: 'Kamran Ali', role: 'CTO, Communications', img: '/Assets/images/image4.png' },
-  { name: 'Nuhammad Zaid', role: 'Head of IT Team', img: '/Assets/images/image (2).png' },
-  { name: 'Danish Naveed', role: 'Design Lead', img: '/Assets/images/image3.png' },
+  { name: 'Talha Khalid', role: 'CEO/Co-Founder, Strategy', img: '/Assets/images/IMG_3074.webp' },
+  { name: 'Kamran Ali', role: 'CTO, Communications', img: '/Assets/images/image4.webp' },
+  { name: 'Muhammad Zaid', role: 'Head of IT Team', img: '/Assets/images/image2.webp' },
+  { name: 'Danish Naveed', role: 'Design Lead', img: '/Assets/images/image3.webp' },
 ]
 
+// Only facts stated elsewhere on the site: founding year (HISTORY), the service
+// list, the Google rating snapshot (useGoogleReviews) and the offices on /contact.
 export const STATS = [
-  { value: '14', label: 'Years operating' },
-  { value: '280+', label: 'Projects delivered' },
-  { value: '40', label: 'Global clients' },
-  { value: '3', label: 'Cannes Lions' },
+  { value: '2018', label: 'Founded' },
+  { value: '16', label: 'Services under one roof' },
+  { value: '4.9★', label: 'Google rating' },
+  { value: '3', label: 'Office locations' },
 ]
 
 export const PROCESS_STEPS = [
-  { num: '01', phase: 'Discovery', duration: '1–2 weeks', desc: 'We begin by listening. Stakeholder interviews, competitive analysis, audience research, and brand archaeology to understand what you are and what you want to become.' },
-  { num: '02', phase: 'Strategy', duration: '2–3 weeks', desc: 'Positioning territory, naming options (if applicable), messaging architecture, and a creative brief that anchors every design decision that follows.' },
-  { num: '03', phase: 'Creative Development', duration: '3–5 weeks', desc: 'Visual exploration across identity, typography, color, and motion. We present three distinct territories and evolve the chosen direction through rounds of refinement.' },
-  { num: '04', phase: 'Production', duration: '2–4 weeks', desc: 'Brand guidelines, asset libraries, digital templates, and handoff packages — everything your team needs to deploy the brand consistently at scale.' },
-  { num: '05', phase: 'Launch & Embed', duration: 'Ongoing', desc: 'We stay on through launch, answer questions, and offer retainer relationships for brands that need ongoing creative partnership.' },
+  { num: '01', phase: 'Discovery & Audit', duration: 'First call', desc: 'We learn about your business, your customers, and what you want more of — calls, bookings, sales, or sign-ups. Then we review your website, Google Business Profile, ad accounts, and social channels to see where you stand against local competitors.' },
+  { num: '02', phase: 'Strategy & Plan', duration: 'Planning', desc: 'You get a written plan that names the services we recommend, what each one is expected to fix, the budget involved, and how we will measure progress. Nothing starts until you have approved it.' },
+  { num: '03', phase: 'Build & Launch', duration: 'Setup', desc: 'We set up tracking first, then build or fix what the plan calls for — website pages, profile optimization, SEO groundwork, ad campaigns, or social content — and launch it with careful early monitoring.' },
+  { num: '04', phase: 'Manage & Optimize', duration: 'Ongoing', desc: 'Your account manager and specialists keep improving the work: refining keywords and bids, publishing content, updating your profile, and fixing issues as they appear rather than at month end.' },
+  { num: '05', phase: 'Report & Refine', duration: 'Monthly', desc: 'Each month we walk you through what was done, what changed in your rankings, leads, and traffic, and what we plan to focus on next — in plain language, without jargon.' },
 ]
 
 export const GOOGLE_REVIEWS: GoogleReview[] = [
@@ -77,7 +82,6 @@ export const GOOGLE_REVIEWS: GoogleReview[] = [
   { author_name: 'Spot On Mobile Detailing Services', rating: 5, text: "Since November 2025, Kate and her team have been working on optimizing my business profile, significantly improving our visibility, positioning, and overall performance compared to where we started.", relative_time_description: '7 months ago', profile_photo_url: 'https://ui-avatars.com/api/?name=Spot+On&background=CE307D&color=fff' },
   { author_name: 'iBuilders Design and Build', rating: 5, text: "Paul has been absolutely exceptional. His level of professionalism, responsiveness, and genuine care makes a real difference in how my account is managed day to day. He stays on top of every detail, communicates clearly, and consistently delivers results.", relative_time_description: '8 months ago', profile_photo_url: 'https://ui-avatars.com/api/?name=iBuilders&background=CE307D&color=fff' },
   { author_name: 'Gavin Sundwall', rating: 5, text: "I have been working with Henry for one month now. They built me a quality website for the fairest price around, it was something I was nervous about paying for but seeing what came out of it I was very impressed and relieved. Henry takes his time to make sure everything is right.", relative_time_description: '6 months ago', profile_photo_url: 'https://ui-avatars.com/api/?name=Gavin+Sundwall&background=CE307D&color=fff' },
-  { author_name: 'Talha Khalid', rating: 5, text: "Working at DEP LLC has been a great experience for me as a programmer. The company operates as a dynamic digital marketing agency that combines marketing expertise with modern technology to deliver effective solutions for clients.One of the things I appreciate most about DEP LLC is the collaborative environment. The team includes marketers, designers, and developers who work closely together, which makes it easy to turn ideas into real, impactful products. As a programmer, I get the opportunity to work on different types of projects ranging from marketing automation tools to web applications that support client campaigns.The company also encourages learning and growth. New technologies, frameworks, and development practices are always welcomed, which allows developers like me to continuously improve our skills while contributing to meaningful projects.", relative_time_description: '2 months ago', profile_photo_url: 'https://ui-avatars.com/api/?name=Terry&background=CE307D&color=fff' },
   { author_name: 'Bill', rating: 5, text: "Henry, and the rest of the team at Digi Era Pro LLC really know their stuff. They initiated a multi-faceted approach that is raising the ranking of my Google Business Profile almost daily. Their persistent efforts also extend to everyday management of my profile.", relative_time_description: '7 months ago', profile_photo_url: 'https://ui-avatars.com/api/?name=Bill&background=CE307D&color=fff' },
   { author_name: 'azober qusiem', rating: 5, text: 'I really appreciate Kate for the great help and hospitality. She was very kind, welcoming, and made the whole experience smooth and comfortable. You can tell she genuinely cares about people and takes pride in what she does. Thank you again! 🙏', relative_time_description: '5 months ago', profile_photo_url: 'https://ui-avatars.com/api/?name=Azober&background=CE307D&color=fff' },
   { author_name: 'Wansley Racine', rating: 5, text: "I've had a great experience working with Digi Era Pro, especially Kate Lyn. She handles my flyers and social media content, and the quality has been consistently solid.", relative_time_description: '9 months ago', profile_photo_url: 'https://ui-avatars.com/api/?name=Wansley+Racine&background=CE307D&color=fff' },
@@ -98,25 +102,13 @@ export const GOOGLE_REVIEWS: GoogleReview[] = [
   { author_name: 'Jody Carlson', rating: 5, text: 'In a month this company brought my Google listing to 3rd in my area! I am excited to see what more they can do!', relative_time_description: '11 months ago', profile_photo_url: 'https://ui-avatars.com/api/?name=Jody+Carlson&background=CE307D&color=fff' },
   { author_name: 'Rachael Lamet', rating: 5, text: "I've been incredibly pleased with the services provided by Digi Era Pro LLC. Going Above and Beyond — their team is always available and proactive in managing my online presence.", relative_time_description: '11 months ago', profile_photo_url: 'https://ui-avatars.com/api/?name=Rachael+Lamet&background=CE307D&color=fff' },
   { author_name: 'Trever Harmon', rating: 5, text: 'Paul, from the start, was invaluable and informative about getting started. He helped me along the process to make sure I understand what my Google profile and website needed for improvement.', relative_time_description: 'a year ago', profile_photo_url: 'https://ui-avatars.com/api/?name=Trever+Harmon&background=CE307D&color=fff' },
-  { author_name: 'Talha Khalid', rating: 5, text: "Working at DEP LLC has been a great experience for me as a programmer. The company operates as a dynamic digital marketing agency that combines marketing expertise with modern technology to deliver effective solutions for clients.One of the things I appreciate most about DEP LLC is the collaborative environment. The team includes marketers, designers, and developers who work closely together, which makes it easy to turn ideas into real, impactful products. As a programmer, I get the opportunity to work on different types of projects ranging from marketing automation tools to web applications that support client campaigns.The company also encourages learning and growth. New technologies, frameworks, and development practices are always welcomed, which allows developers like me to continuously improve our skills while contributing to meaningful projects.", relative_time_description: '2 months ago', profile_photo_url: 'https://ui-avatars.com/api/?name=Terry&background=CE307D&color=fff' },
 ]
 
-export const TESTIMONIALS = [
-  { quote: "Digi Era Pro didn't just redesign our brand — they rebuilt our entire market position. We went from regional challenger to national category leader within 18 months.", author: 'Ingrid Halvorsen', title: 'CEO, Meridian Bank', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&auto=format', rating: 5 },
-  { quote: "The sharpest strategic thinkers we've worked with. They held their conviction under pressure and were right every time.", author: 'Daniel Adeyemi', title: 'CMO, Volta Motors', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&auto=format', rating: 5 },
-  { quote: 'Our new identity has been featured in three design publications and won a D&AD Pencil. Worth every minute of the process.', author: 'Yuki Tanaka', title: 'Director, Norde Institute', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&auto=format', rating: 5 },
-  { quote: 'Working with Digi Era Pro transformed our online presence completely. Our leads tripled within the first quarter of the campaign.', author: 'Sofia Lindqvist', title: 'CMO, Vantage Retail', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&auto=format', rating: 5 },
-  { quote: 'They understood our vision from day one. The content strategy they built for us is still driving results two years later.', author: 'Marcus Chen', title: 'CEO, Northline Logistics', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&auto=format', rating: 4 },
-  { quote: 'Exceptional team. They delivered a full rebrand and SEO overhaul in record time without compromising quality.', author: 'Priya Raman', title: 'Director, Solace Wellness', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&auto=format', rating: 5 },
-  { quote: 'Our Google Ads ROI went from 1.8x to 4.6x after Digi Era Pro took over. The data-driven approach makes all the difference.', author: 'James Okafor', title: 'Founder, BrightPath Media', avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&auto=format', rating: 5 },
-  { quote: 'The social media growth we experienced was beyond expectations. Engagement up 280% in just 3 months.', author: 'Amara Whitfield', title: 'Founder, Bloom & Co.', avatar: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=80&h=80&fit=crop&auto=format', rating: 5 },
-  { quote: 'Professional, creative, and results-focused. Digi Era Pro is the only agency we trust with our brand.', author: 'Lena Hoffmann', title: 'Marketing Director, Apex Group', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&auto=format', rating: 4 },
-  { quote: 'From website redesign to full digital strategy — they handled everything seamlessly. Our revenue grew 60% year over year.', author: 'Ryan Castillo', title: 'CEO, TerraBuilt Construction', avatar: 'https://images.unsplash.com/photo-1463453091185-61582044d556?w=80&h=80&fit=crop&auto=format', rating: 5 },
-]
-
+// OWNER TO CONFIRM: these names/roles match the old placeholder testimonials and
+// cannot be verified. Replace with the real client name and business for each video.
 export const VIDEO_STORIES = [
-  { name: 'Amara Whitfield', role: 'Founder, Bloom & Co.', poster: '/Assets/poster/imgi_77_client-review-1.png', videoId: 'cvRc7QBf-7A' },
-  { name: 'Marcus Chen', role: 'CEO, Northline Logistics', poster: '/Assets/poster/imgi_78_client-review2.png', videoId: 'Clrd11emal4' },
+  { name: 'Amara Whitfield', role: 'Founder, Bloom & Co.', poster: '/Assets/poster/imgi_77_client-review-1.webp', videoId: 'cvRc7QBf-7A' },
+  { name: 'Marcus Chen', role: 'CEO, Northline Logistics', poster: '/Assets/poster/imgi_78_client-review2.webp', videoId: 'Clrd11emal4' },
   { name: 'Priya Raman', role: 'Director, Solace Wellness', poster: '/Assets/poster/imgi_79_client-review3-1_result.webp', videoId: 'OmHcHTjklSk' },
   { name: 'Sofia Lindqvist', role: 'CMO, Vantage Retail', poster: '/Assets/poster/imgi_80_client-review4-1_result.webp', videoId: 'p57xrGysihs' },
 ]
@@ -138,21 +130,15 @@ export const PARTNERS = [
   { name: 'Google Partner', img: '/Assets/partners/imgi_43_BES-featured-image-1-300x150.jpg', href: 'https://www.google.com/partners/agency?id=3311195559' },
 ]
 
-export const JOURNAL = [
-  { date: 'Sep 2026', category: 'Essay', title: "The Brand That Won't Stop Moving", excerpt: 'Static identity is dead. The most durable brands today operate as living systems — adaptive, modular, and built for a world that never pauses.', img: 'https://images.unsplash.com/photo-1658863025658-4a259cc68fc9?w=700&h=450&fit=crop&auto=format', readTime: '7 min read' },
-  { date: 'Aug 2026', category: 'Case Study', title: 'How We Named a Bank in 6 Days', excerpt: "When Meridian's rebrand demanded a new name, we had six days, three continents of stakeholders, and exactly one naming framework that actually works.", img: 'https://images.unsplash.com/photo-1647675975434-864e1c3fc98d?w=700&h=450&fit=crop&auto=format', readTime: '12 min read' },
-  { date: 'Jul 2026', category: 'Perspective', title: 'Against the Rebrand', excerpt: "Not every company needs a new logo. A provocation on the industry's obsession with reinvention over refinement.", img: 'https://images.unsplash.com/photo-1768471125958-78556538fadc?w=700&h=450&fit=crop&auto=format', readTime: '5 min read' },
-]
-
 export const VALUES = [
-  { letter: 'C', word: 'Conviction', desc: 'We argue for the work. Good ideas require a defender, and we take that role seriously — while knowing when to listen.', icon: Flame },
-  { letter: 'R', word: 'Rigour', desc: 'Design built on evidence. Every visual decision traces back to a strategic rationale you can articulate to a boardroom.', icon: BarChart2 },
-  { letter: 'E', word: 'Economy', desc: 'Nothing extraneous. We remove until removal would damage the idea — then stop.', icon: Layers },
-  { letter: 'A', word: 'Authorship', desc: 'We take responsibility for the work, not just the deliverable. That distinction changes everything about how we show up.', icon: UserCheck },
+  { letter: 'C', word: 'Clarity', desc: 'You always know what we are working on, why it matters, and what it costs. Plans and reports are written in plain language, not marketing jargon.', icon: Flame },
+  { letter: 'R', word: 'Responsiveness', desc: 'Every client has a named account manager who answers questions quickly and keeps work moving — the thing our clients mention most in their reviews.', icon: UserCheck },
+  { letter: 'E', word: 'Evidence', desc: 'Recommendations come from your data: Search Console, Google Ads, Business Profile insights, and call and form tracking — not hunches or trends.', icon: BarChart2 },
+  { letter: 'A', word: 'Accountability', desc: 'We report on what we did and what changed, including what did not work. No guaranteed rankings and no locked-in ad accounts.', icon: Layers },
 ]
 
 export const WHY_CHOOSE_US = [
-  { tab: 'Our Mission', desc: 'To help ambitious brands grow through strategic marketing, compelling content, and digital experiences engineered around real business outcomes — not vanity metrics.' },
-  { tab: 'Our Vision', desc: 'To be the long-term growth partner ambitious brands call first — a team that thinks like an owner, not a vendor, and measures success in your results.' },
-  { tab: 'Our Philosophy', desc: 'We believe in collaboration, creativity, and constant growth. When we work together, we make sure your business thrives, every step of the way.' },
+  { tab: 'Our Mission', desc: 'To give small and growing businesses the kind of marketing support larger companies take for granted: a clear plan, a dedicated account manager, and SEO, ads, social, and web work that is measured by calls, bookings, and sales.' },
+  { tab: 'Our Vision', desc: 'To be the agency local business owners keep working with year after year because the work is honest, the communication is consistent, and the results are reported plainly.' },
+  { tab: 'Our Philosophy', desc: 'Start with the fundamentals — an accurate Google Business Profile, a fast website, proper tracking — then build on what the data shows is working. Strategy first, tactics second.' },
 ]
