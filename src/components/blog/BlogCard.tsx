@@ -4,8 +4,10 @@ import { formatDate } from '@/lib/blog/utils'
 import type { PostSummary } from '@/lib/wordpress/api'
 
 /** Linked blog card in the same visual language as the home page Journal cards. */
-export function BlogCard({ post, featured }: { post: PostSummary; featured?: boolean }) {
+// headingLevel keeps the outline sequential: h2 under a page h1, h3 under a section h2.
+export function BlogCard({ post, featured, headingLevel = 'h3' }: { post: PostSummary; featured?: boolean; headingLevel?: 'h2' | 'h3' }) {
   const category = post.categories[0]
+  const Heading = headingLevel
   return (
     <Link href={`/blog/${post.slug}`} className={`blog-card${featured ? ' md:col-span-2' : ''}`}
       style={{ background: 'var(--bg)', overflow: 'hidden', display: 'flex', flexDirection: 'column', textDecoration: 'none', color: 'inherit' }}>
@@ -27,9 +29,9 @@ export function BlogCard({ post, featured }: { post: PostSummary; featured?: boo
           )}
           <span style={{ fontSize: '0.68rem', color: 'var(--fg-strong)', letterSpacing: '0.06em' }}>{formatDate(post.date, 'short')}</span>
         </div>
-        <h3 className="blog-card-title" style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: featured ? '1.5rem' : '1.15rem', letterSpacing: '-0.01em', lineHeight: 1.25, color: 'var(--fg)' }}>
+        <Heading className="blog-card-title" style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: featured ? '1.5rem' : '1.15rem', letterSpacing: '-0.01em', lineHeight: 1.25, color: 'var(--fg)' }}>
           {post.title}
-        </h3>
+        </Heading>
         {post.excerpt && (
           <p style={{ color: 'rgba(var(--fg-rgb),0.75)', fontSize: '0.85rem', lineHeight: 1.7, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{post.excerpt}</p>
         )}

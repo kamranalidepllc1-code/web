@@ -25,7 +25,7 @@ const googleAdsPlans: ServicePricingPlan[] = [
         footer: {
             title: 'Month-to-month flexibility',
             description: 'No long-term contracts. Cancel anytime with a 30-day notice.',
-            termsHref: '#',
+            termsHref: '/privacy-policy',
             linkLabel: 'Privacy Policy',
         },
     },
@@ -49,7 +49,7 @@ const googleAdsPlans: ServicePricingPlan[] = [
         footer: {
             title: 'Month-to-month flexibility',
             description: 'No long-term contracts. Cancel anytime with a 30-day notice.',
-            termsHref: '#',
+            termsHref: '/privacy-policy',
             linkLabel: 'Privacy Policy',
         },
     },
@@ -72,7 +72,7 @@ const googleAdsPlans: ServicePricingPlan[] = [
         footer: {
             title: 'Month-to-month flexibility',
             description: 'No long-term contracts. Cancel anytime with a 30-day notice.',
-            termsHref: '#',
+            termsHref: '/privacy-policy',
             linkLabel: 'Privacy Policy',
         },
     },

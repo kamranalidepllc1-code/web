@@ -27,7 +27,7 @@ const outfit = Outfit({
 });
 
 const DEFAULT_DESCRIPTION =
-  "Digi Era Pro is a digital marketing agency in New York offering SEO, Google Ads management, social media marketing, Google Business Profile optimization, branding, and web development.";
+  "Digi Era Pro is a New York digital marketing agency offering SEO, Google Ads, social media, Google Business Profile optimization, branding, and web design.";
 
 // Defaults only — every indexable page sets its own title, description and canonical via pageMetadata().
 export const metadata: Metadata = {

@@ -27,7 +27,7 @@ const socialPlans: ServicePricingPlan[] = [
         footer: {
             title: 'Month-to-month flexibility',
             description: 'No long-term contracts. Cancel anytime with a 30-day notice and zero fees.',
-            termsHref: '#',
+            termsHref: '/privacy-policy',
         },
     },
     {
@@ -51,7 +51,7 @@ const socialPlans: ServicePricingPlan[] = [
         footer: {
             title: 'Month-to-month flexibility',
             description: 'No long-term contracts. Cancel anytime with a 30-day notice and zero fees.',
-            termsHref: '#',
+            termsHref: '/privacy-policy',
         },
     },
 ]

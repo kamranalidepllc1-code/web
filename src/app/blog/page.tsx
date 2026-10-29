@@ -6,6 +6,7 @@ import { Contact } from '@/components/sections/Contact'
 import { BlogCard } from '@/components/blog/BlogCard'
 import { getCategories, getPosts, getTermBySlug } from '@/lib/wordpress/api'
 import { SITE_URL } from '@/lib/blog/utils'
+import { DEFAULT_OG_IMAGE, SITE_NAME } from '@/lib/seo'
 
 const DESCRIPTION = 'Practical digital marketing advice from the Digi Era Pro team on SEO, Google Ads, Google Business Profile, social media, branding, and web design.'
 
@@ -44,8 +45,8 @@ export async function generateMetadata({ searchParams }: PageProps<'/blog'>): Pr
     alternates: { canonical: url },
     // Tag archives are thin and overlap with categories: keep them out of the index, but crawlable.
     ...(tag ? { robots: { index: false, follow: true } } : {}),
-    openGraph: { type: 'website', title, description: DESCRIPTION, url, siteName: 'Digi Era Pro' },
-    twitter: { card: 'summary_large_image', title, description: DESCRIPTION },
+    openGraph: { type: 'website', title, description: DESCRIPTION, url, siteName: SITE_NAME, locale: 'en_US', images: [{ url: DEFAULT_OG_IMAGE, alt: title }] },
+    twitter: { card: 'summary_large_image', title, description: DESCRIPTION, images: [DEFAULT_OG_IMAGE] },
   }
 }
 
@@ -104,7 +105,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<'/blog'>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: '1px', background: 'rgba(var(--line-rgb), 0.06)', border: '1px solid rgba(var(--line-rgb), 0.06)' }}>
-              {posts.map(post => <BlogCard key={post.id} post={post} />)}
+              {posts.map(post => <BlogCard key={post.id} post={post} headingLevel="h2" />)}
             </div>
           )}
 
